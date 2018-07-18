@@ -97,7 +97,8 @@ public class AUWebService{
         
         if(self.sessionExpiryMessage != "" && data["Message"].stringValue.range(of:self.sessionExpiryMessage) != nil)
         {
-             self.delegate?.webServiceGotExpiryMessage(errorMessage: data["Message"].stringValue)
+            self.delegate?.webServiceGotExpiryMessage(errorMessage: data["Message"].stringValue)
+            return true
         }
         return false
     }
