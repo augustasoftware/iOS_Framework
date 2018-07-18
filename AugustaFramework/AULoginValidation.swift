@@ -120,6 +120,27 @@ public class AULoginValidation {
         return (true,"Is Ok")
     }
     
+    public class func validateTextFieldValues(username:String,minimumLimitCount:Int,specialChar:Bool? = false,isValidated:Bool? = false,allowedCharacterset:String? = "") -> (Bool, String) {
+        
+        if isValidated == true {
+            if self.count(username) < 1{
+                return (false,String(format: "Is Empty"))
+            }
+        }
+        
+        if specialChar! {
+            let characterset = CharacterSet(charactersIn: allowedCharacterset!)
+            if username.rangeOfCharacter(from: characterset.inverted) != nil {
+                return (false,"Is contains special characters")
+            }
+        }
+        
+        if count(username) < minimumLimitCount{
+            return (false,String(format: "Minimum limit count: %d", minimumLimitCount))
+        }
+        return (true,"")
+    }
+    
     public class func isValidEmailAddress (emailIDValue:String)-> Bool {
         let regex = try! NSRegularExpression(pattern: "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$", options: [.caseInsensitive])
         return regex.firstMatch(in: emailIDValue, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, emailIDValue.count)) != nil
