@@ -36,7 +36,7 @@ public class AUWebService{
     /// - Parameters:
     ///   - delegate: mandatory delegate to be assigned
     ///   - sessionExpiryMessage: session expiry message/code which server is sending. Leave it empty if there is no session expiry to be handled
-    public init(delegate: AUWebServiceDelegate, sessionExpiryMessage: String){
+    public init(delegate: AUWebServiceDelegate, sessionExpiryMessage: String = ""){
         self.delegate = delegate
         self.sessionExpiryMessage = sessionExpiryMessage
     }

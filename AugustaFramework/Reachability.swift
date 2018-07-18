@@ -9,10 +9,13 @@
 import UIKit
 import SystemConfiguration
 
-class Reachability: NSObject {
+public class Reachability: NSObject {
 
         
-        class func isConnectedToNetwork() -> Bool {
+        /// isConnectedToNetwork is checked already in AUWebService class.
+        ///
+        /// - Returns: true/false
+        public class func isConnectedToNetwork() -> Bool {
             
 
             
