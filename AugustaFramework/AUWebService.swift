@@ -71,11 +71,10 @@ public class AUWebService{
             switch(response.result) {
             case .success(_):
                 if response.result.value != nil{
-                    debugPrint("URL" + url)
-                    debugPrint("type" + type)
-                    debugPrint("userData" + userData)
-                    debugPrint("headers" + headers)
-                    debugPrint("Response for URL" + url + " " + response.result.value)
+                    debugPrint(url)
+                    debugPrint(userData ?? "")
+                    debugPrint(headers ?? "")
+                    debugPrint(response.result.value ?? "")
                     if(!self.checkForSessionExpiryAndPop(result: response.result.value ?? ""))
                     {
                         successBlock(true, "Success",response.result.value as AnyObject)
