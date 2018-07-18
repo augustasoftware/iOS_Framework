@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
           #7.
           s.platform            = :ios, "10.0"
           #8.
-          s.source              = { :git => "URL", :tag => "1.0.0" }
+          s.source              = { :git => "https://github.com/augustasoftware/iOS_Framework.git", :tag => "1.0.0" }
           #9.
           s.source_files     = "AugustaFramework", "AugustaFramework/**/*.{h,m,swift}"
  	  #10.
