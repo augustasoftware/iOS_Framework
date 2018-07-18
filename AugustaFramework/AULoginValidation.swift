@@ -19,9 +19,9 @@ public enum AllowedType: Int {
 
 public class AULoginValidation {
     
-    public func validateUserNameValues(username:String,minimumLimitCount:Int,specialChar:Bool? = false,allowedCharacterset:String? = "") -> (Bool, String) {
+    public class func validateUserNameValues(username:String,minimumLimitCount:Int,specialChar:Bool? = false,allowedCharacterset:String? = "") -> (Bool, String) {
         
-        if count(username) < 1{
+        if self.count(username) < 1{
             return (false,String(format: "Is Empty"))
         }
         if specialChar! {
@@ -37,16 +37,16 @@ public class AULoginValidation {
     }
     
     
-    public func validateUserNameEmailValues(username:String) -> (Bool, String) {
+    public class func validateUserNameEmailValues(emailValue:String) -> (Bool, String) {
         
-        if count(username) < 1 {
+        if count(emailValue) < 1 {
             return (false,String(format: "Is Empty"))
         }
         
-        if self.isValidEmailAddress(emailValue: username) == false {
+        if self.isValidEmailAddress(emailIDValue: emailValue) == false {
             return (false, "Not valid email")
         } else {
-            let tempVal = username.components(separatedBy: "@") as NSArray
+            let tempVal = emailValue.components(separatedBy: "@") as NSArray
             if tempVal.count >= 2 {
                 if (tempVal[0] as! String).count > 64 {
                     return (true,String(format: "Maximum limit (the account/name) count: 64"))
@@ -63,7 +63,7 @@ public class AULoginValidation {
     }
     
     
-    public func validatePasswordValues(password:String,minimumLimitCount:Int,specialChar:Bool? = false,allowedCharacterset:String? = "",type:AllowedType.RawValue) -> (Bool, String) {
+   public class func validatePasswordValues(password:String,minimumLimitCount:Int,specialChar:Bool? = false,allowedCharacterset:String? = "",type:AllowedType.RawValue) -> (Bool, String) {
         
         if count(password) < 1{
             return (false,String(format: "Is Empty"))
@@ -120,12 +120,12 @@ public class AULoginValidation {
         return (true,"Is Ok")
     }
     
-    func isValidEmailAddress (emailValue:String)-> Bool {
+    public class func isValidEmailAddress (emailIDValue:String)-> Bool {
         let regex = try! NSRegularExpression(pattern: "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$", options: [.caseInsensitive])
-        return regex.firstMatch(in: emailValue, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, emailValue.count)) != nil
+        return regex.firstMatch(in: emailIDValue, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, emailIDValue.count)) != nil
     }
     
-    func count(_ username:String) -> Int {
+    public class func count(_ username:String) -> Int {
         return username.count
     }
 }
