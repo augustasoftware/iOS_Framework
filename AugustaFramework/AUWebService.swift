@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 public typealias kModelSuccessBlock = (_ success : Bool, _ message : String, _ responseObject:AnyObject) ->()
 public typealias kModelErrorBlock = (_ errorMesssage: String) -> ()
@@ -19,14 +20,37 @@ public enum AUWebServiceType {
     case post
 }
 
+public protocol AUWebServiceDelegate{
+    func webServiceGotExpiryMessage(errorMessage: String)
+}
+
 public class AUWebService{
     
-    public class func callServiceAndGetData(url: String,
-                               type: AUWebServiceType,
-                               userData: [String: Any]?,
-                               headers: [String:String]?,
-                               successBlock: @escaping kModelSuccessBlock,
-                               failureBlock : @escaping kModelErrorBlock){
+    var delegate:AUWebServiceDelegate?
+    
+    var sessionExpiryMessage: String = ""
+    
+    public init(delegate: AUWebServiceDelegate, sessionExpiryMessage: String){
+        self.delegate = delegate
+        self.sessionExpiryMessage = sessionExpiryMessage
+    }
+    
+    /// Call this method to get data/ error message in web service
+    ///
+    /// - Parameters:
+    ///   - url: String Url. In case of get|put|delete full url with params
+    ///   - type: AUWebServiceType(get|post|delete|put)
+    ///   - userData: in case of post send [String:any], others nil should be suffice
+    ///   - headers: accessToken - default header details and other headers
+    ///   - successBlock: success block
+    ///   - failureBlock: failure block
+    /// - Returns: Success/Failure block. If session expiry message is set, and if service get the message, delegate will be called to handle the session expiry
+    public func callServiceAndGetData(url: String,
+                                      type: AUWebServiceType,
+                                      userData: [String: Any]?,
+                                      headers: [String:String]?,
+                                      successBlock: @escaping kModelSuccessBlock,
+                                      failureBlock : @escaping kModelErrorBlock){
         
         var httpMethod: HTTPMethod?
         
@@ -47,7 +71,10 @@ public class AUWebService{
             switch(response.result) {
             case .success(_):
                 if response.result.value != nil{
-                    successBlock(true, "success", response.result.value as AnyObject)
+                    if(!self.checkForSessionExpiryAndPop(result: response.result.value ?? ""))
+                    {
+                        successBlock(true, "Success",response.result.value as AnyObject)
+                    }
                 }
                 break
                 
@@ -58,5 +85,19 @@ public class AUWebService{
         }
     }
     
+    
+    
+    func checkForSessionExpiryAndPop(result: Any)-> Bool
+    {
+        var data : JSON = JSON(result as AnyObject)
+        
+        if(self.sessionExpiryMessage != "" && data["Message"].stringValue.range(of:self.sessionExpiryMessage) != nil)
+        {
+             self.delegate?.webServiceGotExpiryMessage(errorMessage: data["Message"].stringValue)
+        }
+        return false
+    }
+    
 }
+
 

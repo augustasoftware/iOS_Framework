@@ -19,4 +19,5 @@ Pod::Spec.new do |s|
           s.source_files     = "AugustaFramework", "AugustaFramework/**/*.{h,m,swift}"
  	  #10.
 	  s.dependency 'Alamofire'
+	  s.dependency 'SwiftyJSON'
     end
