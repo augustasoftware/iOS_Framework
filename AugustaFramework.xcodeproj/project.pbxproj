@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		56E24C8D20FF1B1400FA1A80 /* AULoginValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E24C8C20FF1B1400FA1A80 /* AULoginValidation.swift */; };
+		9748B0272100A984006B9A63 /* AUSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9748B0262100A984006B9A63 /* AUSessionManager.swift */; };
 		97D6554820FF09DE0085DF71 /* AugustaFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 97D6554620FF09DE0085DF71 /* AugustaFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		97D6555020FF09EB0085DF71 /* AULogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D6554E20FF09EB0085DF71 /* AULogger.swift */; };
 		97D6555120FF09EB0085DF71 /* AUWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D6554F20FF09EB0085DF71 /* AUWebService.swift */; };
@@ -20,6 +21,7 @@
 		56E24C8C20FF1B1400FA1A80 /* AULoginValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AULoginValidation.swift; sourceTree = "<group>"; };
 		5931B6B4FA57C95220EAB06C /* Pods-AugustaFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AugustaFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-AugustaFramework/Pods-AugustaFramework.release.xcconfig"; sourceTree = "<group>"; };
 		84528AD9385F658462187CDB /* Pods_AugustaFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AugustaFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9748B0262100A984006B9A63 /* AUSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUSessionManager.swift; sourceTree = "<group>"; };
 		97D6554320FF09DE0085DF71 /* AugustaFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AugustaFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97D6554620FF09DE0085DF71 /* AugustaFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AugustaFramework.h; sourceTree = "<group>"; };
 		97D6554720FF09DE0085DF71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				56E24C8C20FF1B1400FA1A80 /* AULoginValidation.swift */,
 				97D6554E20FF09EB0085DF71 /* AULogger.swift */,
 				97D6554F20FF09EB0085DF71 /* AUWebService.swift */,
+				9748B0262100A984006B9A63 /* AUSessionManager.swift */,
 				97F6C62720FF591600541E29 /* AUAlertController.swift */,
 				97F6C62520FF4CA500541E29 /* Reachability.swift */,
 				97D6554720FF09DE0085DF71 /* Info.plist */,
@@ -196,6 +199,7 @@
 				97D6555120FF09EB0085DF71 /* AUWebService.swift in Sources */,
 				97F6C62620FF4CA500541E29 /* Reachability.swift in Sources */,
 				97D6555020FF09EB0085DF71 /* AULogger.swift in Sources */,
+				9748B0272100A984006B9A63 /* AUSessionManager.swift in Sources */,
 				97F6C62820FF591600541E29 /* AUAlertController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
