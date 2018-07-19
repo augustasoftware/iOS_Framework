@@ -27,56 +27,77 @@ public class AUAlertModel{
 }
 
 public class AUAlertButtonModel{
-    public let actionTitle:String = ""
-    public let actionStyle:UIAlertActionStyle = .cancel
+    public var actionTitle:String = ""
+    public var actionStyle:UIAlertActionStyle = .cancel
+    public var index: Int = 999
+    
+    public init(actionTitle:String, actionStyle:UIAlertActionStyle, index: Int)
+    {
+        self.actionStyle = actionStyle
+        self.actionTitle = actionTitle
+        self.index = index
+    }
 }
 
 public class AUAlertHandler{
     
     
-    public func showAlertView(alertData: AUAlertModel,  handler: @escaping alertHandlerBlock)
+    /// To present alert | action sheet in the view controller
+    ///
+    /// - Parameters:
+    ///   - alertData: details required for showing alert like title, message, etc.,
+    ///   - handler:handler to pass the index to handle the action
+    public class func showAlertView(alertData: AUAlertModel,  handler: @escaping alertHandlerBlock)
     {
-        if(alertData.style == .alert)
+        //****************************** How to use? Start **********************************//
+//        func tryOutAlertHandler()    {
+//            let alertButtonData1: AUAlertButtonModel = AUAlertButtonModel.init(actionTitle: "ok", actionStyle: .default, index: 0)
+//            let alertButtonData2: AUAlertButtonModel = AUAlertButtonModel.init(actionTitle: "cancel", actionStyle: .default, index: 1)
+//            let alertButtonData3: AUAlertButtonModel = AUAlertButtonModel.init(actionTitle: "cancel2", actionStyle: .default, index: 2)
+//            let alertButtonData4: AUAlertButtonModel = AUAlertButtonModel.init(actionTitle: "cancel3", actionStyle: .cancel, index: 3)
+//
+//            let alertData: AUAlertModel = AUAlertModel.init(title: "Alert", message: "abcdefghijklmnopqrstuvwxyz", buttonModels: [alertButtonData1], style: .alert, controller: self)
+//            AUAlertHandler.showAlertView(alertData: alertData, handler: {[unowned self] (index) in
+//                print(index)
+//                switch(index){
+//                case 1:
+//                    break
+//                case 2:
+//                    break
+//                default:
+//                    break
+//                }
+//            })
+//
+//        }
+        //****************************** How to use? End **********************************//
+        
+        let alert = UIAlertController(title: alertData.title, message: alertData.message, preferredStyle: alertData.style)
+        if(alertData.buttonModels.count == 0)
         {
-            let alert = UIAlertController(title: alertData.title, message: alertData.message, preferredStyle: alertData.style)
-            if(alertData.buttonModels.count == 0)
-            {
-                print("Single button alert must have a value")
+            print("Button model is empty. Provide button models and call")
+            let errorAlert = UIAlertController(title: "AUAlertHanlder", message: "Button model is empty. Provide button models and call", preferredStyle: UIAlertControllerStyle.alert)
+            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+                UIAlertAction in
+                
             }
-            else{
-                var index = 0
-                for alertButtonModel in alertData.buttonModels{
-                    let action = UIAlertAction(title: alertButtonModel.actionTitle, style: alertButtonModel.actionStyle) {
-                        UIAlertAction in
-                        handler(index) // call button action
-                    }
-                    alert.addAction(action)
-                    index = index + 1
-                }
-               
-                alertData.controller.present(alert, animated: true, completion: nil)
-            }
+            errorAlert.addAction(okAction)
+            alertData.controller.present(errorAlert, animated: true, completion: nil)
+            
         }
         else{
+            var index = 0
+            for alertButtonModel in alertData.buttonModels{
+                let action = UIAlertAction(title: alertButtonModel.actionTitle, style: alertButtonModel.actionStyle) {
+                    UIAlertAction in
+                    handler(alertButtonModel.index) // call button action
+                }
+                alert.addAction(action)
+                index = index + 1
+            }
             
+            alertData.controller.present(alert, animated: true, completion: nil)
         }
-        
-        
-    }
-    
-    public func showAlertViewWithTwoOptions(title: String, message:String, okButtonText:String, cancelButtonText:String, controller:UIViewController, handler: @escaping alertHandlerBlock)
-    {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        let okAction = UIAlertAction(title: okButtonText, style: UIAlertActionStyle.cancel) {
-            UIAlertAction in
-            
-        }
-        let logoutAction = UIAlertAction(title: cancelButtonText, style: UIAlertActionStyle.default) {
-            UIAlertAction in
-//            self.requestToCheckBusinessEmailConfirmation()
-        }
-        alert.addAction(okAction)
-        alert.addAction(logoutAction)
-//        self.present(alert, animated: true, completion: nil)
     }
 }
+
