@@ -12,6 +12,7 @@
 		97D6555020FF09EB0085DF71 /* AULogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D6554E20FF09EB0085DF71 /* AULogger.swift */; };
 		97D6555120FF09EB0085DF71 /* AUWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D6554F20FF09EB0085DF71 /* AUWebService.swift */; };
 		97F6C62620FF4CA500541E29 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F6C62520FF4CA500541E29 /* Reachability.swift */; };
+		97F6C62820FF591600541E29 /* AUAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F6C62720FF591600541E29 /* AUAlertController.swift */; };
 		D86DFAD99AF097C2DA6624DD /* Pods_AugustaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84528AD9385F658462187CDB /* Pods_AugustaFramework.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		97D6554E20FF09EB0085DF71 /* AULogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AULogger.swift; sourceTree = "<group>"; };
 		97D6554F20FF09EB0085DF71 /* AUWebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AUWebService.swift; sourceTree = "<group>"; };
 		97F6C62520FF4CA500541E29 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		97F6C62720FF591600541E29 /* AUAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUAlertController.swift; sourceTree = "<group>"; };
 		A4859C9C8B9AD39BEDA00FF0 /* Pods-AugustaFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AugustaFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AugustaFramework/Pods-AugustaFramework.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +75,7 @@
 				56E24C8C20FF1B1400FA1A80 /* AULoginValidation.swift */,
 				97D6554E20FF09EB0085DF71 /* AULogger.swift */,
 				97D6554F20FF09EB0085DF71 /* AUWebService.swift */,
+				97F6C62720FF591600541E29 /* AUAlertController.swift */,
 				97F6C62520FF4CA500541E29 /* Reachability.swift */,
 				97D6554720FF09DE0085DF71 /* Info.plist */,
 			);
@@ -193,6 +196,7 @@
 				97D6555120FF09EB0085DF71 /* AUWebService.swift in Sources */,
 				97F6C62620FF4CA500541E29 /* Reachability.swift in Sources */,
 				97D6555020FF09EB0085DF71 /* AULogger.swift in Sources */,
+				97F6C62820FF591600541E29 /* AUAlertController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
