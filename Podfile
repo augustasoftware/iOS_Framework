@@ -8,4 +8,5 @@ target 'AugustaFramework' do
   # Pods for AugustaFramework
 pod 'Alamofire', '~> 4.0'
 pod 'SwiftyJSON'
+pod 'AMTumblrHud'
 end
