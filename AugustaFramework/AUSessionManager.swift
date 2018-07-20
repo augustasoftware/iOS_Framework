@@ -34,8 +34,15 @@ public class AUSesionManager{
         }
     }
     
+    //**************************************************** How to use? Start ****************************************************//
+    //        AUSesionManager.sharedInstance.getData(key: "Test")  -> returns nil
+    //        AUSesionManager.sharedInstance.setData(object: "trial", key: "Test")
+    //        AUSesionManager.sharedInstance.getData(key: "Test")  -> returns trial
+    //**************************************************** How to use? end ****************************************************//
+    
     public func setData(object: Any, key: String)
     {
+
         self.userDefaults.set(object, forKey: key)
         self.userDefaults.synchronize()
     }
