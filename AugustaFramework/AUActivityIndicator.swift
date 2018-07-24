@@ -64,7 +64,7 @@ public class AUActivityIndicator{
         activityIndicator.startAnimating()
     }
     
-    public func showCustomActivityIndicator(_ uiView : UIView, activityIndicatorStyle: AUActivityIndicatorType, containerBGColor: UIColor, loadingViewBgColor: UIColor, viewCornerRadius: CGFloat = 10){
+    public func showCustomActivityIndicator(_ uiView : UIView, activityIndicatorStyle: AUActivityIndicatorType, containerBGColor: UIColor, loadingViewBgColor: UIColor, viewCornerRadius: CGFloat = 10, circle1Color: UIColor = UIColor.init(white: 1, alpha: 0.90), circle2Color: UIColor = UIColor.init(white: 1, alpha: 0.40)){
         container.frame = uiView.frame
         container.center = uiView.center
         container.backgroundColor = containerBGColor
@@ -72,7 +72,7 @@ public class AUActivityIndicator{
         loadingView.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
         loadingView.center = uiView.center
         loadingView.backgroundColor = loadingViewBgColor
-        loadingView.clipsToBounds = true
+        loadingView.clipsToBounds = false
         loadingView.layer.cornerRadius = viewCornerRadius
         
         switch activityIndicatorStyle {
@@ -84,6 +84,7 @@ public class AUActivityIndicator{
             
             loadingView.addSubview(activityIndicator)
             activityIndicator.startAnimating()
+            container.addSubview(loadingView)
         case .sqaureFading:
             
             tumblrHUD = AMTumblrHud(frame: CGRect(x: 100, y: 100, width: 55, height: 20))
@@ -92,7 +93,7 @@ public class AUActivityIndicator{
             tumblrHUD.show(animated: true)
             
             loadingView.addSubview(tumblrHUD)
-            
+            container.addSubview(loadingView)
             break
         case .twoCircleAnimation:
             
@@ -100,29 +101,30 @@ public class AUActivityIndicator{
             var circleHeight = circleWidth
             
             // Create a new CircleView
-            let circleView = CircleView(frame: CGRect.init(x: 0, y: 0, width: circleWidth, height: circleHeight), lineColor: UIColor.init(white: 1, alpha: 0.90))
+            let circleView = CircleView(frame: CGRect.init(x: self.loadingView.frame.size.width/2, y: self.loadingView.frame.size.width/2, width: circleWidth, height: circleHeight), lineColor: circle1Color)
             circleView.center = container.center
             
             circleWidth = CGFloat(40)
             circleHeight = circleWidth
             
             // Create a new CircleView
-            let circleView1 = CircleView(frame: CGRect.init(x: 0, y: 0, width: circleWidth, height: circleHeight), lineColor: UIColor.init(white: 1, alpha: 0.4))
+            let circleView1 = CircleView(frame: CGRect.init(x: self.loadingView.frame.size.width/2, y: self.loadingView.frame.size.width/2, width: circleWidth, height: circleHeight), lineColor: circle2Color)
             circleView1.center = circleView.center
-            loadingView.addSubview(circleView)
-            
+            container.addSubview(loadingView)
+            container.addSubview(circleView)
             // Animate the drawing of the circle over the course of 1 second
             circleView.animateCircle(duration: 1.0)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 circleView1.animateCircle(duration: 1.0)
-                self.loadingView.addSubview(circleView1)
+                self.container.addSubview(circleView1)
+                
             }
             break
         default:
             break;
         }
         
-        container.addSubview(loadingView)
+        
         uiView.addSubview(container)
         
     }
@@ -231,3 +233,4 @@ class CircleView: UIView, CAAnimationDelegate{
     }
     
 }
+
