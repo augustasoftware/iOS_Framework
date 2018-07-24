@@ -1,24 +1,66 @@
 PODS:
   - Alamofire (4.7.3)
   - AMTumblrHud (1.0.1)
+  - Bolts (1.9.0):
+    - Bolts/AppLinks (= 1.9.0)
+    - Bolts/Tasks (= 1.9.0)
+  - Bolts/AppLinks (1.9.0):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.9.0)
+  - FacebookCore (0.3.1):
+    - Bolts (~> 1.8)
+    - FBSDKCoreKit (~> 4.33)
+  - FacebookLogin (0.3.1):
+    - Bolts (~> 1.8)
+    - FacebookCore (~> 0.3.1)
+    - FBSDKCoreKit (~> 4.33)
+    - FBSDKLoginKit (~> 4.33)
+  - FacebookShare (0.3.1):
+    - Bolts (~> 1.8)
+    - FacebookCore (~> 0.3.1)
+    - FBSDKCoreKit (~> 4.33)
+    - FBSDKShareKit (~> 4.33)
+  - FBSDKCoreKit (4.34.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.34.0):
+    - FBSDKCoreKit
+  - FBSDKShareKit (4.34.0):
+    - FBSDKCoreKit (~> 4.34.0)
   - SwiftyJSON (4.1.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
   - AMTumblrHud
+  - FacebookCore
+  - FacebookLogin
+  - FacebookShare
   - SwiftyJSON
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - AMTumblrHud
+    - Bolts
+    - FacebookCore
+    - FacebookLogin
+    - FacebookShare
+    - FBSDKCoreKit
+    - FBSDKLoginKit
+    - FBSDKShareKit
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   AMTumblrHud: 095daf71c57d4e47d11a8432dba1ed6177a35115
+  Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
+  FacebookCore: 33078ef1d7d76b73f7e8c990dca7d3ea6db8d22f
+  FacebookLogin: 6f15bf4fefd7a8865abbfa8fcd7f3dfd87aa275f
+  FacebookShare: c9ee8e5399d961fda00ded9befccacfe04fccf93
+  FBSDKCoreKit: 0ff57f093b85c8c9d5aba697d3edf68a8960ce78
+  FBSDKLoginKit: 8c78f57a145afb756e4755e69195ebe08a42466e
+  FBSDKShareKit: 511d1dfc71204c0a8d69e6c5e3c964dcf0d4f3d9
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: 7dea5b2e4610391ce5eccb138dcfd863bc3c432f
+PODFILE CHECKSUM: 8ae239d4cc3982f68668f0d9be34d0bd993d2e98
 
 COCOAPODS: 1.5.3

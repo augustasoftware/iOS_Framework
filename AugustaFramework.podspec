@@ -21,4 +21,7 @@ Pod::Spec.new do |s|
 	  s.dependency 'Alamofire'
 	  s.dependency 'SwiftyJSON'
 	  s.dependency 'AMTumblrHud'
+	  s.dependency 'FacebookCore'
+	  s.dependency 'FacebookLogin'
+	  s.dependency 'FacebookShare'
     end
