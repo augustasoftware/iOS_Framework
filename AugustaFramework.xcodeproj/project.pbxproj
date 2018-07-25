@@ -10,6 +10,8 @@
 		56E24C8D20FF1B1400FA1A80 /* AULoginValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E24C8C20FF1B1400FA1A80 /* AULoginValidation.swift */; };
 		974634892107098400B6BCB0 /* AUSocialLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974634882107098400B6BCB0 /* AUSocialLoginController.swift */; };
 		9748B0272100A984006B9A63 /* AUSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9748B0262100A984006B9A63 /* AUSessionManager.swift */; };
+		974968A42108477000CCC1BA /* AULoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974968A22108477000CCC1BA /* AULoginViewController.swift */; };
+		974968A52108477000CCC1BA /* AULoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 974968A32108477000CCC1BA /* AULoginViewController.xib */; };
 		9759719D2101AAC000FE62C7 /* AUActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9759719C2101AAC000FE62C7 /* AUActivityIndicator.swift */; };
 		97D6554820FF09DE0085DF71 /* AugustaFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 97D6554620FF09DE0085DF71 /* AugustaFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		97D6555020FF09EB0085DF71 /* AULogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D6554E20FF09EB0085DF71 /* AULogger.swift */; };
@@ -25,6 +27,8 @@
 		84528AD9385F658462187CDB /* Pods_AugustaFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AugustaFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		974634882107098400B6BCB0 /* AUSocialLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUSocialLoginController.swift; sourceTree = "<group>"; };
 		9748B0262100A984006B9A63 /* AUSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUSessionManager.swift; sourceTree = "<group>"; };
+		974968A22108477000CCC1BA /* AULoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AULoginViewController.swift; sourceTree = "<group>"; };
+		974968A32108477000CCC1BA /* AULoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AULoginViewController.xib; sourceTree = "<group>"; };
 		9759719C2101AAC000FE62C7 /* AUActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUActivityIndicator.swift; sourceTree = "<group>"; };
 		97D6554320FF09DE0085DF71 /* AugustaFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AugustaFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97D6554620FF09DE0085DF71 /* AugustaFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AugustaFramework.h; sourceTree = "<group>"; };
@@ -56,6 +60,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		974968A62108477800CCC1BA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				974968A22108477000CCC1BA /* AULoginViewController.swift */,
+				974968A32108477000CCC1BA /* AULoginViewController.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		97D6553920FF09DE0085DF71 = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +90,7 @@
 		97D6554520FF09DE0085DF71 /* AugustaFramework */ = {
 			isa = PBXGroup;
 			children = (
+				974968A62108477800CCC1BA /* Views */,
 				97D6554620FF09DE0085DF71 /* AugustaFramework.h */,
 				56E24C8C20FF1B1400FA1A80 /* AULoginValidation.swift */,
 				97D6554E20FF09EB0085DF71 /* AULogger.swift */,
@@ -170,6 +184,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				974968A52108477000CCC1BA /* AULoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +218,7 @@
 			files = (
 				56E24C8D20FF1B1400FA1A80 /* AULoginValidation.swift in Sources */,
 				97D6555120FF09EB0085DF71 /* AUWebService.swift in Sources */,
+				974968A42108477000CCC1BA /* AULoginViewController.swift in Sources */,
 				97F6C62620FF4CA500541E29 /* Reachability.swift in Sources */,
 				97D6555020FF09EB0085DF71 /* AULogger.swift in Sources */,
 				9748B0272100A984006B9A63 /* AUSessionManager.swift in Sources */,
