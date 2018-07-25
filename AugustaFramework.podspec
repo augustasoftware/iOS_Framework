@@ -20,4 +20,11 @@ Pod::Spec.new do |s|
  	  #10.
 	  s.dependency 'Alamofire'
 	  s.dependency 'SwiftyJSON'
+	  s.dependency 'AMTumblrHud'
+	  s.dependency 'FacebookCore'
+	  s.dependency 'FacebookLogin'
+	  s.dependency 'FacebookShare'
+	  #11
+	  s.resources = "AugustaFramework/**/*.xib"
+	  
     end

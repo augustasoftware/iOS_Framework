@@ -57,6 +57,41 @@ public class AUWebService{
                                       headers: [String:String]?,
                                       successBlock: @escaping kModelSuccessBlock,
                                       failureBlock : @escaping kModelErrorBlock){
+//**************************************************** How to use? Start ****************************************************//
+//        func getDefaultHeaderDetails() -> [String:String]
+//        {
+//            //AUTHORIZATION =  Session.sharedInstance.getAccessToken()
+//            let headers = ["Authorization":  ""]
+//            return headers
+//        }
+//        
+//        func callWebServiceAndTest(){
+//            
+//            let data = NSMutableDictionary()
+//            data.setObject(0, forKey: "id" as NSCopying)
+//            data.setObject(0 , forKey: "id" as NSCopying)
+//            
+//            let service: AUWebService = AUWebService.init(delegate: self, sessionExpiryMessage: "") // provide session expiry message or code to handle session expiry
+//            
+//            service.callServiceAndGetData(url: url, type: .post, userData: data as! [String : Any], headers: getDefaultHeaderDetails(),  successBlock: {[unowned self] (success, message, reponseObject) in
+//                if success {
+//                    
+//                }
+//                else
+//                {
+//                    
+//                }},
+//                                          failureBlock: {[unowned self] (errorMesssage) in
+//                                            print(errorMesssage)
+//                }
+//            );
+//            
+//        }
+//        
+//        func webServiceGotExpiryMessage(errorMessage: String) {
+//            handle session expiry here
+//        }
+//**************************************************** How to use? end ****************************************************//
         
         var httpMethod: HTTPMethod?
         
