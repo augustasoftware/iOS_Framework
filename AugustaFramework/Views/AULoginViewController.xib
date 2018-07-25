@@ -13,7 +13,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AULoginViewController" customModule="AugustaFramework" customModuleProvider="target">
             <connections>
-                <outlet property="forgotPassword1Bbutton" destination="jRt-ju-7Dt" id="W9K-61-rGh"/>
                 <outlet property="forgotPassword1Button" destination="jRt-ju-7Dt" id="K5D-fp-Xui"/>
                 <outlet property="forgotPassword2Button" destination="RW3-rb-7fZ" id="Ibn-a6-xw8"/>
                 <outlet property="forgotPassword3Button" destination="dua-eB-cHb" id="G5a-Jx-IER"/>
