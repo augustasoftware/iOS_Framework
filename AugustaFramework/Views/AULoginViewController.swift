@@ -19,6 +19,7 @@ public protocol AULoginViewDelegate{
 
 public class AULoginViewController: UIViewController {
 
+    @IBOutlet public weak var loginView: UIView!
     @IBOutlet public weak var loginViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet public weak var passwordTextField: UITextField!
     @IBOutlet public weak var userNameTextField: UITextField!

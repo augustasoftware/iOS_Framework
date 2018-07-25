@@ -18,6 +18,7 @@
                 <outlet property="forgotPassword2Button" destination="RW3-rb-7fZ" id="Ibn-a6-xw8"/>
                 <outlet property="forgotPassword3Button" destination="dua-eB-cHb" id="G5a-Jx-IER"/>
                 <outlet property="loginButton" destination="WuJ-om-DZr" id="3Le-Ik-LC2"/>
+                <outlet property="loginView" destination="7I7-9b-Rbz" id="i3C-V5-sUH"/>
                 <outlet property="loginViewWidthConstraint" destination="Pg5-3x-VoN" id="R0I-Ni-0Qh"/>
                 <outlet property="passwordTextField" destination="ZXG-5h-8ao" id="62S-i7-qBm"/>
                 <outlet property="userNameTextField" destination="ALp-Hx-QFB" id="xpr-Eo-Hw3"/>
