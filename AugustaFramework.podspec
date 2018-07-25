@@ -25,7 +25,6 @@ Pod::Spec.new do |s|
 	  s.dependency 'FacebookLogin'
 	  s.dependency 'FacebookShare'
 	  #11
-	  s.resource_bundles = {
-     		'AugustaFramework' => ['AugustaFramework/**/*.xib']
- 		}
+	  s.resources = "AugustaFramework/**/*.xib"
+	  
     end
