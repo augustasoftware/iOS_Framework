@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56227F5B21088E9E00259F20 /* AUCacheeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56227F5A21088E9E00259F20 /* AUCacheeManager.swift */; };
 		56E24C8D20FF1B1400FA1A80 /* AULoginValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E24C8C20FF1B1400FA1A80 /* AULoginValidation.swift */; };
 		974634892107098400B6BCB0 /* AUSocialLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974634882107098400B6BCB0 /* AUSocialLoginController.swift */; };
 		9748B0272100A984006B9A63 /* AUSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9748B0262100A984006B9A63 /* AUSessionManager.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		56227F5A21088E9E00259F20 /* AUCacheeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUCacheeManager.swift; sourceTree = "<group>"; };
 		56E24C8C20FF1B1400FA1A80 /* AULoginValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AULoginValidation.swift; sourceTree = "<group>"; };
 		5931B6B4FA57C95220EAB06C /* Pods-AugustaFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AugustaFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-AugustaFramework/Pods-AugustaFramework.release.xcconfig"; sourceTree = "<group>"; };
 		84528AD9385F658462187CDB /* Pods_AugustaFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AugustaFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +97,7 @@
 				56E24C8C20FF1B1400FA1A80 /* AULoginValidation.swift */,
 				97D6554E20FF09EB0085DF71 /* AULogger.swift */,
 				97D6554F20FF09EB0085DF71 /* AUWebService.swift */,
+				56227F5A21088E9E00259F20 /* AUCacheeManager.swift */,
 				9748B0262100A984006B9A63 /* AUSessionManager.swift */,
 				9759719C2101AAC000FE62C7 /* AUActivityIndicator.swift */,
 				97F6C62720FF591600541E29 /* AUAlertController.swift */,
@@ -220,6 +223,7 @@
 				97D6555120FF09EB0085DF71 /* AUWebService.swift in Sources */,
 				974968A42108477000CCC1BA /* AULoginViewController.swift in Sources */,
 				97F6C62620FF4CA500541E29 /* Reachability.swift in Sources */,
+				56227F5B21088E9E00259F20 /* AUCacheeManager.swift in Sources */,
 				97D6555020FF09EB0085DF71 /* AULogger.swift in Sources */,
 				9748B0272100A984006B9A63 /* AUSessionManager.swift in Sources */,
 				9759719D2101AAC000FE62C7 /* AUActivityIndicator.swift in Sources */,
