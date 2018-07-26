@@ -135,6 +135,12 @@ public class AULoginView: UIView {
     }
     
     //MARK: Forgot password
+    //****************************** How to use? Start **********************************//
+//    let auloginView = AULoginView.init(frame: loginTempView.bounds)
+//    auloginView.delegate = self
+//    auloginView.addForgotPasswordViewInView(view: loginTempView)
+    //****************************** How to use? End **********************************//
+    
     public func addForgotPasswordViewInView(view: UIView){
         self.translatesAutoresizingMaskIntoConstraints = false
         let topConstraint = NSLayoutConstraint(item: forgotPasswordView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0)
