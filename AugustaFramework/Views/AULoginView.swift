@@ -31,6 +31,24 @@ class AULoginView: UIView {
     @IBOutlet weak var forgotPassword3Button: UIButton!
     
      public var delegate: AULoginViewDelegate?
+    
+    override init(frame: CGRect) { // for using CustomView in code
+        super.init(frame: frame)
+        self.commonInit()
+    }
+    
+    required init?(coder aDecoder: NSCoder) { // for using CustomView in IB
+        super.init(coder: aDecoder)
+        self.commonInit()
+    }
+    
+    private func commonInit() {
+        Bundle.main.loadNibNamed("AULoginView", owner: self, options: nil)
+        guard let content = loginView else { return }
+        content.frame = self.bounds
+        content.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        self.addSubview(content)
+    }
 
     /*
     // Only override draw() if you perform custom drawing.
