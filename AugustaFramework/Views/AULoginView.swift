@@ -15,13 +15,14 @@ public enum AULoginForgotPasswordLocation{
 }
 public protocol AULoginViewDelegate{
     func forgotPasswordClicked(sender: Any)
-    func loginButtonTapped(sender: Any)
+    func loginButtonClicked(sender: Any)
+    func forgotPWDSubmitClicked(sender: Any)
 }
 
 public class AULoginView: UIView {
     
+    // Login Details
     @IBOutlet public weak var loginView: UIView!
-    @IBOutlet public weak var loginViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet public weak var passwordTextField: UITextField!
     @IBOutlet public weak var userNameTextField: UITextField!
     @IBOutlet public weak var loginButton: UIButton!
@@ -29,6 +30,12 @@ public class AULoginView: UIView {
     @IBOutlet weak var forgotPassword1Button: UIButton!
     @IBOutlet weak var forgotPassword2Button: UIButton!
     @IBOutlet weak var forgotPassword3Button: UIButton!
+    
+    //Fogot Password
+    @IBOutlet weak var forgotPasswordView: UIView!
+    @IBOutlet weak var forgotPWDSubmitButton: UIButton!
+    @IBOutlet weak var forgotPWDUsernameField: UITextField!
+    
     
     public var delegate: AULoginViewDelegate?
     
@@ -47,9 +54,7 @@ public class AULoginView: UIView {
         bundle1.loadNibNamed("AULoginView", owner: self, options: nil)
         guard let content = loginView else { return }
         content.frame = self.bounds
-        //content.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         content.translatesAutoresizingMaskIntoConstraints = false
-        
         self.addSubview(content)
     }
     
@@ -87,7 +92,7 @@ public class AULoginView: UIView {
      */
     
     @IBAction func loginButtonClicked(_ sender: Any) {
-        self.delegate?.loginButtonTapped(sender: sender)
+        self.delegate?.loginButtonClicked(sender: sender)
     }
     
     @IBAction func forgotPassword1Clicked(_ sender: Any) {
@@ -127,6 +132,22 @@ public class AULoginView: UIView {
         default:
             break
         }
+    }
+    
+    //MARK: Forgot password
+    public func addForgotPasswordViewInView(view: UIView){
+        self.translatesAutoresizingMaskIntoConstraints = false
+        let topConstraint = NSLayoutConstraint(item: forgotPasswordView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0)
+        let bottomConstraint = NSLayoutConstraint(item: forgotPasswordView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
+        let leadingConstraint = NSLayoutConstraint(item: forgotPasswordView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0)
+        let trailingConstraint = NSLayoutConstraint(item: forgotPasswordView, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0)
+        view.addSubview(forgotPasswordView)
+        view.addConstraints([topConstraint, bottomConstraint, leadingConstraint, trailingConstraint])
+        view.layoutIfNeeded()
+    }
+    
+    @IBAction func forgotPWDSubmitButtonClicked(_ sender: Any) {
+        self.delegate?.forgotPWDSubmitClicked(sender: sender)
     }
     
 }
