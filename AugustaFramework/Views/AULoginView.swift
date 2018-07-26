@@ -1,12 +1,13 @@
 //
-//  AULoginViewController.swift
+//  AULoginView.swift
 //  AugustaFramework
 //
-//  Created by augusta on 25/07/18.
+//  Created by augusta on 26/07/18.
 //  Copyright © 2018 augusta. All rights reserved.
 //
 
 import UIKit
+
 public enum AULoginForgotPasswordLocation{
     case normal
     case leftBottom
@@ -17,8 +18,8 @@ public protocol AULoginViewDelegate{
     func loginButtonTapped(sender: Any)
 }
 
-public class AULoginViewController: UIViewController {
-
+class AULoginView: UIView {
+    
     @IBOutlet public weak var loginView: UIView!
     @IBOutlet public weak var loginViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet public weak var passwordTextField: UITextField!
@@ -29,21 +30,16 @@ public class AULoginViewController: UIViewController {
     @IBOutlet weak var forgotPassword2Button: UIButton!
     @IBOutlet weak var forgotPassword3Button: UIButton!
     
-    
-    public var delegate: AULoginViewDelegate?
-    
-    
-    public override func viewDidLoad() {
-        super.viewDidLoad()
+     public var delegate: AULoginViewDelegate?
 
-        // Do any additional setup after loading the view.
+    /*
+    // Only override draw() if you perform custom drawing.
+    // An empty implementation adversely affects performance during animation.
+    override func draw(_ rect: CGRect) {
+        // Drawing code
     }
-
-    public override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-   
+    */
+    
     @IBAction func loginButtonClicked(_ sender: Any) {
         self.delegate?.loginButtonTapped(sender: sender)
     }
@@ -63,28 +59,19 @@ public class AULoginViewController: UIViewController {
         switch forgotPasswordLocation {
         case .normal:
             self.forgotPassword3Button.isHidden = false
-             self.forgotPassword1Button.isHidden = true
-             self.forgotPassword2Button.isHidden = true
+            self.forgotPassword1Button.isHidden = true
+            self.forgotPassword2Button.isHidden = true
         case .leftBottom:
             self.forgotPassword2Button.isHidden = false
-             self.forgotPassword3Button.isHidden = true
-             self.forgotPassword1Button.isHidden = true
+            self.forgotPassword3Button.isHidden = true
+            self.forgotPassword1Button.isHidden = true
         case .insideField:
-             self.forgotPassword1Button.isHidden = false
-             self.forgotPassword2Button.isHidden = true
-             self.forgotPassword3Button.isHidden = true
+            self.forgotPassword1Button.isHidden = false
+            self.forgotPassword2Button.isHidden = true
+            self.forgotPassword3Button.isHidden = true
         default:
             break
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
