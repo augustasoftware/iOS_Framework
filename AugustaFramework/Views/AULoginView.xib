@@ -13,18 +13,18 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AULoginView" customModule="AugustaFramework" customModuleProvider="target">
             <connections>
-                <outlet property="forgotPassword1Button" destination="gqc-Ie-LMV" id="1Uw-P3-3b0"/>
-                <outlet property="forgotPassword2Button" destination="YXg-az-a6J" id="uhY-2F-FTs"/>
-                <outlet property="forgotPassword3Button" destination="18F-Mw-nbd" id="S1D-4u-tdg"/>
-                <outlet property="loginButton" destination="fIa-7A-7QF" id="dlS-7X-zZL"/>
-                <outlet property="loginView" destination="StV-lj-Rdt" id="v5b-6p-9dN"/>
-                <outlet property="loginViewWidthConstraint" destination="AYe-KU-BJn" id="MmS-nL-tfv"/>
-                <outlet property="passwordTextField" destination="bdd-m5-JZ1" id="qv4-aH-mq0"/>
-                <outlet property="userNameTextField" destination="Zdd-f4-CP5" id="LbV-je-lc5"/>
+                <outlet property="forgotPassword1Button" destination="gqc-Ie-LMV" id="YNo-Nm-ySK"/>
+                <outlet property="forgotPassword2Button" destination="YXg-az-a6J" id="L0Q-Ik-Qp9"/>
+                <outlet property="forgotPassword3Button" destination="18F-Mw-nbd" id="zVb-U9-Q6i"/>
+                <outlet property="loginButton" destination="fIa-7A-7QF" id="HRM-00-DSf"/>
+                <outlet property="loginView" destination="StV-lj-Rdt" id="y9F-Ix-S14"/>
+                <outlet property="loginViewWidthConstraint" destination="j0A-IR-UrC" id="cgP-Bt-L1A"/>
+                <outlet property="passwordTextField" destination="bdd-m5-JZ1" id="541-Xm-qF9"/>
+                <outlet property="userNameTextField" destination="Zdd-f4-CP5" id="TsX-Vi-JrG"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AULoginView" customModule="AugustaFramework" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -48,7 +48,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Login"/>
                             <connections>
-                                <action selector="loginButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="1Re-Ko-ath"/>
+                                <action selector="loginButtonClicked:" destination="-1" eventType="touchUpInside" id="ohl-4R-mfx"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="18F-Mw-nbd">
@@ -56,7 +56,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <state key="normal" title="forgot password?"/>
                             <connections>
-                                <action selector="forgotPassword3Clicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="tdO-S2-ulV"/>
+                                <action selector="forgotPassword3Clicked:" destination="-1" eventType="touchUpInside" id="9Vi-aR-9Er"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YXg-az-a6J">
@@ -64,15 +64,15 @@
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <state key="normal" title="forgot password?"/>
                             <connections>
-                                <action selector="forgotPassword2Clicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="C2B-sG-tCR"/>
+                                <action selector="forgotPassword2Clicked:" destination="-1" eventType="touchUpInside" id="WCY-gf-qWA"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gqc-Ie-LMV">
-                            <rect key="frame" x="145.5" y="84" width="91" height="26"/>
+                            <rect key="frame" x="146.5" y="84" width="91" height="26"/>
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <state key="normal" title="forgot password?"/>
                             <connections>
-                                <action selector="forgotPassword1Clicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="Els-yP-165"/>
+                                <action selector="forgotPassword1Clicked:" destination="-1" eventType="touchUpInside" id="hAq-gN-gYj"/>
                             </connections>
                         </button>
                     </subviews>
@@ -93,6 +93,7 @@
                         <constraint firstItem="YXg-az-a6J" firstAttribute="top" secondItem="bdd-m5-JZ1" secondAttribute="bottom" constant="-8" id="cZZ-s8-NUf"/>
                         <constraint firstItem="bdd-m5-JZ1" firstAttribute="centerX" secondItem="StV-lj-Rdt" secondAttribute="centerX" id="db7-xb-1VR"/>
                         <constraint firstItem="bdd-m5-JZ1" firstAttribute="width" secondItem="fIa-7A-7QF" secondAttribute="width" id="e8c-Cf-Bjx"/>
+                        <constraint firstAttribute="width" constant="256" id="j0A-IR-UrC"/>
                         <constraint firstAttribute="height" constant="194" id="opc-oX-R4T"/>
                     </constraints>
                 </view>
@@ -104,16 +105,6 @@
                 <constraint firstItem="StV-lj-Rdt" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="q2C-vN-zwk"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <connections>
-                <outlet property="forgotPassword1Button" destination="gqc-Ie-LMV" id="tUr-AT-JZb"/>
-                <outlet property="forgotPassword2Button" destination="YXg-az-a6J" id="flW-NN-Zgm"/>
-                <outlet property="forgotPassword3Button" destination="18F-Mw-nbd" id="Vok-ud-Xe0"/>
-                <outlet property="loginButton" destination="fIa-7A-7QF" id="75o-9m-PYB"/>
-                <outlet property="loginView" destination="StV-lj-Rdt" id="Bsg-J1-eIl"/>
-                <outlet property="loginViewWidthConstraint" destination="AYe-KU-BJn" id="iFp-3a-cak"/>
-                <outlet property="passwordTextField" destination="bdd-m5-JZ1" id="Xy0-NE-rrE"/>
-                <outlet property="userNameTextField" destination="Zdd-f4-CP5" id="bbp-Vf-a4L"/>
-            </connections>
         </view>
     </objects>
 </document>

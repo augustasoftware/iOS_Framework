@@ -30,7 +30,7 @@ public class AULoginView: UIView {
     @IBOutlet weak var forgotPassword2Button: UIButton!
     @IBOutlet weak var forgotPassword3Button: UIButton!
     
-     public var delegate: AULoginViewDelegate?
+    public var delegate: AULoginViewDelegate?
     
     public override init(frame: CGRect) { // for using CustomView in code
         super.init(frame: frame)
@@ -43,20 +43,21 @@ public class AULoginView: UIView {
     }
     
     private func commonInit() {
-        Bundle.main.loadNibNamed("AULoginView", owner: self, options: nil)
+        let bundle1 = Bundle(for: AULoginView.self)
+        bundle1.loadNibNamed("AULoginView", owner: self, options: nil)
         guard let content = loginView else { return }
         content.frame = self.bounds
         content.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         self.addSubview(content)
     }
-
+    
     /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
+     // Only override draw() if you perform custom drawing.
+     // An empty implementation adversely affects performance during animation.
+     override func draw(_ rect: CGRect) {
+     // Drawing code
+     }
+     */
     
     @IBAction func loginButtonClicked(_ sender: Any) {
         self.delegate?.loginButtonTapped(sender: sender)
@@ -91,5 +92,6 @@ public class AULoginView: UIView {
             break
         }
     }
-
+    
 }
+
