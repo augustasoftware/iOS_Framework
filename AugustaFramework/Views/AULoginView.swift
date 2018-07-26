@@ -47,8 +47,35 @@ public class AULoginView: UIView {
         bundle1.loadNibNamed("AULoginView", owner: self, options: nil)
         guard let content = loginView else { return }
         content.frame = self.bounds
-        content.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        //content.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        content.translatesAutoresizingMaskIntoConstraints = false
+        
         self.addSubview(content)
+    }
+    
+    
+    //****************************** How to use? Start **********************************//
+    //    let auloginView = AULoginView.init(frame: loginTempView.bounds)
+    //    auloginView.delegate = self
+    //    auloginView.configureForgotPassword(forgotPasswordLocation: .leftBottom, forgotPasswordText: "forgot password?")
+    //    auloginView.userNameTextField.delegate = self
+    //    auloginView.passwordTextField.delegate = self
+    //    auloginView.addLoginViewInView(view: loginTempView)
+    //****************************** How to use? End **********************************//
+    
+    /// HOW TO USE?  - Check comments section on top of the method implementaion AULoginView
+    ///
+    /// - Parameter view: view in which this login view has to be added
+    public func addLoginViewInView(view: UIView)
+    {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        let topConstraint = NSLayoutConstraint(item: loginView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0)
+        let bottomConstraint = NSLayoutConstraint(item: loginView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
+        let leadingConstraint = NSLayoutConstraint(item: loginView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0)
+        let trailingConstraint = NSLayoutConstraint(item: loginView, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0)
+        view.addSubview(loginView)
+        view.addConstraints([topConstraint, bottomConstraint, leadingConstraint, trailingConstraint])
+        view.layoutIfNeeded()
     }
     
     /*
@@ -74,18 +101,27 @@ public class AULoginView: UIView {
         self.delegate?.forgotPasswordClicked(sender: sender)
     }
     
-    public func configureLoginView(forgotPasswordLocation: AULoginForgotPasswordLocation){
+    
+    /// forgot password configuration is not mandatory if there is no forgot password
+    ///
+    /// - Parameters:
+    ///   - forgotPasswordLocation: position of forgot password button
+    ///   - forgotPasswordText: text to be shown in that button
+    public func configureForgotPassword(forgotPasswordLocation: AULoginForgotPasswordLocation, forgotPasswordText: String){
         switch forgotPasswordLocation {
         case .normal:
             self.forgotPassword3Button.isHidden = false
+            self.forgotPassword3Button.setTitle(forgotPasswordText, for: .normal)
             self.forgotPassword1Button.isHidden = true
             self.forgotPassword2Button.isHidden = true
         case .leftBottom:
             self.forgotPassword2Button.isHidden = false
+            self.forgotPassword2Button.setTitle(forgotPasswordText, for: .normal)
             self.forgotPassword3Button.isHidden = true
             self.forgotPassword1Button.isHidden = true
         case .insideField:
             self.forgotPassword1Button.isHidden = false
+            self.forgotPassword1Button.setTitle(forgotPasswordText, for: .normal)
             self.forgotPassword2Button.isHidden = true
             self.forgotPassword3Button.isHidden = true
         default:
