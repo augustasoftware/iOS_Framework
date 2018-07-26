@@ -18,7 +18,7 @@ public protocol AULoginViewDelegate{
     func loginButtonTapped(sender: Any)
 }
 
-class AULoginView: UIView {
+public class AULoginView: UIView {
     
     @IBOutlet public weak var loginView: UIView!
     @IBOutlet public weak var loginViewWidthConstraint: NSLayoutConstraint!
@@ -32,12 +32,12 @@ class AULoginView: UIView {
     
      public var delegate: AULoginViewDelegate?
     
-    override init(frame: CGRect) { // for using CustomView in code
+    public override init(frame: CGRect) { // for using CustomView in code
         super.init(frame: frame)
         self.commonInit()
     }
     
-    required init?(coder aDecoder: NSCoder) { // for using CustomView in IB
+    required public init?(coder aDecoder: NSCoder) { // for using CustomView in IB
         super.init(coder: aDecoder)
         self.commonInit()
     }
