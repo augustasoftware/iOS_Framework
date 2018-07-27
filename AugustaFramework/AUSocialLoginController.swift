@@ -10,13 +10,16 @@ import Foundation
 import FBSDKLoginKit
 import FacebookLogin
 import SwiftyJSON
+import TwitterKit
 
 var socialEmail = String()
-var socialID = String()
-var firstName = String()
-var lastName = String()
+
+var socialfirstName = String()
+var sociallastName = String()
 var socialAccesstoken = String()
 var socialProfileUrl = String()
+var selectedSocialLoginType = String()
+public var socialID = String()
 
 public enum socialLoginType : Int{
     case FB = 1
@@ -25,32 +28,42 @@ public enum socialLoginType : Int{
     case Pinterest = 4
     case youtube = 5
 }
+public enum socialResult{
+    case success
+    case failure
+}
 
 public class AUSocialLoginController{
     var controller: UIViewController = UIViewController.init()
-   
+    
     public init(callingViewcontroller : UIViewController){
         controller = callingViewcontroller
     }
     
-    func socialLoginTapped(selectedSocialLoginType : Int) {
+    public func socialLoginTapped(selectedSocialLoginType : Int, completion:@escaping (Bool) -> Void) {
         switch selectedSocialLoginType {
         case socialLoginType.FB.rawValue:
-            fbLoginTapped()
+            fbLoginTapped(completion: {_ in
+                self.getFBUserData(completion: {_ in
+                    completion(true)
+                })
+            })
         case socialLoginType.Twitter.rawValue:
-            fbLoginTapped()
+            break
         case socialLoginType.Instagram.rawValue:
-            fbLoginTapped()
+            break
         case socialLoginType.Pinterest.rawValue:
-            fbLoginTapped()
+            break
         default:
-            fbLoginTapped()
+            break
         }
         
     }
+   
+    /* Facebook Login and details from SDK start */
     
     /// To Login Via Facebook login
-    func fbLoginTapped(){
+    public func fbLoginTapped(completion:@escaping (Bool) -> Void) {
         let loginManager = LoginManager()
         loginManager.logOut()
         loginManager.logIn(readPermissions: [ .publicProfile, .email], viewController: controller, completion: { loginResult in
@@ -60,32 +73,27 @@ public class AUSocialLoginController{
             case .cancelled:
                 print("User cancelled login.")
             case .success(let grantedPermissions, let declinedPermissions, let accessToken):
-                self.getFBUserData()
+                completion(true)
             }
         })
     }
     
+    
     /// To Get the Facebook user details once Facebook logged in successfully
-    func getFBUserData(){
+    func getFBUserData(completion:@escaping (Bool) -> Void){
         if((FBSDKAccessToken.current()) != nil){
             FBSDKGraphRequest(graphPath: "me", parameters:["fields": "id,name,picture.type(large),email,first_name,last_name"]).start(completionHandler: { (connection, result, error) -> Void in
                 if (error == nil){
                     var data : JSON = JSON(result as AnyObject)
                     print("FBDATA==",data)
                     if data != JSON.null {
-                        //socialInformationDict.setValue(data["picture"]["data"]["url"].stringValue, forKey: "profileUrl")
                         socialEmail = (data["email"].stringValue)
                         socialID = data["id"].stringValue
-                        firstName = (data["first_name"].stringValue)
-                        lastName = (data["last_name"].stringValue)
+                        socialfirstName = (data["first_name"].stringValue)
+                        sociallastName = (data["last_name"].stringValue)
                         socialAccesstoken = FBSDKAccessToken.current().tokenString
                         socialProfileUrl = (data["picture"]["data"]["url"].stringValue)
-                        //self.selectedAccountType = 2
-                        //self.toCheckIfSocialUserAlreadyExist(strSocialID: self.socialID, socialAccountType: 1)
-                        
-//                        Session.sharedInstance.setSocialId(self.socialID)
-//                        Session.sharedInstance.setUserEmail(self.socialEmail)
-//                        Session.sharedInstance.setUserLogin(withSocialAccount: true)
+                        completion(true)
                     }
                 }else{
                     //self.showAlertView(message: "Error in facebook login" , controller: self)
@@ -94,5 +102,39 @@ public class AUSocialLoginController{
             })
         }
     }
+    /* Facebook Login and details from SDK End */
+    
+    
+    /* Twitter Login and details from SDK start */
+    
+    public func btnTwitterLoginTapped(completion:@escaping (Bool) -> Void) {
+        TWTRTwitter.sharedInstance().logIn(completion: { (session, error) in
+            if (session != nil) {
+                print("Details: %@ ",session?.authToken ?? "Not received");
+                let client = TWTRAPIClient.withCurrentUser()
+                client.requestEmail { email, error in
+                    // if (email != nil) {
+                   socialEmail = email ?? ""
+                   socialID = (session?.userID)!
+                    
+                    client.loadUser(withID: socialID, completion:{ (user, error) in
+                        socialfirstName = (user?.name)!
+                        socialProfileUrl = (user?.profileImageLargeURL)!
+                    })
+                    /* } else {
+                     self.hideActivityIndicator(self.view)
+                     print("error: \(String(describing: error?.localizedDescription))");
+                     }*/
+                }
+                //  print("signed in as \(session?.userName)");
+            } else {
+                print("error: \(String(describing: error?.localizedDescription))");
+            }
+        })
+    }
+    
+    /* Twitter Login and details from SDK End */
+    
+    
     
 }

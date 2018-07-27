@@ -123,6 +123,7 @@
 				97D6553F20FF09DE0085DF71 /* Frameworks */,
 				97D6554020FF09DE0085DF71 /* Headers */,
 				97D6554120FF09DE0085DF71 /* Resources */,
+				7595CE323135A18B8B9C35E4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -176,6 +177,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		7595CE323135A18B8B9C35E4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AugustaFramework/Pods-AugustaFramework-resources.sh",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterKitResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AugustaFramework/Pods-AugustaFramework-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		DEE4BF4179D1107DC1C5DF1A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
