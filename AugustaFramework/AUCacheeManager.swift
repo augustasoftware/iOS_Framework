@@ -12,7 +12,7 @@ import Alamofire
 public class AUCacheeManager {
     
     
-    class var shared: AUCacheeManager {
+    public class var shared: AUCacheeManager {
         struct Static {
             static let instance = AUCacheeManager()
         }
@@ -179,8 +179,7 @@ public class AUCacheeManager {
         self.defaults.synchronize()
     }
     
-    public
-    func clearEntireCache() {
+    public func clearEntireCache() {
         URLCache.shared.removeAllCachedResponses()
         self.cacheList.removeAllObjects()
         self.defaults.set(self.cacheList, forKey: "list_")
