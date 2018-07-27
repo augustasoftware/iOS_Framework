@@ -64,6 +64,16 @@ public class AUActivityIndicator{
         activityIndicator.startAnimating()
     }
     
+    //****************************** How to use? Start **********************************//
+    //  let indicatorView =  AUActivityIndicator.init()
+    //  indicatorView.showCustomActivityIndicator(self.view, activityIndicatorStyle: .twoCircleAnimation, containerBGColor: .clear, loadingViewBgColor: .black, circle1Color: .red, circle2Color: .yellow)
+    
+    //  DispatchQueue.main.asyncAfter(deadline: .now() + 5) { // change 2 to desired number of seconds
+    //  // Your code with delay
+    //  indicatorView.hideActivityIndicator(self.view)
+    //  }
+    //****************************** How to use? End **********************************//
+   
     public func showCustomActivityIndicator(_ uiView : UIView, activityIndicatorStyle: AUActivityIndicatorType, containerBGColor: UIColor, loadingViewBgColor: UIColor, viewCornerRadius: CGFloat = 10, circle1Color: UIColor = UIColor.init(white: 1, alpha: 0.90), circle2Color: UIColor = UIColor.init(white: 1, alpha: 0.40)){
         container.frame = uiView.frame
         container.center = uiView.center
@@ -126,13 +136,6 @@ public class AUActivityIndicator{
         
         
         uiView.addSubview(container)
-        
-    }
-    
-    public func showCustomActivityIndicator1(_ uiView : UIView){
-        
-        
-        //  Converted to Swift 4 by Swiftify v4.1.6766 - https://objectivec2swift.com/
         
     }
     
