@@ -29,7 +29,7 @@ public class AUWebService{
     var delegate:AUWebServiceDelegate?
     
     var sessionExpiryMessage: String = ""
-    
+    var sessionManager: SessionManager!
     
     /// initing the AUWebService class
     ///
@@ -55,6 +55,7 @@ public class AUWebService{
                                       type: AUWebServiceType,
                                       userData: [String: Any]?,
                                       headers: [String:String]?,
+                                      isCacheEnable:Bool? = false,
                                       successBlock: @escaping kModelSuccessBlock,
                                       failureBlock : @escaping kModelErrorBlock){
 //**************************************************** How to use? Start ****************************************************//
@@ -107,36 +108,66 @@ public class AUWebService{
             httpMethod = .post
         }
         if Reachability.isConnectedToNetwork() == true {
-            Alamofire.request(url, method: httpMethod!, parameters: userData, encoding: JSONEncoding.default, headers: headers).responseJSON { (response:DataResponse<Any>) in
-                
-                switch(response.result) {
-                case .success(_):
-                    if response.result.value != nil{
-                        debugPrint(url)
-                        debugPrint(type)
-                        debugPrint(userData ?? "")
-                        debugPrint(headers ?? "")
-                        debugPrint(response.result.value ?? "")
-                        if(!self.checkForSessionExpiryAndPop(result: response.result.value ?? ""))
-                        {
-                            successBlock(true, "Success",response.result.value as AnyObject)
-                        }
-                    }
-                    break
+            
+            let request = URLRequest(url: NSURL(string: url)! as URL, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 60)
+            
+            if (isCacheEnable)!{
+                sessionManager = Alamofire.SessionManager(configuration: AUCacheeManager.shared.configuration(apiName: (request.url?.absoluteString)!))
+                sessionManager.request(url, method: httpMethod!, parameters: userData, encoding: JSONEncoding.default, headers: headers).responseJSON { (response:DataResponse<Any>) in
                     
-                case .failure(let error):
-                    failureBlock(error.localizedDescription as String)
-                    break
+                    switch(response.result) {
+                    case .success(_):
+                        if response.result.value != nil{
+                            debugPrint(url)
+                            debugPrint(type)
+                            debugPrint(userData ?? "")
+                            debugPrint(headers ?? "")
+                            debugPrint(response.result.value ?? "")
+                            if(!self.checkForSessionExpiryAndPop(result: response.result.value ?? ""))
+                            {
+                                if response.result.value != nil{
+                                    successBlock(true, "Success",response.result.value as AnyObject)
+                                    AUCacheeManager.shared.clearCacheWith(request: request, isForceClear: false)
+                                }
+                            }
+                        }
+                        break
+                    case .failure(let error):
+                        failureBlock(error.localizedDescription as String)
+                        break
+                    }
+                }
+            }else {
+                Alamofire.request(url, method: httpMethod!, parameters: userData, encoding: JSONEncoding.default, headers: headers).responseJSON { (response:DataResponse<Any>) in
+                    switch(response.result) {
+                    case .success(_):
+                        if response.result.value != nil{
+                            debugPrint(url)
+                            debugPrint(type)
+                            debugPrint(userData ?? "")
+                            debugPrint(headers ?? "")
+                            debugPrint(response.result.value ?? "")
+                            if(!self.checkForSessionExpiryAndPop(result: response.result.value ?? ""))
+                            {
+                                if response.result.value != nil{
+                                    successBlock(true, "Success",response.result.value as AnyObject)
+                                    AUCacheeManager.shared.clearCacheWith(request: request, isForceClear: false)
+                                }
+                            }
+                        }
+                        break
+                        
+                    case .failure(let error):
+                        failureBlock(error.localizedDescription as String)
+                        break
+                    }
                 }
             }
-        
         }
         else{
             failureBlock("Please check your internet connection" as String)
         }
     }
-    
-    
     
     func checkForSessionExpiryAndPop(result: Any)-> Bool
     {
