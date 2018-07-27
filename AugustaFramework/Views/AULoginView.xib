@@ -159,7 +159,7 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2f-Kv-YiO">
                             <rect key="frame" x="24.5" y="314" width="272" height="30"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <state key="normal" title="Login"/>
+                            <state key="normal" title="Submit"/>
                             <connections>
                                 <action selector="loginButtonClicked:" destination="-1" eventType="touchUpInside" id="HHt-8A-zvG"/>
                                 <action selector="resetPWDSubmitButtonClicked:" destination="-1" eventType="touchUpInside" id="UMd-wP-5Dg"/>
