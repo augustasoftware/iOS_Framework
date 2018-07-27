@@ -17,7 +17,7 @@ public protocol AULoginViewDelegate{
     func forgotPasswordClicked(sender: Any)
     func loginButtonClicked(sender: Any)
     func forgotPWDSubmitClicked(sender: Any)
-    func resetPassword(sender: Any)
+    func resetPWDSubmitClicked(sender: Any)
 }
 
 public class AULoginView: UIView {
@@ -62,6 +62,14 @@ public class AULoginView: UIView {
         content.frame = self.bounds
         content.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(content)
+        guard let content1 = resetView else { return }
+        content1.frame = self.bounds
+        content1.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(content1)
+        guard let content2 = forgotPasswordView else { return }
+        content2.frame = self.bounds
+        content2.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(content2)
     }
     
     
@@ -181,8 +189,9 @@ public class AULoginView: UIView {
     }
     
     @IBAction func resetPWDSubmitButtonClicked(_ sender: Any) {
-        self.delegate?.resetPassword(sender: sender)
+        self.delegate?.resetPWDSubmitClicked(sender: sender)
     }
+    
     
     
     

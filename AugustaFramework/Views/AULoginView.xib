@@ -57,7 +57,7 @@
                             <rect key="frame" x="24" y="284" width="272" height="30"/>
                             <state key="normal" title="Submit"/>
                             <connections>
-                                <action selector="forgotPWDSubmitButtonClicked:" destination="-1" eventType="touchUpInside" id="Mz8-JO-A5i"/>
+                                <action selector="forgotPWDSubmitButtonClicked:" destination="-1" eventType="touchUpInside" id="Dj7-p6-K3E"/>
                             </connections>
                         </button>
                     </subviews>
@@ -94,7 +94,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Login"/>
                             <connections>
-                                <action selector="loginButtonClicked:" destination="-1" eventType="touchUpInside" id="ohl-4R-mfx"/>
+                                <action selector="loginButtonClicked:" destination="-1" eventType="touchUpInside" id="Q8C-yc-zuP"/>
                             </connections>
                         </button>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="18F-Mw-nbd">
@@ -102,7 +102,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <state key="normal" title="forgot password?"/>
                             <connections>
-                                <action selector="forgotPassword3Clicked:" destination="-1" eventType="touchUpInside" id="9Vi-aR-9Er"/>
+                                <action selector="forgotPassword3Clicked:" destination="-1" eventType="touchUpInside" id="vYM-lu-8xr"/>
                             </connections>
                         </button>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YXg-az-a6J">
@@ -110,7 +110,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <state key="normal" title="forgot password?"/>
                             <connections>
-                                <action selector="forgotPassword2Clicked:" destination="-1" eventType="touchUpInside" id="WCY-gf-qWA"/>
+                                <action selector="forgotPassword2Clicked:" destination="-1" eventType="touchUpInside" id="tXY-so-S5d"/>
                             </connections>
                         </button>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gqc-Ie-LMV">
@@ -118,7 +118,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <state key="normal" title="forgot password?"/>
                             <connections>
-                                <action selector="forgotPassword1Clicked:" destination="-1" eventType="touchUpInside" id="hAq-gN-gYj"/>
+                                <action selector="forgotPassword1Clicked:" destination="-1" eventType="touchUpInside" id="Vc9-2i-bJS"/>
                             </connections>
                         </button>
                     </subviews>
@@ -161,8 +161,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Submit"/>
                             <connections>
-                                <action selector="loginButtonClicked:" destination="-1" eventType="touchUpInside" id="HHt-8A-zvG"/>
-                                <action selector="resetPWDSubmitButtonClicked:" destination="-1" eventType="touchUpInside" id="UMd-wP-5Dg"/>
+                                <action selector="resetPWDSubmitButtonClicked:" destination="-1" eventType="touchUpInside" id="cFU-hQ-EOp"/>
                             </connections>
                         </button>
                     </subviews>
