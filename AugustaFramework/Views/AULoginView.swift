@@ -17,6 +17,7 @@ public protocol AULoginViewDelegate{
     func forgotPasswordClicked(sender: Any)
     func loginButtonClicked(sender: Any)
     func forgotPWDSubmitClicked(sender: Any)
+    func resetPassword(sender: Any)
 }
 
 public class AULoginView: UIView {
@@ -36,6 +37,11 @@ public class AULoginView: UIView {
     @IBOutlet weak var forgotPWDSubmitButton: UIButton!
     @IBOutlet weak var forgotPWDUsernameField: UITextField!
     
+    // Reset Password
+    @IBOutlet public weak var resetView: UIView!
+    @IBOutlet public weak var resetPWDTextField: UITextField!
+    @IBOutlet public weak var resetConfirmPWDTextField: UITextField!
+    @IBOutlet public weak var resetPWDSubmitButton: UIButton!
     
     public var delegate: AULoginViewDelegate?
     
@@ -155,6 +161,30 @@ public class AULoginView: UIView {
     @IBAction func forgotPWDSubmitButtonClicked(_ sender: Any) {
         self.delegate?.forgotPWDSubmitClicked(sender: sender)
     }
+    
+    //MARK: Reset password
+    //****************************** How to use? Start **********************************//
+    //    let auloginView = AULoginView.init(frame: loginTempView.bounds)
+    //    auloginView.delegate = self
+    //    auloginView.addResetPasswordViewInView(view: loginTempView)
+    //****************************** How to use? End **********************************//
+    
+    public func addResetPasswordViewInView(view: UIView){
+        self.translatesAutoresizingMaskIntoConstraints = false
+        let topConstraint = NSLayoutConstraint(item: resetView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0)
+        let bottomConstraint = NSLayoutConstraint(item: resetView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
+        let leadingConstraint = NSLayoutConstraint(item: resetView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0)
+        let trailingConstraint = NSLayoutConstraint(item: resetView, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0)
+        view.addSubview(resetView)
+        view.addConstraints([topConstraint, bottomConstraint, leadingConstraint, trailingConstraint])
+        view.layoutIfNeeded()
+    }
+    
+    @IBAction func resetPWDSubmitButtonClicked(_ sender: Any) {
+        self.delegate?.resetPassword(sender: sender)
+    }
+    
+    
     
 }
 
