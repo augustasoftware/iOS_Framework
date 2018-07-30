@@ -9,9 +9,43 @@
 import UIKit
 import Siren
 
+public enum VersionUpdateType: Int {
+    case version_FORCE = 1
+    case version_OPTION = 2
+    case version_SKIP = 3
+}
+
+public enum AlertIntervalPeriod: Int {
+    case version_IMMEDIATELY = 1
+    case version_DAILY = 2
+    case version_WEEKLY = 3
+}
+
 public class AUVersionUpdate: NSObject {
 
-    public class func setupVersionUpdate() {
+    public class func setupVersionUpdate(type:VersionUpdateType.RawValue? = 3,interVal:AlertIntervalPeriod.RawValue? = 0) {
+        let siren = Siren.shared
+        switch type {
+        case 1:
+            siren.alertType = Siren.AlertType.force
+        case 2:
+            siren.alertType = Siren.AlertType.option
+        case 3:
+            siren.alertType = Siren.AlertType.skip
+        default:
+            break
+        }
+        switch interVal {
+        case 0:
+            siren.checkVersion(checkType: .immediately)
+        case 1:
+            siren.checkVersion(checkType: .daily)
+        case 7:
+            siren.checkVersion(checkType: .weekly)
+        default:
+            break
+        }
+        
         //    Update type -> 3 & 4  Merge -> Alert showing based on Reminder interval like Daily/Weekly with Max skip count, once user reached max skip count the alert type changed as force update
         //    Update type -> 2 Alert showing optional type like user always skip the current version
         //    Update type -> 1 Alert showing force type like user need to update current version mandatory
