@@ -79,8 +79,8 @@
 - (UIView *)drawRectAtPosition:(CGPoint)positionPoint {
     UIView *rect = [[UIView alloc] init];
     CGRect rectFrame;
-    rectFrame.size.width = 5;
-    rectFrame.size.height = 7.5;
+    rectFrame.size.width = 15;
+    rectFrame.size.height = 16.5;
     rectFrame.origin.x = positionPoint.x;
     rectFrame.origin.y = 0;
     rect.frame = rectFrame;
