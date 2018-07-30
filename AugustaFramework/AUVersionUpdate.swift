@@ -11,7 +11,7 @@ import Siren
 
 public class AUVersionUpdate: NSObject {
 
-    public func setupVersionUpdate() {
+    public class func setupVersionUpdate() {
         //    Update type -> 3 & 4  Merge -> Alert showing based on Reminder interval like Daily/Weekly with Max skip count, once user reached max skip count the alert type changed as force update
         //    Update type -> 2 Alert showing optional type like user always skip the current version
         //    Update type -> 1 Alert showing force type like user need to update current version mandatory
