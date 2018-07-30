@@ -50,7 +50,7 @@ public class AUVersionUpdate: NSObject {
     
     weak var delegate: VersionUpdateDelegate?
     
-    public class func setupVersionUpdate(type:VersionAlertUpdateType? = VersionAlertUpdateType.version_SKIP ,interVal:AlertIntervalPeriod? = AlertIntervalPeriod.version_IMMEDIATELY) {
+    public func setupVersionUpdate(type:VersionAlertUpdateType? = VersionAlertUpdateType.version_SKIP ,interVal:AlertIntervalPeriod? = AlertIntervalPeriod.version_IMMEDIATELY) {
         
         let siren = Siren.shared
         switch type?.rawValue {
