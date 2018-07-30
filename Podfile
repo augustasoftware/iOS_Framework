@@ -12,4 +12,5 @@ pod 'AMTumblrHud'
 pod 'FacebookCore'
 pod 'FacebookLogin'
 pod 'FacebookShare'
+pod 'TwitterKit'
 end
