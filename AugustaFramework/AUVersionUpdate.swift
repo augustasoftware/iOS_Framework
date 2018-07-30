@@ -9,7 +9,7 @@
 import UIKit
 import Siren
 
-protocol VERSIONUPDATEDELEGATE:class {
+public protocol VersionUpdateDelegate:class {
     func auVersionUpdateAlertDidShowUpdateDialog(alertType: VersionUpdateType)
     func auVersionUpdateAlertUserDidCancel()
     func auVersionUpdateAlertUserDidSkipVersion()
@@ -33,7 +33,7 @@ public enum AlertIntervalPeriod: Int {
 
 public class AUVersionUpdate: NSObject {
 
-    weak var delegate: VERSIONUPDATEDELEGATE?
+    weak var delegate: VersionUpdateDelegate?
     
     public class func setupVersionUpdate(type:VersionUpdateType? = VersionUpdateType.version_SKIP ,interVal:AlertIntervalPeriod? = AlertIntervalPeriod.version_IMMEDIATELY) {
         let siren = Siren.shared
