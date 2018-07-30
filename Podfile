@@ -6,6 +6,7 @@ target 'AugustaFramework' do
   use_frameworks!
 
   # Pods for AugustaFramework
+  pod 'Siren'
 pod 'Alamofire', '~> 4.0'
 pod 'SwiftyJSON'
 pod 'AMTumblrHud'
@@ -13,5 +14,5 @@ pod 'FacebookCore'
 pod 'FacebookLogin'
 pod 'FacebookShare'
 pod 'TwitterKit'
-pod 'Siren'
+
 end
