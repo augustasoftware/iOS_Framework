@@ -10,16 +10,16 @@ import UIKit
 import Siren
 
 public protocol VersionUpdateDelegate:class {
-    func auVersionUpdateAlertDidShowUpdateDialog(alertType: VersionUpdateType)
+    func auVersionUpdateAlertDidShowUpdateDialog(alertType: VersionAlertUpdateType)
     func auVersionUpdateAlertUserDidCancel()
     func auVersionUpdateAlertUserDidSkipVersion()
     func auVersionUpdateAlertUserDidLaunchAppStore()
     func auVersionUpdateAlertDidFailVersionCheck(error: Error)
     func auVersionUpdateAlertLatestVersionInstalled()
-    func auVersionUpdateAlertDidDetectNewVersionWithoutAlert(message: String, updateType: UpdateType)
+    func auVersionUpdateAlertDidDetectNewVersionWithoutAlert(message: String, updateType: String)
 }
 
-public enum VersionUpdateType: Int {
+public enum VersionAlertUpdateType: Int {
     case version_FORCE = 1
     case version_OPTION = 2
     case version_SKIP = 3
@@ -31,11 +31,20 @@ public enum AlertIntervalPeriod: Int {
     case version_WEEKLY = 3
 }
 
+public enum VersionUpdateType: String {
+    case major
+    case minor
+    case patch
+    case revision
+    case unknown
+}
+
 public class AUVersionUpdate: NSObject {
 
     weak var delegate: VersionUpdateDelegate?
     
-    public class func setupVersionUpdate(type:VersionUpdateType? = VersionUpdateType.version_SKIP ,interVal:AlertIntervalPeriod? = AlertIntervalPeriod.version_IMMEDIATELY) {
+    public class func setupVersionUpdate(type:VersionAlertUpdateType? = VersionAlertUpdateType.version_SKIP ,interVal:AlertIntervalPeriod? = AlertIntervalPeriod.version_IMMEDIATELY) {
+        
         let siren = Siren.shared
         switch type?.rawValue {
         case 1:
@@ -135,50 +144,59 @@ public class AUVersionUpdate: NSObject {
 extension AUVersionUpdate: SirenDelegate
 {
     public func sirenDidShowUpdateDialog(alertType: Siren.AlertType) {
-        //  Converted with Swiftify v1.0.6472 - https://objectivec2swift.com/
-        let usrDefaults: UserDefaults? = UserDefaults.standard
-        if usrDefaults?.integer(forKey: "updateType") == 3 && usrDefaults?.integer(forKey: "maxSkipCount") == 0 {
-            UserDefaults.standard.removeObject(forKey: "maxSkipCount")
-            UserDefaults.standard.removeObject(forKey: "reminderInterval")
-            UserDefaults.standard.removeObject(forKey: "usedSkipCount")
-           // Siren.shared.replaceLastVersionDate()
+        switch alertType {
+        case .force:
+             delegate?.auVersionUpdateAlertDidShowUpdateDialog(alertType: VersionAlertUpdateType.version_FORCE )
+        case .option:
+            delegate?.auVersionUpdateAlertDidShowUpdateDialog(alertType: VersionAlertUpdateType.version_OPTION )
+        case .skip:
+            delegate?.auVersionUpdateAlertDidShowUpdateDialog(alertType: VersionAlertUpdateType.version_SKIP )
+        case .none:
+            delegate?.auVersionUpdateAlertDidShowUpdateDialog(alertType: VersionAlertUpdateType.version_SKIP )
         }
-        
+       
     }
     
     public func sirenUserDidCancel() {
-        self.increaseUsedCount()
+        //self.increaseUsedCount()
+        delegate?.auVersionUpdateAlertUserDidCancel()
     }
     
     public func sirenUserDidSkipVersion() {
         debugPrint(#function)
+        delegate?.auVersionUpdateAlertUserDidSkipVersion()
     }
     
     public func sirenUserDidLaunchAppStore() {
-        self.increaseUsedCount()
+       // self.increaseUsedCount()
+        delegate?.auVersionUpdateAlertUserDidLaunchAppStore()
         
     }
     
     public func sirenDidFailVersionCheck(error: Error) {
         debugPrint(#function, error)
+        delegate?.auVersionUpdateAlertDidFailVersionCheck(error: error)
     }
     
     public func sirenLatestVersionInstalled() {
         debugPrint(#function, "Latest version of app is installed")
+        delegate?.auVersionUpdateAlertLatestVersionInstalled()
     }
     
     // This delegate method is only hit when alertType is initialized to .none
     public func sirenDidDetectNewVersionWithoutAlert(message: String, updateType: UpdateType) {
         debugPrint(#function, "\(message).\nRelease type: \(updateType.rawValue.capitalized)")
+        let updateString = updateType.rawValue.lowercased()
+        delegate?.auVersionUpdateAlertDidDetectNewVersionWithoutAlert(message: message, updateType: updateString)
     }
-    func increaseUsedCount() {
-        let usrDefaults: UserDefaults? = UserDefaults.standard
-        if UserDefaults.standard.integer(forKey: "updateType") == 3 {
-            var usedCountVal: Int? = usrDefaults?.integer(forKey: "usedSkipCount") ?? 0
-            usedCountVal =  usedCountVal ?? 0 + 1
-            UserDefaults.standard.set(usedCountVal ?? 0, forKey: "usedSkipCount")
-            UserDefaults.standard.synchronize()
-        }
-    }
+//    func increaseUsedCount() {
+//        let usrDefaults: UserDefaults? = UserDefaults.standard
+//        if UserDefaults.standard.integer(forKey: "updateType") == 3 {
+//            var usedCountVal: Int? = usrDefaults?.integer(forKey: "usedSkipCount") ?? 0
+//            usedCountVal =  usedCountVal ?? 0 + 1
+//            UserDefaults.standard.set(usedCountVal ?? 0, forKey: "usedSkipCount")
+//            UserDefaults.standard.synchronize()
+//        }
+//    }
     
 }
