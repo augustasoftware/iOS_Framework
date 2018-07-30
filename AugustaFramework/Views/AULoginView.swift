@@ -13,6 +13,13 @@ public enum AULoginForgotPasswordLocation{
     case leftBottom
     case insideField
 }
+public protocol AULoginViewDelegate{
+    
+    func loginButtonClicked()
+    func forgotPasswordClicked()
+    func forgotPasswordSubmitClicked()
+    func resetPasswordSubmitClicked()
+}
 
 public class AULoginView: UIView {
     
@@ -36,6 +43,8 @@ public class AULoginView: UIView {
     @IBOutlet public weak var resetPWDTextField: UITextField!
     @IBOutlet public weak var resetConfirmPWDTextField: UITextField!
     @IBOutlet public weak var resetPWDSubmitButton: UIButton!
+    
+    public var delegate: AULoginViewDelegate?
     
     public override init(frame: CGRect) { // for using CustomView in code
         super.init(frame: frame)
@@ -101,11 +110,11 @@ public class AULoginView: UIView {
      */
     
     @IBAction func loginButtonClicked(_ sender: Any) {
-        
+        self.delegate?.loginButtonClicked()
     }
     
     @IBAction func forgotPasswordClicked(_ sender: Any) {
-        
+        self.delegate?.forgotPasswordClicked()
     }
     
     
@@ -159,7 +168,7 @@ public class AULoginView: UIView {
     }
     
     @IBAction func forgotPWDSubmitButtonClicked(_ sender: Any) {
-      
+        self.delegate?.forgotPasswordSubmitClicked()
     }
     
     //MARK: Reset password
@@ -181,7 +190,7 @@ public class AULoginView: UIView {
     }
     
     @IBAction func resetPWDSubmitButtonClicked(_ sender: Any) {
-        
+        self.delegate?.resetPasswordSubmitClicked()
     }
     
     
