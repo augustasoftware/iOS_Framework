@@ -23,9 +23,9 @@ public enum AlertIntervalPeriod: Int {
 
 public class AUVersionUpdate: NSObject {
 
-    public class func setupVersionUpdate(type:VersionUpdateType.RawValue? = 3,interVal:AlertIntervalPeriod.RawValue? = 0) {
+    public class func setupVersionUpdate(type:VersionUpdateType? = VersionUpdateType.version_SKIP ,interVal:AlertIntervalPeriod? = AlertIntervalPeriod.version_IMMEDIATELY) {
         let siren = Siren.shared
-        switch type {
+        switch type?.rawValue {
         case 1:
             siren.alertType = Siren.AlertType.force
         case 2:
@@ -35,7 +35,7 @@ public class AUVersionUpdate: NSObject {
         default:
             break
         }
-        switch interVal {
+        switch interVal?.rawValue {
         case 0:
             siren.checkVersion(checkType: .immediately)
         case 1:
