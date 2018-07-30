@@ -41,14 +41,14 @@ public enum VersionUpdateType: String {
 
 public class AUVersionUpdate: NSObject {
 
+    public weak var delegate: VersionUpdateDelegate?
+    
     public class var shared: AUVersionUpdate {
         struct Static {
             static let instance = AUVersionUpdate()
         }
         return Static.instance
     }
-    
-    weak var delegate: VersionUpdateDelegate?
     
     public func setupVersionUpdate(type:VersionAlertUpdateType? = VersionAlertUpdateType.version_SKIP ,interVal:AlertIntervalPeriod? = AlertIntervalPeriod.version_IMMEDIATELY) {
         
