@@ -30,7 +30,7 @@ public final class Siren: NSObject {
     /// - sirenUserDidCancel()
     ///
     /// When a new version has been detected, and you would like to present a localized message in a custom UI. use this delegate method:
-    /// - sirenDidDetectNewVersionWithoutAlert(message: String)
+    /// - sirenDidDetectNewVersionWithoutAlert(title: String, message: String)
     public weak var delegate: SirenDelegate?
 
     /// The debug flag, which is disabled by default.
@@ -88,7 +88,7 @@ public final class Siren: NSObject {
     /// Overrides the tint color for UIAlertController.
     public var alertControllerTintColor: UIColor?
 
-    /// When this is set, the alert will only show up if the current version has already been released for X days
+    /// When this is set, the alert will only show up if the current version has already been released for X days.
     /// Defaults to 1 day to avoid an issue where Apple updates the JSON faster than the app binary propogates to the App Store.
     public var showAlertAfterCurrentVersionHasBeenReleasedForDays: Int = 1
 
@@ -154,7 +154,11 @@ public final class Siren: NSObject {
         }
 
         DispatchQueue.main.async {
-            UIApplication.shared.openURL(url)
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
         }
     }
 
@@ -184,7 +188,6 @@ private extension Siren {
                 postError(.appStoreDataRetrievalFailure(underlyingError: nil))
                 return
             }
-
             do {
                 let decodedData = try JSONDecoder().decode(SirenLookupModel.self, from: data)
 
@@ -192,13 +195,14 @@ private extension Siren {
                     return postError(.appStoreDataRetrievalEmptyResults)
                 }
 
-                DispatchQueue.main.async { [unowned self] in
-                    self.printMessage("Decoded JSON results: \(decodedData)")
+                DispatchQueue.main.async { [weak self] in
+                    self?.printMessage("Decoded JSON results: \(decodedData)")
+
+                    self?.delegate?.sirenNetworkCallDidReturnWithNewVersionInformation(lookupModel: decodedData)
 
                     // Process Results (e.g., extract current version that is available on the AppStore)
-                    self.processVersionCheck(with: decodedData)
+                    self?.processVersionCheck(with: decodedData)
                 }
-
             } catch let error as NSError {
                 postError(.appStoreJSONParsingFailure(underlyingError: error))
             }
@@ -307,7 +311,8 @@ private extension Siren {
             alertController.addAction(updateAlertAction())
             alertController.addAction(skipAlertAction())
         case .none:
-            delegate?.sirenDidDetectNewVersionWithoutAlert(message: newVersionMessage, updateType: updateType)
+            let updateTitle = localizedUpdateTitle()
+            delegate?.sirenDidDetectNewVersionWithoutAlert(title: updateTitle, message: newVersionMessage, updateType: updateType)
         }
 
         if alertType != .none && !alertViewIsVisible {
@@ -405,6 +410,11 @@ private extension Siren {
 // MARK: - Helpers (Localization)
 
 private extension Siren {
+    func localizedUpdateTitle() -> String {
+        let updateTitleToLocalize = alertMessaging.updateTitle
+        return Bundle.localizedString(forKey: updateTitleToLocalize, forceLanguageLocalization: forceLanguageLocalization)
+    }
+
     func localizedNewVersionMessage() -> String {
         let newVersionMessageToLocalize = alertMessaging.updateMessage
         let newVersionMessage = Bundle.localizedString(forKey: newVersionMessageToLocalize, forceLanguageLocalization: forceLanguageLocalization)
