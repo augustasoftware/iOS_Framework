@@ -13,4 +13,5 @@ pod 'FacebookCore'
 pod 'FacebookLogin'
 pod 'FacebookShare'
 pod 'TwitterKit'
+pod 'PinterestSDK'
 end

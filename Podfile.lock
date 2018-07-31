@@ -1,4 +1,19 @@
 PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
   - Alamofire (4.7.3)
   - AMTumblrHud (1.0.1)
   - Bolts (1.9.0):
@@ -20,12 +35,16 @@ PODS:
     - FacebookCore (~> 0.3.1)
     - FBSDKCoreKit (~> 4.33)
     - FBSDKShareKit (~> 4.33)
-  - FBSDKCoreKit (4.34.0):
+  - FBSDKCoreKit (4.35.0):
     - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.34.0):
+  - FBSDKLoginKit (4.35.0):
     - FBSDKCoreKit
-  - FBSDKShareKit (4.34.0):
-    - FBSDKCoreKit (~> 4.34.0)
+  - FBSDKShareKit (4.35.0):
+    - FBSDKCoreKit (~> 4.35.0)
+  - PinterestSDK (1.0.2):
+    - AFNetworking (~> 3.0)
+    - SSKeychain
+  - SSKeychain (1.4.1)
   - SwiftyJSON (4.1.0)
   - TwitterCore (3.2.0)
   - TwitterKit (3.4.0):
@@ -37,11 +56,13 @@ DEPENDENCIES:
   - FacebookCore
   - FacebookLogin
   - FacebookShare
+  - PinterestSDK
   - SwiftyJSON
   - TwitterKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - AFNetworking
     - Alamofire
     - AMTumblrHud
     - Bolts
@@ -51,24 +72,29 @@ SPEC REPOS:
     - FBSDKCoreKit
     - FBSDKLoginKit
     - FBSDKShareKit
+    - PinterestSDK
+    - SSKeychain
     - SwiftyJSON
     - TwitterCore
     - TwitterKit
 
 SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   AMTumblrHud: 095daf71c57d4e47d11a8432dba1ed6177a35115
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   FacebookCore: 33078ef1d7d76b73f7e8c990dca7d3ea6db8d22f
   FacebookLogin: 6f15bf4fefd7a8865abbfa8fcd7f3dfd87aa275f
   FacebookShare: c9ee8e5399d961fda00ded9befccacfe04fccf93
-  FBSDKCoreKit: 0ff57f093b85c8c9d5aba697d3edf68a8960ce78
-  FBSDKLoginKit: 8c78f57a145afb756e4755e69195ebe08a42466e
-  FBSDKShareKit: 511d1dfc71204c0a8d69e6c5e3c964dcf0d4f3d9
+  FBSDKCoreKit: 1a5b2e3ceb5ca827a53c54aa5f4a3480efff80d2
+  FBSDKLoginKit: 00a3d65d1226852f9d76dcddff01981e5e6d9c38
+  FBSDKShareKit: 2ddbd7e6432023fff957af62e23a3671b84319f7
+  PinterestSDK: 6c6d92cc749e6520d1b6f1e75410c6fd1d05844c
+  SSKeychain: 55cc80f66f5c73da827e3077f02e43528897db41
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit: bc7bd086b9b724a1d888745a054e1d0b1ecc4f3f
 
-PODFILE CHECKSUM: 28b241a88c77608caeb3745d68c0352a003fe699
+PODFILE CHECKSUM: 78deda254f94aa1f2f86c87bd9a32fb426ed1360
 
 COCOAPODS: 1.5.3
