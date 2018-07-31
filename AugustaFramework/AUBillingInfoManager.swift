@@ -17,7 +17,7 @@ public protocol AUBillingCardScanningDelegate{
 public class AUBillingInfoManager{
     
     var recognizer: PayCardsRecognizer?
-    var delegate: AUBillingCardScanningDelegate?
+    public var delegate: AUBillingCardScanningDelegate?
     
     public init(){
         
