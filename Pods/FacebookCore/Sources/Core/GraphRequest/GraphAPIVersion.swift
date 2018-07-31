@@ -37,7 +37,7 @@ public struct GraphAPIVersion {
     var version = FBSDK_TARGET_PLATFORM_VERSION
     // ObjC SDK has a prefix of `v` on this constant
     if version.hasPrefix("v") {
-      version = String(version.dropFirst())
+      version = String(version.characters.dropFirst())
     }
     return GraphAPIVersion(stringLiteral: version)
   }()

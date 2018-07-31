@@ -14,10 +14,11 @@ public enum AULoginForgotPasswordLocation{
     case insideField
 }
 public protocol AULoginViewDelegate{
-    func forgotPasswordClicked(sender: Any)
-    func loginButtonClicked(sender: Any)
-    func forgotPWDSubmitClicked(sender: Any)
-    func resetPassword(sender: Any)
+    
+    func loginButtonClicked()
+    func forgotPasswordClicked()
+    func forgotPasswordSubmitClicked()
+    func resetPasswordSubmitClicked()
 }
 
 public class AULoginView: UIView {
@@ -33,9 +34,9 @@ public class AULoginView: UIView {
     @IBOutlet weak var forgotPassword3Button: UIButton!
     
     //Fogot Password
-    @IBOutlet weak var forgotPasswordView: UIView!
-    @IBOutlet weak var forgotPWDSubmitButton: UIButton!
-    @IBOutlet weak var forgotPWDUsernameField: UITextField!
+    @IBOutlet public weak var forgotPasswordView: UIView!
+    @IBOutlet public weak var forgotPWDSubmitButton: UIButton!
+    @IBOutlet public weak var forgotPWDUsernameField: UITextField!
     
     // Reset Password
     @IBOutlet public weak var resetView: UIView!
@@ -62,6 +63,14 @@ public class AULoginView: UIView {
         content.frame = self.bounds
         content.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(content)
+        guard let content1 = resetView else { return }
+        content1.frame = self.bounds
+        content1.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(content1)
+        guard let content2 = forgotPasswordView else { return }
+        content2.frame = self.bounds
+        content2.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(content2)
     }
     
     
@@ -77,8 +86,11 @@ public class AULoginView: UIView {
     /// HOW TO USE?  - Check comments section on top of the method implementaion AULoginView
     ///
     /// - Parameter view: view in which this login view has to be added
-    public func addLoginViewInView(view: UIView)
+    public func addLoginViewInView(view: UIView, viewController: UIViewController)
     {
+        //self.loginButton.addTarget(self, action: #selector(self.loginButtonClicked(_:)), for: .touchUpInside) //<- use `#selector(...)`
+
+        //self.loginButton.addTarget(self, action: Selector(loginButtonClicked(self.loginButton)), for: .touchUpInside)
         self.translatesAutoresizingMaskIntoConstraints = false
         let topConstraint = NSLayoutConstraint(item: loginView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0)
         let bottomConstraint = NSLayoutConstraint(item: loginView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
@@ -98,18 +110,11 @@ public class AULoginView: UIView {
      */
     
     @IBAction func loginButtonClicked(_ sender: Any) {
-        self.delegate?.loginButtonClicked(sender: sender)
+        self.delegate?.loginButtonClicked()
     }
     
-    @IBAction func forgotPassword1Clicked(_ sender: Any) {
-        self.delegate?.forgotPasswordClicked(sender: sender)
-    }
-    
-    @IBAction func forgotPassword2Clicked(_ sender: Any) {
-        self.delegate?.forgotPasswordClicked(sender: sender)
-    }
-    @IBAction func forgotPassword3Clicked(_ sender: Any) {
-        self.delegate?.forgotPasswordClicked(sender: sender)
+    @IBAction func forgotPasswordClicked(_ sender: Any) {
+        self.delegate?.forgotPasswordClicked()
     }
     
     
@@ -147,7 +152,11 @@ public class AULoginView: UIView {
 //    auloginView.addForgotPasswordViewInView(view: loginTempView)
     //****************************** How to use? End **********************************//
     
-    public func addForgotPasswordViewInView(view: UIView){
+    public func addForgotPasswordViewInView(view: UIView, viewController: UIViewController){
+        
+        //self.forgotPWDSubmitButton.addTarget(viewController, action: #selector(self.forgotPWDSubmitButtonClicked(_:)), for: .touchUpInside)
+        //self.forgotPWDSubmitButton.addTarget(self, action: Selector(forgotPWDSubmitButtonClicked(self.forgotPWDSubmitButton)), for: .touchUpInside)
+        
         self.translatesAutoresizingMaskIntoConstraints = false
         let topConstraint = NSLayoutConstraint(item: forgotPasswordView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0)
         let bottomConstraint = NSLayoutConstraint(item: forgotPasswordView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
@@ -159,7 +168,7 @@ public class AULoginView: UIView {
     }
     
     @IBAction func forgotPWDSubmitButtonClicked(_ sender: Any) {
-        self.delegate?.forgotPWDSubmitClicked(sender: sender)
+        self.delegate?.forgotPasswordSubmitClicked()
     }
     
     //MARK: Reset password
@@ -169,7 +178,7 @@ public class AULoginView: UIView {
     //    auloginView.addResetPasswordViewInView(view: loginTempView)
     //****************************** How to use? End **********************************//
     
-    public func addResetPasswordViewInView(view: UIView){
+    public func addResetPasswordViewInView(view: UIView, viewController: UIViewController){
         self.translatesAutoresizingMaskIntoConstraints = false
         let topConstraint = NSLayoutConstraint(item: resetView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0)
         let bottomConstraint = NSLayoutConstraint(item: resetView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
@@ -181,8 +190,9 @@ public class AULoginView: UIView {
     }
     
     @IBAction func resetPWDSubmitButtonClicked(_ sender: Any) {
-        self.delegate?.resetPassword(sender: sender)
+        self.delegate?.resetPasswordSubmitClicked()
     }
+    
     
     
     

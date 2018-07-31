@@ -123,10 +123,9 @@ public class AUWebService{
                             debugPrint(userData ?? "")
                             debugPrint(headers ?? "")
                             debugPrint(response.result.value ?? "")
-                            if(!self.checkForSessionExpiryAndPop(result: response.result.value ?? ""))
-                            {
+                            if(!self.checkForSessionExpiryAndPop(result: response.result.value ?? "")) {
                                 if response.result.value != nil{
-                                    successBlock(true, "Success",response.result.value as AnyObject)
+                                    self.getWedData(response: response, successBlock: successBlock, failureBlock: failureBlock)
                                     AUCacheeManager.shared.clearCacheWith(request: request, isForceClear: false)
                                 }
                             }
@@ -139,33 +138,42 @@ public class AUWebService{
                 }
             }else {
                 Alamofire.request(url, method: httpMethod!, parameters: userData, encoding: JSONEncoding.default, headers: headers).responseJSON { (response:DataResponse<Any>) in
-                    switch(response.result) {
-                    case .success(_):
-                        if response.result.value != nil{
-                            debugPrint(url)
-                            debugPrint(type)
-                            debugPrint(userData ?? "")
-                            debugPrint(headers ?? "")
-                            debugPrint(response.result.value ?? "")
-                            if(!self.checkForSessionExpiryAndPop(result: response.result.value ?? ""))
-                            {
-                                if response.result.value != nil{
-                                    successBlock(true, "Success",response.result.value as AnyObject)
-                                    AUCacheeManager.shared.clearCacheWith(request: request, isForceClear: false)
-                                }
-                            }
-                        }
-                        break
-                        
-                    case .failure(let error):
-                        failureBlock(error.localizedDescription as String)
-                        break
+                    debugPrint(url)
+                    debugPrint(type)
+                    debugPrint(userData ?? "")
+                    debugPrint(headers ?? "")
+                    if response.result.value != nil{
+                        self.getWedData(response: response, successBlock: successBlock, failureBlock: failureBlock)
                     }
+                    
                 }
             }
         }
         else{
             failureBlock("Please check your internet connection" as String)
+        }
+    }
+    
+    
+    func getWedData(response:DataResponse<Any>,successBlock: @escaping kModelSuccessBlock,
+                    failureBlock : @escaping kModelErrorBlock) {
+        switch(response.result) {
+        case .success(_):
+            if response.result.value != nil{
+               
+                debugPrint(response.result.value ?? "")
+                if(!self.checkForSessionExpiryAndPop(result: response.result.value ?? ""))
+                {
+                    if response.result.value != nil{
+                        successBlock(true, "Success",response.result.value as AnyObject)
+                    }
+                }
+            }
+            break
+            
+        case .failure(let error):
+            failureBlock(error.localizedDescription as String)
+            break
         }
     }
     

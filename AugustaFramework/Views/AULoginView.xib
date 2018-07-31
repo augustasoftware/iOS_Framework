@@ -57,7 +57,7 @@
                             <rect key="frame" x="24" y="284" width="272" height="30"/>
                             <state key="normal" title="Submit"/>
                             <connections>
-                                <action selector="forgotPWDSubmitButtonClicked:" destination="-1" eventType="touchUpInside" id="Mz8-JO-A5i"/>
+                                <action selector="forgotPWDSubmitButtonClicked:" destination="-1" eventType="touchUpInside" id="odY-Ce-6i3"/>
                             </connections>
                         </button>
                     </subviews>
@@ -74,6 +74,43 @@
                         <constraint firstItem="rBi-ts-5zf" firstAttribute="centerX" secondItem="3oi-xg-cWz" secondAttribute="centerX" id="kWg-Um-GWD"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fMT-bS-qht">
+                    <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="feN-Mu-nXk">
+                            <rect key="frame" x="24.5" y="204" width="272" height="30"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="confirm password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TBj-SL-Dk3">
+                            <rect key="frame" x="24.5" y="259" width="272" height="30"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2f-Kv-YiO">
+                            <rect key="frame" x="24.5" y="314" width="272" height="30"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Submit"/>
+                            <connections>
+                                <action selector="resetPWDSubmitButtonClicked:" destination="-1" eventType="touchUpInside" id="cFU-hQ-EOp"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="TBj-SL-Dk3" firstAttribute="width" secondItem="fMT-bS-qht" secondAttribute="width" multiplier="0.85" id="5f5-hK-5BY"/>
+                        <constraint firstItem="TBj-SL-Dk3" firstAttribute="width" secondItem="x2f-Kv-YiO" secondAttribute="width" id="GSs-e4-Mex"/>
+                        <constraint firstItem="x2f-Kv-YiO" firstAttribute="leading" secondItem="TBj-SL-Dk3" secondAttribute="leading" id="HYT-54-bQc"/>
+                        <constraint firstItem="TBj-SL-Dk3" firstAttribute="centerY" secondItem="fMT-bS-qht" secondAttribute="centerY" id="Rwn-c9-b0h"/>
+                        <constraint firstItem="TBj-SL-Dk3" firstAttribute="top" secondItem="feN-Mu-nXk" secondAttribute="bottom" constant="25" id="VF0-Zw-2Z5"/>
+                        <constraint firstItem="feN-Mu-nXk" firstAttribute="width" secondItem="TBj-SL-Dk3" secondAttribute="width" id="YQo-Mp-1QU"/>
+                        <constraint firstItem="x2f-Kv-YiO" firstAttribute="top" secondItem="TBj-SL-Dk3" secondAttribute="bottom" constant="25" id="geU-zQ-IaR"/>
+                        <constraint firstItem="feN-Mu-nXk" firstAttribute="leading" secondItem="TBj-SL-Dk3" secondAttribute="leading" id="nXo-1H-wGa"/>
+                        <constraint firstItem="TBj-SL-Dk3" firstAttribute="centerX" secondItem="fMT-bS-qht" secondAttribute="centerX" id="ofz-Oq-yRR"/>
+                    </constraints>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="StV-lj-Rdt">
                     <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                     <subviews>
@@ -87,14 +124,14 @@
                             <rect key="frame" x="24.5" y="259" width="272" height="30"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fIa-7A-7QF">
                             <rect key="frame" x="24.5" y="314" width="272" height="30"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Login"/>
                             <connections>
-                                <action selector="loginButtonClicked:" destination="-1" eventType="touchUpInside" id="ohl-4R-mfx"/>
+                                <action selector="loginButtonClicked:" destination="-1" eventType="touchUpInside" id="Q8C-yc-zuP"/>
                             </connections>
                         </button>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="18F-Mw-nbd">
@@ -102,7 +139,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <state key="normal" title="forgot password?"/>
                             <connections>
-                                <action selector="forgotPassword3Clicked:" destination="-1" eventType="touchUpInside" id="9Vi-aR-9Er"/>
+                                <action selector="forgotPasswordClicked:" destination="-1" eventType="touchUpInside" id="fBb-3A-Hzp"/>
                             </connections>
                         </button>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YXg-az-a6J">
@@ -110,7 +147,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <state key="normal" title="forgot password?"/>
                             <connections>
-                                <action selector="forgotPassword2Clicked:" destination="-1" eventType="touchUpInside" id="WCY-gf-qWA"/>
+                                <action selector="forgotPasswordClicked:" destination="-1" eventType="touchUpInside" id="vnY-9i-nnK"/>
                             </connections>
                         </button>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gqc-Ie-LMV">
@@ -118,7 +155,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <state key="normal" title="forgot password?"/>
                             <connections>
-                                <action selector="forgotPassword1Clicked:" destination="-1" eventType="touchUpInside" id="hAq-gN-gYj"/>
+                                <action selector="forgotPasswordClicked:" destination="-1" eventType="touchUpInside" id="cMl-tA-Bx6"/>
                             </connections>
                         </button>
                     </subviews>
@@ -140,45 +177,6 @@
                         <constraint firstItem="bdd-m5-JZ1" firstAttribute="centerX" secondItem="StV-lj-Rdt" secondAttribute="centerX" id="db7-xb-1VR"/>
                         <constraint firstItem="bdd-m5-JZ1" firstAttribute="width" secondItem="fIa-7A-7QF" secondAttribute="width" id="e8c-Cf-Bjx"/>
                     </constraints>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fMT-bS-qht">
-                    <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                    <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="feN-Mu-nXk">
-                            <rect key="frame" x="24.5" y="204" width="272" height="30"/>
-                            <nil key="textColor"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="confirm password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TBj-SL-Dk3">
-                            <rect key="frame" x="24.5" y="259" width="272" height="30"/>
-                            <nil key="textColor"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2f-Kv-YiO">
-                            <rect key="frame" x="24.5" y="314" width="272" height="30"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <state key="normal" title="Submit"/>
-                            <connections>
-                                <action selector="loginButtonClicked:" destination="-1" eventType="touchUpInside" id="HHt-8A-zvG"/>
-                                <action selector="resetPWDSubmitButtonClicked:" destination="-1" eventType="touchUpInside" id="UMd-wP-5Dg"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstItem="TBj-SL-Dk3" firstAttribute="width" secondItem="fMT-bS-qht" secondAttribute="width" multiplier="0.85" id="5f5-hK-5BY"/>
-                        <constraint firstItem="TBj-SL-Dk3" firstAttribute="width" secondItem="x2f-Kv-YiO" secondAttribute="width" id="GSs-e4-Mex"/>
-                        <constraint firstItem="x2f-Kv-YiO" firstAttribute="leading" secondItem="TBj-SL-Dk3" secondAttribute="leading" id="HYT-54-bQc"/>
-                        <constraint firstItem="TBj-SL-Dk3" firstAttribute="centerY" secondItem="fMT-bS-qht" secondAttribute="centerY" id="Rwn-c9-b0h"/>
-                        <constraint firstItem="TBj-SL-Dk3" firstAttribute="top" secondItem="feN-Mu-nXk" secondAttribute="bottom" constant="25" id="VF0-Zw-2Z5"/>
-                        <constraint firstItem="feN-Mu-nXk" firstAttribute="width" secondItem="TBj-SL-Dk3" secondAttribute="width" id="YQo-Mp-1QU"/>
-                        <constraint firstItem="x2f-Kv-YiO" firstAttribute="top" secondItem="TBj-SL-Dk3" secondAttribute="bottom" constant="25" id="geU-zQ-IaR"/>
-                        <constraint firstItem="feN-Mu-nXk" firstAttribute="leading" secondItem="TBj-SL-Dk3" secondAttribute="leading" id="nXo-1H-wGa"/>
-                        <constraint firstItem="TBj-SL-Dk3" firstAttribute="centerX" secondItem="fMT-bS-qht" secondAttribute="centerX" id="ofz-Oq-yRR"/>
-                    </constraints>
-                    <viewLayoutGuide key="safeArea" id="q99-9B-o91"/>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

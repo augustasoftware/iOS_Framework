@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		56227F5B21088E9E00259F20 /* AUCacheeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56227F5A21088E9E00259F20 /* AUCacheeManager.swift */; };
 		56E24C8D20FF1B1400FA1A80 /* AULoginValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E24C8C20FF1B1400FA1A80 /* AULoginValidation.swift */; };
+		56F63F6B210F240600915D0B /* AUVersionUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F63F6A210F240600915D0B /* AUVersionUpdate.swift */; };
 		974634892107098400B6BCB0 /* AUSocialLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974634882107098400B6BCB0 /* AUSocialLoginController.swift */; };
 		9748B0272100A984006B9A63 /* AUSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9748B0262100A984006B9A63 /* AUSessionManager.swift */; };
 		974C1D47210990DE008A44E8 /* AULoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C1D46210990DE008A44E8 /* AULoginView.swift */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		56227F5A21088E9E00259F20 /* AUCacheeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUCacheeManager.swift; sourceTree = "<group>"; };
 		56E24C8C20FF1B1400FA1A80 /* AULoginValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AULoginValidation.swift; sourceTree = "<group>"; };
+		56F63F6A210F240600915D0B /* AUVersionUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUVersionUpdate.swift; sourceTree = "<group>"; };
 		5931B6B4FA57C95220EAB06C /* Pods-AugustaFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AugustaFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-AugustaFramework/Pods-AugustaFramework.release.xcconfig"; sourceTree = "<group>"; };
 		84528AD9385F658462187CDB /* Pods_AugustaFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AugustaFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		974634882107098400B6BCB0 /* AUSocialLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUSocialLoginController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				9759719C2101AAC000FE62C7 /* AUActivityIndicator.swift */,
 				97F6C62720FF591600541E29 /* AUAlertController.swift */,
 				974634882107098400B6BCB0 /* AUSocialLoginController.swift */,
+				56F63F6A210F240600915D0B /* AUVersionUpdate.swift */,
 				97F6C62520FF4CA500541E29 /* Reachability.swift */,
 				97D6554720FF09DE0085DF71 /* Info.plist */,
 			);
@@ -140,7 +143,7 @@
 				97D6553F20FF09DE0085DF71 /* Frameworks */,
 				97D6554020FF09DE0085DF71 /* Headers */,
 				97D6554120FF09DE0085DF71 /* Resources */,
-				7595CE323135A18B8B9C35E4 /* [CP] Copy Pods Resources */,
+				6A629AFAA1D88B898E741B1B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -195,7 +198,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7595CE323135A18B8B9C35E4 /* [CP] Copy Pods Resources */ = {
+		6A629AFAA1D88B898E741B1B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -203,10 +206,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-AugustaFramework/Pods-AugustaFramework-resources.sh",
 				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterShareExtensionUIResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterKitResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterShareExtensionUIResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -246,6 +251,7 @@
 				97D6555020FF09EB0085DF71 /* AULogger.swift in Sources */,
 				9748B0272100A984006B9A63 /* AUSessionManager.swift in Sources */,
 				9759719D2101AAC000FE62C7 /* AUActivityIndicator.swift in Sources */,
+				56F63F6B210F240600915D0B /* AUVersionUpdate.swift in Sources */,
 				974634892107098400B6BCB0 /* AUSocialLoginController.swift in Sources */,
 				97F6C62820FF591600541E29 /* AUAlertController.swift in Sources */,
 			);
