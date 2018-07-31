@@ -16,4 +16,5 @@ pod 'FacebookLogin'
 pod 'FacebookShare'
 pod 'TwitterKit'
 pod 'PinterestSDK'
+pod 'PayCardsRecognizer'
 end

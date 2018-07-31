@@ -35,16 +35,17 @@ PODS:
     - FacebookCore (~> 0.3.1)
     - FBSDKCoreKit (~> 4.33)
     - FBSDKShareKit (~> 4.33)
-  - FBSDKCoreKit (4.35.0):
+  - FBSDKCoreKit (4.34.0):
     - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.35.0):
+  - FBSDKLoginKit (4.34.0):
     - FBSDKCoreKit
-  - FBSDKShareKit (4.35.0):
-    - FBSDKCoreKit (~> 4.35.0)
+  - FBSDKShareKit (4.34.0):
+    - FBSDKCoreKit (~> 4.34.0)
+  - PayCardsRecognizer (1.1.4)
   - PinterestSDK (1.0.2):
     - AFNetworking (~> 3.0)
     - SSKeychain
-  - Siren (3.4.3)
+  - Siren (3.4.2)
   - SSKeychain (1.4.1)
   - SwiftyJSON (4.1.0)
   - TwitterCore (3.2.0)
@@ -57,6 +58,7 @@ DEPENDENCIES:
   - FacebookCore
   - FacebookLogin
   - FacebookShare
+  - PayCardsRecognizer
   - PinterestSDK
   - Siren
   - SwiftyJSON
@@ -74,6 +76,7 @@ SPEC REPOS:
     - FBSDKCoreKit
     - FBSDKLoginKit
     - FBSDKShareKit
+    - PayCardsRecognizer
     - PinterestSDK
     - Siren
     - SSKeychain
@@ -89,16 +92,17 @@ SPEC CHECKSUMS:
   FacebookCore: 33078ef1d7d76b73f7e8c990dca7d3ea6db8d22f
   FacebookLogin: 6f15bf4fefd7a8865abbfa8fcd7f3dfd87aa275f
   FacebookShare: c9ee8e5399d961fda00ded9befccacfe04fccf93
-  FBSDKCoreKit: 1a5b2e3ceb5ca827a53c54aa5f4a3480efff80d2
-  FBSDKLoginKit: 00a3d65d1226852f9d76dcddff01981e5e6d9c38
-  FBSDKShareKit: 2ddbd7e6432023fff957af62e23a3671b84319f7
+  FBSDKCoreKit: 0ff57f093b85c8c9d5aba697d3edf68a8960ce78
+  FBSDKLoginKit: 8c78f57a145afb756e4755e69195ebe08a42466e
+  FBSDKShareKit: 511d1dfc71204c0a8d69e6c5e3c964dcf0d4f3d9
+  PayCardsRecognizer: b939eec21c6890d57c9f22cb8856517922b097a2
   PinterestSDK: 6c6d92cc749e6520d1b6f1e75410c6fd1d05844c
-  Siren: e3cf1a93fa0fa73c03452107e95e5c10768d1d08
+  Siren: 350a34ec905becbb5a7f869b26422d437cfc0243
   SSKeychain: 55cc80f66f5c73da827e3077f02e43528897db41
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit: bc7bd086b9b724a1d888745a054e1d0b1ecc4f3f
 
-PODFILE CHECKSUM: 82bfe1c2992bc72512e994cc72739d98a43c4e15
+PODFILE CHECKSUM: 84c3c33a4b70ea07b4397bf867054760a1e96294
 
 COCOAPODS: 1.5.3
