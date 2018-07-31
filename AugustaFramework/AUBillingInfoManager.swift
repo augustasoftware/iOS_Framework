@@ -11,7 +11,22 @@ import UIKit
 import PayCardsRecognizer
 
 public protocol AUBillingCardScanningDelegate{
-    func cameraDidScanCard(with Result: PayCardsRecognizerResult)
+    func cameraDidScanCard(with Result: AUCardScanData)
+}
+
+public class AUCardScanData{
+    
+    public init(cardNo: String, cardName: String, cardExpiryMonth: String, cardExpiryYear: String){
+        self.cardExpiryMonth = cardExpiryMonth
+        self.cardName = cardName
+        self.cardExpiryYear = cardExpiryYear
+        self.cardNo = cardNo
+    }
+    
+    public var cardNo: String?
+    public var cardName: String?
+    public var cardExpiryMonth: String?
+    public var cardExpiryYear: String?
 }
 
 public class AUBillingInfoManager{
@@ -42,7 +57,7 @@ extension AUBillingInfoManager: PayCardsRecognizerPlatformDelegate{
     
     public func payCardsRecognizer(_ payCardsRecognizer: PayCardsRecognizer, didRecognize result: PayCardsRecognizerResult) {
         recognizer?.stopCamera()
-        self.delegate?.cameraDidScanCard(with: result)
+        self.delegate?.cameraDidScanCard(with: AUCardScanData.init(cardNo: result.recognizedNumber ?? "", cardName: result.recognizedHolderName ?? "", cardExpiryMonth: result.recognizedExpireDateMonth ?? "", cardExpiryYear: result.recognizedExpireDateYear ?? ""))
 //        cardNoTextField.text = result.recognizedNumber // Card number
 //        cardNameTextField.text = result.recognizedHolderName // Card holder
 //        cardMonthTextField.text = result.recognizedExpireDateMonth // Expire month
