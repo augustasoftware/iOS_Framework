@@ -13,13 +13,13 @@ import SwiftyJSON
 import TwitterKit
 import PinterestSDK
 
-var socialEmail = String()
-var socialUserName = String()
-var socialfirstName = String()
-var sociallastName = String()
-var socialAccesstoken = String()
-var socialProfileUrl = String()
-var selectedSocialLoginType = String()
+public var socialEmail = String()
+public var socialUserName = String()
+public var socialfirstName = String()
+public var sociallastName = String()
+public var socialAccesstoken = String()
+public var socialProfileUrl = String()
+public var selectedSocialLoginType = String()
 public var socialID = String()
 
 public enum socialLoginType : Int{
