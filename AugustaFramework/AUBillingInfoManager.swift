@@ -18,6 +18,11 @@ public class AUBillingInfoManager{
     
     var recognizer: PayCardsRecognizer?
     var delegate: AUBillingCardScanningDelegate?
+    
+    public init(){
+        
+    }
+    
     public func startScan(from view: UIView, borderColor: UIColor, mode: PayCardsRecognizerDataMode = .number, resultMode: PayCardsRecognizerResultMode = .sync){
         recognizer = PayCardsRecognizer(delegate: self, recognizerMode: .number, resultMode: .sync, container: view, frameColor: borderColor)
         recognizer?.startCamera()
