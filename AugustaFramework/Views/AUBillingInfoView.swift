@@ -78,6 +78,18 @@ class AUBillingInfoView: UIView {
         }
     }
     
+    public func addCardDetailsInView(view: UIView, viewController: UIViewController)
+    {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        let topConstraint = NSLayoutConstraint(item: cardDetailsView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0)
+        let bottomConstraint = NSLayoutConstraint(item: cardDetailsView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
+        let leadingConstraint = NSLayoutConstraint(item: cardDetailsView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0)
+        let trailingConstraint = NSLayoutConstraint(item: cardDetailsView, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0)
+        view.addSubview(cardDetailsView)
+        view.addConstraints([topConstraint, bottomConstraint, leadingConstraint, trailingConstraint])
+        view.layoutIfNeeded()
+    }
+    
     public func isValidCardDetailsEntered()-> Bool{
         if(self.textFieldValidationHandling)!{
             return true
