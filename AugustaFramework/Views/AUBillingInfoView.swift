@@ -19,7 +19,7 @@ public enum AUBillingInfoPaymentType {
     case unknown
 }
 
-class AUBillingInfoView: UIView {
+public class AUBillingInfoView: UIView {
     
     @IBOutlet weak var cardNoTextField: UITextField!
     @IBOutlet weak var cardExpiryTextField: UITextField!
