@@ -100,12 +100,11 @@ public class AUBillingInfoView: UIView {
 
 extension AUBillingInfoView: UITextFieldDelegate{
     //MARK: UITextField Delegates
-    //MARK: UItextField Delegates
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+    public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         return true
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         let stringVal = NSString(string: textField.text!)
         let newText = stringVal.replacingCharacters(in: range, with: string)
