@@ -47,6 +47,7 @@ PODS:
     - SSKeychain
   - Siren (3.4.2)
   - SSKeychain (1.4.1)
+  - Stripe (13.1.0)
   - SwiftyJSON (4.1.0)
   - TwitterCore (3.2.0)
   - TwitterKit (3.4.0):
@@ -61,6 +62,7 @@ DEPENDENCIES:
   - PayCardsRecognizer
   - PinterestSDK
   - Siren
+  - Stripe
   - SwiftyJSON
   - TwitterKit
 
@@ -80,6 +82,7 @@ SPEC REPOS:
     - PinterestSDK
     - Siren
     - SSKeychain
+    - Stripe
     - SwiftyJSON
     - TwitterCore
     - TwitterKit
@@ -99,10 +102,11 @@ SPEC CHECKSUMS:
   PinterestSDK: 6c6d92cc749e6520d1b6f1e75410c6fd1d05844c
   Siren: 350a34ec905becbb5a7f869b26422d437cfc0243
   SSKeychain: 55cc80f66f5c73da827e3077f02e43528897db41
+  Stripe: 4f043bb840721b1f30492fa77790bbf9e3508ab0
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit: bc7bd086b9b724a1d888745a054e1d0b1ecc4f3f
 
-PODFILE CHECKSUM: 84c3c33a4b70ea07b4397bf867054760a1e96294
+PODFILE CHECKSUM: 281d2d8798ddc3b310424f665eeb8d3c6547311d
 
 COCOAPODS: 1.5.3

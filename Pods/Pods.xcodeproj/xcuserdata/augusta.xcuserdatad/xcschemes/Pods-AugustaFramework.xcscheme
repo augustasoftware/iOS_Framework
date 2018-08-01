@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D92E07ED21577257704588009459470A"
+               BlueprintIdentifier = "30C28401E3AC79A8376344A26A9DB4C8"
                BuildableName = "Pods_AugustaFramework.framework"
                BlueprintName = "Pods-AugustaFramework"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D92E07ED21577257704588009459470A"
+            BlueprintIdentifier = "30C28401E3AC79A8376344A26A9DB4C8"
             BuildableName = "Pods_AugustaFramework.framework"
             BlueprintName = "Pods-AugustaFramework"
             ReferencedContainer = "container:Pods.xcodeproj">

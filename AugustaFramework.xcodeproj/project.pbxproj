@@ -10,6 +10,9 @@
 		56227F5B21088E9E00259F20 /* AUCacheeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56227F5A21088E9E00259F20 /* AUCacheeManager.swift */; };
 		56E24C8D20FF1B1400FA1A80 /* AULoginValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E24C8C20FF1B1400FA1A80 /* AULoginValidation.swift */; };
 		56F63F6B210F240600915D0B /* AUVersionUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F63F6A210F240600915D0B /* AUVersionUpdate.swift */; };
+		9739E7CC2111970C004C58D0 /* AUBillingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9739E7CB2111970C004C58D0 /* AUBillingInfoView.swift */; };
+		9739E7CE21119730004C58D0 /* AUBillingInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9739E7CD21119730004C58D0 /* AUBillingInfoView.xib */; };
+		9739E7D02111BFC7004C58D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9739E7CF2111BFC7004C58D0 /* Assets.xcassets */; };
 		974214A021107D63000A2937 /* AUBillingInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9742149F21107D63000A2937 /* AUBillingInfoManager.swift */; };
 		974634892107098400B6BCB0 /* AUSocialLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974634882107098400B6BCB0 /* AUSocialLoginController.swift */; };
 		9748B0272100A984006B9A63 /* AUSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9748B0262100A984006B9A63 /* AUSessionManager.swift */; };
@@ -30,6 +33,9 @@
 		56F63F6A210F240600915D0B /* AUVersionUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUVersionUpdate.swift; sourceTree = "<group>"; };
 		5931B6B4FA57C95220EAB06C /* Pods-AugustaFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AugustaFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-AugustaFramework/Pods-AugustaFramework.release.xcconfig"; sourceTree = "<group>"; };
 		84528AD9385F658462187CDB /* Pods_AugustaFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AugustaFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9739E7CB2111970C004C58D0 /* AUBillingInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUBillingInfoView.swift; sourceTree = "<group>"; };
+		9739E7CD21119730004C58D0 /* AUBillingInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AUBillingInfoView.xib; sourceTree = "<group>"; };
+		9739E7CF2111BFC7004C58D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9742149F21107D63000A2937 /* AUBillingInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUBillingInfoManager.swift; sourceTree = "<group>"; };
 		974634882107098400B6BCB0 /* AUSocialLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUSocialLoginController.swift; sourceTree = "<group>"; };
 		9748B0262100A984006B9A63 /* AUSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUSessionManager.swift; sourceTree = "<group>"; };
@@ -71,6 +77,8 @@
 			children = (
 				974C1D46210990DE008A44E8 /* AULoginView.swift */,
 				974C1D48210990EC008A44E8 /* AULoginView.xib */,
+				9739E7CB2111970C004C58D0 /* AUBillingInfoView.swift */,
+				9739E7CD21119730004C58D0 /* AUBillingInfoView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -110,6 +118,7 @@
 				97F6C62520FF4CA500541E29 /* Reachability.swift */,
 				97D6554720FF09DE0085DF71 /* Info.plist */,
 				9742149F21107D63000A2937 /* AUBillingInfoManager.swift */,
+				9739E7CF2111BFC7004C58D0 /* Assets.xcassets */,
 			);
 			path = AugustaFramework;
 			sourceTree = "<group>";
@@ -194,6 +203,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9739E7CE21119730004C58D0 /* AUBillingInfoView.xib in Resources */,
+				9739E7D02111BFC7004C58D0 /* Assets.xcassets in Resources */,
 				974C1D49210990EC008A44E8 /* AULoginView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -255,6 +266,7 @@
 				9759719D2101AAC000FE62C7 /* AUActivityIndicator.swift in Sources */,
 				56F63F6B210F240600915D0B /* AUVersionUpdate.swift in Sources */,
 				974634892107098400B6BCB0 /* AUSocialLoginController.swift in Sources */,
+				9739E7CC2111970C004C58D0 /* AUBillingInfoView.swift in Sources */,
 				97F6C62820FF591600541E29 /* AUAlertController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
