@@ -40,12 +40,12 @@ public class AUBillingInfoView: UIView {
     @IBOutlet weak var expiryDatePicker: AUMonthYearPickerView!
     
     /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
+     // Only override draw() if you perform custom drawing.
+     // An empty implementation adversely affects performance during animation.
+     override func draw(_ rect: CGRect) {
+     // Drawing code
+     }
+     */
     
     public override init(frame: CGRect) { // for using CustomView in code
         super.init(frame: frame)
@@ -73,6 +73,7 @@ public class AUBillingInfoView: UIView {
     
     func loadInitialSetup(){
         cardExpiryTextField.inputView = pickerBaseView
+        changeCardImage(card: .unknown)
         // picker setup
         
         let toolbar = UIToolbar()
@@ -99,13 +100,13 @@ public class AUBillingInfoView: UIView {
     
     @objc func donePicker(){
         cardExpiryTextField.text = self.selectedExpiryDate
-        self.endEditing(true)
+        cardExpiryTextField.resignFirstResponder()
     }
     
     @objc func cancelPicker(){
-        self.endEditing(true)
+        cardExpiryTextField.resignFirstResponder()
     }
-
+    
     public func initializeSetUp(paymentMethod: AUBillingInfoPaymentType, textFieldValidationHandling: Bool = false){
         self.textFieldValidationHandling = textFieldValidationHandling
         switch paymentMethod {
@@ -175,7 +176,7 @@ extension AUBillingInfoView: UITextFieldDelegate{
         
         
         if (textField == cardSecurityCode){
-          
+            
             if(self.cardBrand == STPCardBrand.amex)
             {
                 return newText.count <= MAX_CARD_CVV_NO
@@ -192,7 +193,7 @@ extension AUBillingInfoView: UITextFieldDelegate{
         }
         
         if(textField == cardNoTextField){
-           
+            
             var result = (textField.text! as NSString).replacingCharacters(in: range, with: string)
             result = STPCardValidator.sanitizedNumericString(for: result)
             
@@ -261,3 +262,4 @@ extension AUBillingInfoView: UITextFieldDelegate{
         }
     }
 }
+
