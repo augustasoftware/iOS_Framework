@@ -13,7 +13,29 @@
 		9739E7CC2111970C004C58D0 /* AUBillingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9739E7CB2111970C004C58D0 /* AUBillingInfoView.swift */; };
 		9739E7CE21119730004C58D0 /* AUBillingInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9739E7CD21119730004C58D0 /* AUBillingInfoView.xib */; };
 		9739E7D02111BFC7004C58D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9739E7CF2111BFC7004C58D0 /* Assets.xcassets */; };
-		973D22DA2112DC430095DD41 /* AugustaFramework.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 973D22D92112DC420095DD41 /* AugustaFramework.bundle */; };
+		973D22F32112EACC0095DD41 /* card@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 973D22DC2112EACB0095DD41 /* card@2x.png */; };
+		973D22F42112EACC0095DD41 /* card@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 973D22DD2112EACB0095DD41 /* card@3x.png */; };
+		973D22F52112EACC0095DD41 /* card_amex.png in Resources */ = {isa = PBXBuildFile; fileRef = 973D22DE2112EACB0095DD41 /* card_amex.png */; };
+		973D22F62112EACC0095DD41 /* card_amex@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 973D22DF2112EACB0095DD41 /* card_amex@2x.png */; };
+		973D22F72112EACC0095DD41 /* card_amex@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 973D22E02112EACB0095DD41 /* card_amex@3x.png */; };
+		973D22F82112EACC0095DD41 /* card_diners.png in Resources */ = {isa = PBXBuildFile; fileRef = 973D22E12112EACB0095DD41 /* card_diners.png */; };
+		973D22F92112EACC0095DD41 /* card_diners@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 973D22E22112EACB0095DD41 /* card_diners@2x.png */; };
+		973D22FA2112EACC0095DD41 /* card_diners@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 973D22E32112EACB0095DD41 /* card_diners@3x.png */; };
+		973D22FB2112EACC0095DD41 /* card_discover.png in Resources */ = {isa = PBXBuildFile; fileRef = 973D22E42112EACB0095DD41 /* card_discover.png */; };
+		973D22FC2112EACC0095DD41 /* card_discover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 973D22E52112EACB0095DD41 /* card_discover@2x.png */; };
+		973D22FD2112EACC0095DD41 /* card_discover@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 973D22E62112EACB0095DD41 /* card_discover@3x.png */; };
+		973D22FE2112EACC0095DD41 /* card_jcb.png in Resources */ = {isa = PBXBuildFile; fileRef = 973D22E72112EACB0095DD41 /* card_jcb.png */; };
+		973D22FF2112EACC0095DD41 /* card_jcb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 973D22E82112EACB0095DD41 /* card_jcb@2x.png */; };
+		973D23002112EACC0095DD41 /* card_jcb@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 973D22E92112EACB0095DD41 /* card_jcb@3x.png */; };
+		973D23012112EACC0095DD41 /* card_mastercard.png in Resources */ = {isa = PBXBuildFile; fileRef = 973D22EA2112EACB0095DD41 /* card_mastercard.png */; };
+		973D23022112EACC0095DD41 /* card_mastercard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 973D22EB2112EACB0095DD41 /* card_mastercard@2x.png */; };
+		973D23032112EACC0095DD41 /* card_mastercard@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 973D22EC2112EACB0095DD41 /* card_mastercard@3x.png */; };
+		973D23042112EACC0095DD41 /* card_unionpay.png in Resources */ = {isa = PBXBuildFile; fileRef = 973D22ED2112EACB0095DD41 /* card_unionpay.png */; };
+		973D23052112EACC0095DD41 /* card_unionpay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 973D22EE2112EACB0095DD41 /* card_unionpay@2x.png */; };
+		973D23062112EACC0095DD41 /* card_unionpay@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 973D22EF2112EACB0095DD41 /* card_unionpay@3x.png */; };
+		973D23072112EACC0095DD41 /* card_visa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 973D22F02112EACB0095DD41 /* card_visa@2x.png */; };
+		973D23082112EACC0095DD41 /* card_visa@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 973D22F12112EACB0095DD41 /* card_visa@3x.png */; };
+		973D23092112EACC0095DD41 /* card_visa@4x.png in Resources */ = {isa = PBXBuildFile; fileRef = 973D22F22112EACB0095DD41 /* card_visa@4x.png */; };
 		974214A021107D63000A2937 /* AUBillingInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9742149F21107D63000A2937 /* AUBillingInfoManager.swift */; };
 		974634892107098400B6BCB0 /* AUSocialLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974634882107098400B6BCB0 /* AUSocialLoginController.swift */; };
 		9748B0272100A984006B9A63 /* AUSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9748B0262100A984006B9A63 /* AUSessionManager.swift */; };
@@ -37,7 +59,29 @@
 		9739E7CB2111970C004C58D0 /* AUBillingInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUBillingInfoView.swift; sourceTree = "<group>"; };
 		9739E7CD21119730004C58D0 /* AUBillingInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AUBillingInfoView.xib; sourceTree = "<group>"; };
 		9739E7CF2111BFC7004C58D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		973D22D92112DC420095DD41 /* AugustaFramework.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AugustaFramework.bundle; sourceTree = "<group>"; };
+		973D22DC2112EACB0095DD41 /* card@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card@2x.png"; sourceTree = "<group>"; };
+		973D22DD2112EACB0095DD41 /* card@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card@3x.png"; sourceTree = "<group>"; };
+		973D22DE2112EACB0095DD41 /* card_amex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card_amex.png; sourceTree = "<group>"; };
+		973D22DF2112EACB0095DD41 /* card_amex@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card_amex@2x.png"; sourceTree = "<group>"; };
+		973D22E02112EACB0095DD41 /* card_amex@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card_amex@3x.png"; sourceTree = "<group>"; };
+		973D22E12112EACB0095DD41 /* card_diners.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card_diners.png; sourceTree = "<group>"; };
+		973D22E22112EACB0095DD41 /* card_diners@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card_diners@2x.png"; sourceTree = "<group>"; };
+		973D22E32112EACB0095DD41 /* card_diners@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card_diners@3x.png"; sourceTree = "<group>"; };
+		973D22E42112EACB0095DD41 /* card_discover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card_discover.png; sourceTree = "<group>"; };
+		973D22E52112EACB0095DD41 /* card_discover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card_discover@2x.png"; sourceTree = "<group>"; };
+		973D22E62112EACB0095DD41 /* card_discover@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card_discover@3x.png"; sourceTree = "<group>"; };
+		973D22E72112EACB0095DD41 /* card_jcb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card_jcb.png; sourceTree = "<group>"; };
+		973D22E82112EACB0095DD41 /* card_jcb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card_jcb@2x.png"; sourceTree = "<group>"; };
+		973D22E92112EACB0095DD41 /* card_jcb@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card_jcb@3x.png"; sourceTree = "<group>"; };
+		973D22EA2112EACB0095DD41 /* card_mastercard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card_mastercard.png; sourceTree = "<group>"; };
+		973D22EB2112EACB0095DD41 /* card_mastercard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card_mastercard@2x.png"; sourceTree = "<group>"; };
+		973D22EC2112EACB0095DD41 /* card_mastercard@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card_mastercard@3x.png"; sourceTree = "<group>"; };
+		973D22ED2112EACB0095DD41 /* card_unionpay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card_unionpay.png; sourceTree = "<group>"; };
+		973D22EE2112EACB0095DD41 /* card_unionpay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card_unionpay@2x.png"; sourceTree = "<group>"; };
+		973D22EF2112EACB0095DD41 /* card_unionpay@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card_unionpay@3x.png"; sourceTree = "<group>"; };
+		973D22F02112EACB0095DD41 /* card_visa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card_visa@2x.png"; sourceTree = "<group>"; };
+		973D22F12112EACB0095DD41 /* card_visa@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card_visa@3x.png"; sourceTree = "<group>"; };
+		973D22F22112EACB0095DD41 /* card_visa@4x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card_visa@4x.png"; sourceTree = "<group>"; };
 		9742149F21107D63000A2937 /* AUBillingInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUBillingInfoManager.swift; sourceTree = "<group>"; };
 		974634882107098400B6BCB0 /* AUSocialLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUSocialLoginController.swift; sourceTree = "<group>"; };
 		9748B0262100A984006B9A63 /* AUSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUSessionManager.swift; sourceTree = "<group>"; };
@@ -72,6 +116,36 @@
 				84528AD9385F658462187CDB /* Pods_AugustaFramework.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		973D22DB2112EACB0095DD41 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				973D22DC2112EACB0095DD41 /* card@2x.png */,
+				973D22DD2112EACB0095DD41 /* card@3x.png */,
+				973D22DE2112EACB0095DD41 /* card_amex.png */,
+				973D22DF2112EACB0095DD41 /* card_amex@2x.png */,
+				973D22E02112EACB0095DD41 /* card_amex@3x.png */,
+				973D22E12112EACB0095DD41 /* card_diners.png */,
+				973D22E22112EACB0095DD41 /* card_diners@2x.png */,
+				973D22E32112EACB0095DD41 /* card_diners@3x.png */,
+				973D22E42112EACB0095DD41 /* card_discover.png */,
+				973D22E52112EACB0095DD41 /* card_discover@2x.png */,
+				973D22E62112EACB0095DD41 /* card_discover@3x.png */,
+				973D22E72112EACB0095DD41 /* card_jcb.png */,
+				973D22E82112EACB0095DD41 /* card_jcb@2x.png */,
+				973D22E92112EACB0095DD41 /* card_jcb@3x.png */,
+				973D22EA2112EACB0095DD41 /* card_mastercard.png */,
+				973D22EB2112EACB0095DD41 /* card_mastercard@2x.png */,
+				973D22EC2112EACB0095DD41 /* card_mastercard@3x.png */,
+				973D22ED2112EACB0095DD41 /* card_unionpay.png */,
+				973D22EE2112EACB0095DD41 /* card_unionpay@2x.png */,
+				973D22EF2112EACB0095DD41 /* card_unionpay@3x.png */,
+				973D22F02112EACB0095DD41 /* card_visa@2x.png */,
+				973D22F12112EACB0095DD41 /* card_visa@3x.png */,
+				973D22F22112EACB0095DD41 /* card_visa@4x.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		974968A62108477800CCC1BA /* Views */ = {
@@ -121,7 +195,7 @@
 				97D6554720FF09DE0085DF71 /* Info.plist */,
 				9742149F21107D63000A2937 /* AUBillingInfoManager.swift */,
 				9739E7CF2111BFC7004C58D0 /* Assets.xcassets */,
-				973D22D92112DC420095DD41 /* AugustaFramework.bundle */,
+				973D22DB2112EACB0095DD41 /* Resources */,
 			);
 			path = AugustaFramework;
 			sourceTree = "<group>";
@@ -206,10 +280,32 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				973D22F52112EACC0095DD41 /* card_amex.png in Resources */,
+				973D22F92112EACC0095DD41 /* card_diners@2x.png in Resources */,
+				973D23052112EACC0095DD41 /* card_unionpay@2x.png in Resources */,
+				973D23072112EACC0095DD41 /* card_visa@2x.png in Resources */,
+				973D22FA2112EACC0095DD41 /* card_diners@3x.png in Resources */,
+				973D22F62112EACC0095DD41 /* card_amex@2x.png in Resources */,
+				973D22F32112EACC0095DD41 /* card@2x.png in Resources */,
 				9739E7CE21119730004C58D0 /* AUBillingInfoView.xib in Resources */,
 				9739E7D02111BFC7004C58D0 /* Assets.xcassets in Resources */,
+				973D22FE2112EACC0095DD41 /* card_jcb.png in Resources */,
+				973D22FC2112EACC0095DD41 /* card_discover@2x.png in Resources */,
 				974C1D49210990EC008A44E8 /* AULoginView.xib in Resources */,
-				973D22DA2112DC430095DD41 /* AugustaFramework.bundle in Resources */,
+				973D23022112EACC0095DD41 /* card_mastercard@2x.png in Resources */,
+				973D22F42112EACC0095DD41 /* card@3x.png in Resources */,
+				973D23062112EACC0095DD41 /* card_unionpay@3x.png in Resources */,
+				973D22F82112EACC0095DD41 /* card_diners.png in Resources */,
+				973D23002112EACC0095DD41 /* card_jcb@3x.png in Resources */,
+				973D23032112EACC0095DD41 /* card_mastercard@3x.png in Resources */,
+				973D22FF2112EACC0095DD41 /* card_jcb@2x.png in Resources */,
+				973D23012112EACC0095DD41 /* card_mastercard.png in Resources */,
+				973D23042112EACC0095DD41 /* card_unionpay.png in Resources */,
+				973D23082112EACC0095DD41 /* card_visa@3x.png in Resources */,
+				973D22FB2112EACC0095DD41 /* card_discover.png in Resources */,
+				973D22F72112EACC0095DD41 /* card_amex@3x.png in Resources */,
+				973D22FD2112EACC0095DD41 /* card_discover@3x.png in Resources */,
+				973D23092112EACC0095DD41 /* card_visa@4x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
 	  s.dependency 'Stripe'
 	   
 	  #11
-	  s.resources = "AugustaFramework/**/*"
-
+	  s.resources = "AugustaFramework/**/*.xib"
+ 	  s.ios.resource_bundle = { 'AugustaFramework' => 'AugustaFramework/AugustaFramework.bundle' }
 	  
     end
