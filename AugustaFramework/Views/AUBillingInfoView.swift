@@ -21,11 +21,11 @@ public enum AUBillingInfoPaymentType {
 
 public class AUBillingInfoView: UIView {
     
-    @IBOutlet weak var cardNoTextField: UITextField!
-    @IBOutlet weak var cardExpiryTextField: UITextField!
-    @IBOutlet weak var cardSecurityCode: UITextField!
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var cardTypeImageView: UIImageView!
+    @IBOutlet public weak var cardNoTextField: UITextField!
+    @IBOutlet public weak var cardExpiryTextField: UITextField!
+    @IBOutlet public weak var cardSecurityCode: UITextField!
+    @IBOutlet public weak var nameTextField: UITextField!
+    @IBOutlet public weak var cardTypeImageView: UIImageView!
     
     @IBOutlet weak var cardDetailsView: UIView!
     var billingMethodType:AUBillingInfoPaymentType?
@@ -35,9 +35,9 @@ public class AUBillingInfoView: UIView {
     var selectedExpiryDate : String = ""
     var selectedMonth:String! = ""
     var selectedYear:String! = ""
-    @IBOutlet var pickerBaseView: UIView!
-    @IBOutlet weak var pickerViewToolBar: UIView!
-    @IBOutlet weak var expiryDatePicker: AUMonthYearPickerView!
+    @IBOutlet public var pickerBaseView: UIView!
+    @IBOutlet public weak var pickerViewToolBar: UIView!
+    @IBOutlet public weak var expiryDatePicker: AUMonthYearPickerView!
     
     /*
      // Only override draw() if you perform custom drawing.
