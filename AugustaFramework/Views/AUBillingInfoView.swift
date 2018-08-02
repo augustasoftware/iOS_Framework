@@ -31,6 +31,14 @@ public class AUBillingInfoView: UIView {
     var billingMethodType:AUBillingInfoPaymentType?
     var textFieldValidationHandling: Bool?
     var cardBrand : STPCardBrand = STPCardBrand.unknown
+    
+    var selectedExpiryDate : String = ""
+    var selectedMonth:String! = ""
+    var selectedYear:String! = ""
+    @IBOutlet var pickerBaseView: UIView!
+    @IBOutlet weak var pickerViewToolBar: UIView!
+    @IBOutlet weak var expiryDatePicker: AUMonthYearPickerView!
+    
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -56,6 +64,46 @@ public class AUBillingInfoView: UIView {
         content.frame = self.bounds
         content.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(content)
+        guard let content1 = pickerBaseView else { return }
+        content1.frame = self.bounds
+        content1.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(content1)
+        self.loadInitialSetup()
+    }
+    
+    func loadInitialSetup(){
+        cardExpiryTextField.inputView = pickerBaseView
+        // picker setup
+        
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelPicker));
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donePicker));
+        toolbar.setItems([cancelButton,spaceButton,doneButton], animated: false)
+        self.pickerViewToolBar.addSubview(toolbar)
+        let currentYear = String(format: "%d", expiryDatePicker.year)
+        self.selectedExpiryDate = String(format: "%02d/%@", expiryDatePicker.month, currentYear.substring(from:currentYear.index(currentYear.endIndex, offsetBy: -2)))
+        self.selectedMonth = String(format: "%d", expiryDatePicker.month)
+        self.selectedYear = currentYear
+        expiryDatePicker.onDateSelected = { (month: Int, year: Int) in
+            let inputStr = String(format: "%d", year)
+            let expiryDate = String(format: "%02d/%@", month, inputStr.substring(from:inputStr.index(inputStr.endIndex, offsetBy: -2)))
+            self.selectedExpiryDate = expiryDate
+            self.selectedMonth = String(format: "%d", month)
+            self.selectedYear = String(format: "%d", year)
+        }
+    }
+    
+    // picker can cel and done
+    
+    @objc func donePicker(){
+        cardExpiryTextField.text = self.selectedExpiryDate
+        self.endEditing(true)
+    }
+    
+    @objc func cancelPicker(){
+        self.endEditing(true)
     }
 
     public func initializeSetUp(paymentMethod: AUBillingInfoPaymentType, textFieldValidationHandling: Bool = false){
@@ -102,6 +150,11 @@ extension AUBillingInfoView: UITextFieldDelegate{
     //MARK: UITextField Delegates
     public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         return true
+    }
+    
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
     }
     
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -185,24 +238,26 @@ extension AUBillingInfoView: UITextFieldDelegate{
     
     func changeCardImage(card: STPCardBrand)
     {
-        let bundle = Bundle(for: AUBillingInfoView.self)
+        let frameworkBundle = Bundle(for: AUBillingInfoView.self)
+        let bundleURL = frameworkBundle.resourceURL?.appendingPathComponent("AugustaFramework.bundle")
+        let resourceBundle = Bundle(url: bundleURL!)
         switch card {
         case .amex:
-            cardTypeImageView.image = UIImage(named: "card_amex", in: bundle, compatibleWith: nil)
+            cardTypeImageView.image = UIImage(named: "card_amex", in: resourceBundle, compatibleWith: nil)
         case .visa:
-            cardTypeImageView.image =  UIImage(named: "card_visa", in: bundle, compatibleWith: nil)
+            cardTypeImageView.image =  UIImage(named: "card_visa", in: resourceBundle, compatibleWith: nil)
         case .masterCard:
-            cardTypeImageView.image =  UIImage(named: "card_mastercard", in: bundle, compatibleWith: nil)
+            cardTypeImageView.image =  UIImage(named: "card_mastercard", in: resourceBundle, compatibleWith: nil)
         case .dinersClub:
-            cardTypeImageView.image =  UIImage(named: "card_diners", in: bundle, compatibleWith: nil)
+            cardTypeImageView.image =  UIImage(named: "card_diners", in: resourceBundle, compatibleWith: nil)
         case .discover:
-            cardTypeImageView.image =  UIImage(named: "card_discover", in: bundle, compatibleWith: nil)
+            cardTypeImageView.image =  UIImage(named: "card_discover", in: resourceBundle, compatibleWith: nil)
         case .JCB:
-            cardTypeImageView.image =  UIImage(named: "card_jcb", in: bundle, compatibleWith: nil)
+            cardTypeImageView.image =  UIImage(named: "card_jcb", in: resourceBundle, compatibleWith: nil)
         case .unionPay:
-            cardTypeImageView.image =  UIImage(named: "card_unionpay", in: bundle, compatibleWith: nil)
+            cardTypeImageView.image =  UIImage(named: "card_unionpay", in: resourceBundle, compatibleWith: nil)
         default:
-            cardTypeImageView.image =  UIImage(named: "card", in: bundle, compatibleWith: nil)
+            cardTypeImageView.image =  UIImage(named: "card", in: resourceBundle, compatibleWith: nil)
         }
     }
 }

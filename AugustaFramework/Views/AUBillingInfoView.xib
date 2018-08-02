@@ -18,7 +18,10 @@
                 <outlet property="cardNoTextField" destination="Mls-gM-uVR" id="kJV-eH-JO7"/>
                 <outlet property="cardSecurityCode" destination="5Ch-YP-6qx" id="lrq-ms-dPD"/>
                 <outlet property="cardTypeImageView" destination="vdn-JL-MNf" id="Qs2-gP-cyf"/>
+                <outlet property="expiryDatePicker" destination="7WL-Fs-1vH" id="P9X-De-JLF"/>
                 <outlet property="nameTextField" destination="v2G-sG-1Am" id="1rz-eB-zyW"/>
+                <outlet property="pickerBaseView" destination="eqr-Dw-s6A" id="JJc-g0-m6x"/>
+                <outlet property="pickerViewToolBar" destination="fDb-bJ-axT" id="igv-bZ-kUd"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -175,11 +178,42 @@
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="V37-CF-9EM"/>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eqr-Dw-s6A">
+                    <rect key="frame" x="47" y="291" width="320" height="174"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fDb-bJ-axT">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="ON8-jG-TxF"/>
+                            </constraints>
+                        </view>
+                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7WL-Fs-1vH" customClass="AUMonthYearPickerView" customModule="AugustaFramework" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="44" width="320" height="130"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="130" id="K6j-Ex-aBL"/>
+                            </constraints>
+                        </pickerView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="7WL-Fs-1vH" firstAttribute="trailing" secondItem="F1c-fM-Ztb" secondAttribute="trailing" id="BPR-m4-QNI"/>
+                        <constraint firstItem="7WL-Fs-1vH" firstAttribute="top" secondItem="eqr-Dw-s6A" secondAttribute="top" constant="44" id="E6u-14-ylx"/>
+                        <constraint firstItem="fDb-bJ-axT" firstAttribute="top" secondItem="F1c-fM-Ztb" secondAttribute="top" id="EVx-w6-Ik5"/>
+                        <constraint firstAttribute="bottom" secondItem="7WL-Fs-1vH" secondAttribute="bottom" id="MXX-8d-wye"/>
+                        <constraint firstItem="7WL-Fs-1vH" firstAttribute="leading" secondItem="F1c-fM-Ztb" secondAttribute="leading" id="Nw8-vk-JJ9"/>
+                        <constraint firstItem="fDb-bJ-axT" firstAttribute="leading" secondItem="F1c-fM-Ztb" secondAttribute="leading" id="d9i-a7-28t"/>
+                        <constraint firstItem="fDb-bJ-axT" firstAttribute="trailing" secondItem="F1c-fM-Ztb" secondAttribute="trailing" id="gUY-2V-wpQ"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="F1c-fM-Ztb"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="eqr-Dw-s6A" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="2gL-hV-SN0"/>
                 <constraint firstItem="HMM-S0-SYf" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.9" id="9rD-R1-wnN"/>
                 <constraint firstItem="HMM-S0-SYf" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="CCg-w8-OG2"/>
+                <constraint firstItem="eqr-Dw-s6A" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="KLp-1K-BsG"/>
                 <constraint firstItem="HMM-S0-SYf" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="nPP-3X-ZnN"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
