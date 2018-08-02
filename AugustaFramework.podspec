@@ -32,6 +32,6 @@ Pod::Spec.new do |s|
 	   
 	  #11
 	  s.resources = "AugustaFramework/**/*.xib"
- 	  s.ios.resource_bundle = { 'AugustaFramework' => 'AugustaFramework/Resources/*' }
+ 	  s.ios.resource_bundle = { 'AugustaFramework' => 'AugustaFramework/Resources/**/*' }
 	  
     end
