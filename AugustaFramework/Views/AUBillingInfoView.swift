@@ -73,7 +73,7 @@ public class AUBillingInfoView: UIView {
     
     func loadInitialSetup(){
         cardExpiryTextField.inputView = pickerBaseView
-        changeCardImage(card: .unknown)
+        changeCardImage(cardNumber: "")
         // picker setup
         
         let toolbar = UIToolbar()
@@ -200,12 +200,11 @@ extension AUBillingInfoView: UITextFieldDelegate{
             let attributedString = NSMutableAttributedString( string: result, attributes: nil)
             if(result.count >= 2)
             {
-                self.cardBrand = STPCardValidator.brand(forNumber: result)
-                changeCardImage(card: self.cardBrand)
+                changeCardImage(cardNumber: result)
             }
             else
             {
-                changeCardImage(card: STPCardBrand.unknown)
+                changeCardImage(cardNumber: "")
             }
             
             // if card number is invalid show error message
@@ -237,12 +236,16 @@ extension AUBillingInfoView: UITextFieldDelegate{
         
     }
     
-    func changeCardImage(card: STPCardBrand)
+    /// Change card image displayed with the card number
+    ///
+    /// - Parameter cardNumber: The card number entered, it should be more than two digits
+    public func changeCardImage(cardNumber: String)
     {
         let frameworkBundle = Bundle(for: AUBillingInfoView.self)
         let bundleURL = frameworkBundle.resourceURL?.appendingPathComponent("AugustaFramework.bundle")
         let resourceBundle = Bundle(url: bundleURL!)
-        switch card {
+        self.cardBrand = STPCardValidator.brand(forNumber: cardNumber)
+        switch self.cardBrand {
         case .amex:
             cardTypeImageView.image = UIImage(named: "card_amex", in: resourceBundle, compatibleWith: nil)
         case .visa:

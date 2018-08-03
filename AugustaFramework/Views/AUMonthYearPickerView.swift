@@ -7,7 +7,7 @@
 //
 import UIKit
 
-class AUMonthYearPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource {
+public class AUMonthYearPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource {
     
     var months: [String]! = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
     var years: [Int]!
@@ -31,7 +31,7 @@ class AUMonthYearPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDat
         self.commonSetup()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.commonSetup()
     }
@@ -57,11 +57,11 @@ class AUMonthYearPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDat
     
     // Mark: UIPicker Delegate / Data Source
     
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 2
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch component {
         case 0:
             return months[row]
@@ -72,7 +72,7 @@ class AUMonthYearPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDat
         }
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch component {
         case 0:
             return months.count
@@ -83,7 +83,7 @@ class AUMonthYearPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDat
         }
     }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let month = self.selectedRow(inComponent: 0)+1
         let year = years[self.selectedRow(inComponent: 1)]
         if let block = onDateSelected {
