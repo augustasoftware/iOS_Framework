@@ -43,6 +43,7 @@
 		974C1D47210990DE008A44E8 /* AULoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C1D46210990DE008A44E8 /* AULoginView.swift */; };
 		974C1D49210990EC008A44E8 /* AULoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 974C1D48210990EC008A44E8 /* AULoginView.xib */; };
 		9759719D2101AAC000FE62C7 /* AUActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9759719C2101AAC000FE62C7 /* AUActivityIndicator.swift */; };
+		975EFB5221143A4900334A53 /* AUUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975EFB5121143A4900334A53 /* AUUtilities.swift */; };
 		97D6554820FF09DE0085DF71 /* AugustaFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 97D6554620FF09DE0085DF71 /* AugustaFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		97D6555020FF09EB0085DF71 /* AULogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D6554E20FF09EB0085DF71 /* AULogger.swift */; };
 		97D6555120FF09EB0085DF71 /* AUWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D6554F20FF09EB0085DF71 /* AUWebService.swift */; };
@@ -90,6 +91,7 @@
 		974C1D46210990DE008A44E8 /* AULoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AULoginView.swift; sourceTree = "<group>"; };
 		974C1D48210990EC008A44E8 /* AULoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AULoginView.xib; sourceTree = "<group>"; };
 		9759719C2101AAC000FE62C7 /* AUActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUActivityIndicator.swift; sourceTree = "<group>"; };
+		975EFB5121143A4900334A53 /* AUUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AUUtilities.swift; path = AugustaFramework/AUUtilities.swift; sourceTree = SOURCE_ROOT; };
 		97D6554320FF09DE0085DF71 /* AugustaFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AugustaFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97D6554620FF09DE0085DF71 /* AugustaFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AugustaFramework.h; sourceTree = "<group>"; };
 		97D6554720FF09DE0085DF71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 			children = (
 				974968A62108477800CCC1BA /* Views */,
 				97D6554620FF09DE0085DF71 /* AugustaFramework.h */,
+				975EFB5121143A4900334A53 /* AUUtilities.swift */,
 				56E24C8C20FF1B1400FA1A80 /* AULoginValidation.swift */,
 				97D6554E20FF09EB0085DF71 /* AULogger.swift */,
 				97D6554F20FF09EB0085DF71 /* AUWebService.swift */,
@@ -360,6 +363,7 @@
 			files = (
 				973D230B21131D900095DD41 /* AUMonthYearPickerView.swift in Sources */,
 				56E24C8D20FF1B1400FA1A80 /* AULoginValidation.swift in Sources */,
+				975EFB5221143A4900334A53 /* AUUtilities.swift in Sources */,
 				97D6555120FF09EB0085DF71 /* AUWebService.swift in Sources */,
 				974C1D47210990DE008A44E8 /* AULoginView.swift in Sources */,
 				974214A021107D63000A2937 /* AUBillingInfoManager.swift in Sources */,

@@ -12,6 +12,10 @@ import Stripe
 let MAX_CARD_CVV_NO = 4
 let CONTENT_CARD_NUMBER_IN_VALID = "Please enter valid card number"
 
+public typealias kStripeTokenSuccessBlock = (_ success : Bool, _ message : STPToken) ->()
+public typealias kStripeTokenFailureBlock = (_ success : Bool, _ message : String) ->()
+
+
 public enum AUBillingInfoPaymentType {
     case stripe
     case payPal
@@ -27,6 +31,11 @@ public class AUBillingInfoView: UIView {
     @IBOutlet public weak var nameTextField: UITextField!
     @IBOutlet public weak var cardTypeImageView: UIImageView!
     
+    @IBOutlet weak var billingAddressView: UIView!
+    @IBOutlet weak var zipTextField: UITextField!
+    @IBOutlet weak var addressTextField: UITextField!
+    @IBOutlet weak var stateTextField: UITextField!
+    @IBOutlet weak var cityTextField: UITextField!
     @IBOutlet weak var cardDetailsView: UIView!
     var billingMethodType:AUBillingInfoPaymentType?
     var textFieldValidationHandling: Bool?
@@ -35,6 +44,9 @@ public class AUBillingInfoView: UIView {
     var selectedExpiryDate : String = ""
     var selectedMonth:String! = ""
     var selectedYear:String! = ""
+    
+    public var stripeToken: String = ""
+    
     @IBOutlet public var pickerBaseView: UIView!
     @IBOutlet public weak var pickerViewToolBar: UIView!
     @IBOutlet public weak var expiryDatePicker: AUMonthYearPickerView!
@@ -68,6 +80,10 @@ public class AUBillingInfoView: UIView {
         content1.frame = self.bounds
         content1.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(content1)
+        guard let content2 = billingAddressView else { return }
+        content2.frame = self.bounds
+        content2.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(content2)
         self.loadInitialSetup()
     }
     
@@ -127,7 +143,7 @@ public class AUBillingInfoView: UIView {
         }
     }
     
-    public func addCardDetailsInView(view: UIView, viewController: UIViewController)
+    public func addCardDetailsInView(view: UIView)
     {
         self.translatesAutoresizingMaskIntoConstraints = false
         let topConstraint = NSLayoutConstraint(item: cardDetailsView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0)
@@ -139,11 +155,55 @@ public class AUBillingInfoView: UIView {
         view.layoutIfNeeded()
     }
     
+    public func addAddressDetailsViewInView(view: UIView)
+    {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        let topConstraint = NSLayoutConstraint(item: billingAddressView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0)
+        let bottomConstraint = NSLayoutConstraint(item: billingAddressView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
+        let leadingConstraint = NSLayoutConstraint(item: billingAddressView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0)
+        let trailingConstraint = NSLayoutConstraint(item: billingAddressView, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0)
+        view.addSubview(billingAddressView)
+        view.addConstraints([topConstraint, bottomConstraint, leadingConstraint, trailingConstraint])
+        view.layoutIfNeeded()
+    }
+    
     public func isValidCardDetailsEntered()-> Bool{
         if(self.textFieldValidationHandling)!{
             return true
         }
         return false
+    }
+    
+    public func getStripeToken(stripeCardParams: STPCardParams?, stripeTokenSuccessBlock: @escaping kStripeTokenSuccessBlock,  stripeTokenFailureBlock: @escaping kStripeTokenFailureBlock){
+        var stripeCardParamsNew: STPCardParams = STPCardParams()
+        if stripeCardParams != nil{
+            
+        }
+        else{
+            stripeCardParamsNew = STPCardParams()
+            stripeCardParamsNew.number = AUUtilities.removeWhiteSpace(text: cardNoTextField.text!)
+            stripeCardParamsNew.cvc =  AUUtilities.removeWhiteSpace(text: cardSecurityCode.text!)
+            stripeCardParamsNew.expMonth = UInt(selectedMonth ?? "0")!
+            stripeCardParamsNew.expYear = UInt(selectedYear ?? "0")!
+            stripeCardParamsNew.name =  AUUtilities.removeWhiteSpace(text: nameTextField.text! )
+            stripeCardParamsNew.address.line1 =  AUUtilities.removeWhiteSpace(text: addressTextField.text!)
+            stripeCardParamsNew.address.city =  AUUtilities.removeWhiteSpace(text: cityTextField.text!)
+            stripeCardParamsNew.address.state =  AUUtilities.removeWhiteSpace(text: stateTextField.text!)
+            stripeCardParamsNew.address.postalCode =  AUUtilities.removeWhiteSpace(text: zipTextField.text!)
+        }
+        var finalParams: STPCardParams = stripeCardParams ?? stripeCardParamsNew
+        // get stripe token for current card
+        
+        STPPaymentConfiguration.shared().publishableKey = stripeToken
+        STPAPIClient.shared().createToken(withCard: finalParams) { (token: STPToken?, error: Error?) in
+            if let token = token {
+                stripeTokenSuccessBlock(true, token)
+               
+            } else {
+                stripeTokenFailureBlock(false, error.debugDescription)
+            }
+            
+        }
     }
 }
 
