@@ -5,12 +5,22 @@
 //  Created by iMac Augusta on 7/25/18.
 //  Copyright © 2018 augusta. All rights reserved.
 //
+//------------------------Mandatory---------------------//
+/********************************************************/
+/*For set cache time*/
+//AUCacheeManager.shared.setCacheTime(time: 10)
+/*******************************************************/
+
+//------------------------Mandatory---------------------//
+/********************************************************/
+/*For clear cache data*/ //didFinishLaunchingWithOptions and logout app or clearall app data
+//AUCacheeManager.shared.clearEntireCache()
+/*******************************************************/
 
 import Foundation
 import Alamofire
 
 public class AUCacheeManager {
-    
     
     public class var shared: AUCacheeManager {
         struct Static {
