@@ -278,3 +278,20 @@ extension AUVersionUpdate: SirenDelegate
     }
     
 }
+
+/*func auVersionUpdateAlertDidDetectNewVersionWithoutAlert(message: String, updateType: String){
+    switch updateType {
+    case VersionUpdateType.major.rawValue:
+        break
+    case VersionUpdateType.minor.rawValue:
+        break
+    case VersionUpdateType.patch.rawValue:
+        break
+    case VersionUpdateType.revision.rawValue:
+        break
+    case VersionUpdateType.unknown.rawValue:
+        break
+    default:
+        break
+    }
+}*/
