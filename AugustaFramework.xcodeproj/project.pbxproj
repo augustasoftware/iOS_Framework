@@ -39,6 +39,14 @@
 		973D230B21131D900095DD41 /* AUMonthYearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973D230A21131D900095DD41 /* AUMonthYearPickerView.swift */; };
 		974214A021107D63000A2937 /* AUBillingInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9742149F21107D63000A2937 /* AUBillingInfoManager.swift */; };
 		974634892107098400B6BCB0 /* AUSocialLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974634882107098400B6BCB0 /* AUSocialLoginController.swift */; };
+		9747AF6E21197B5900F339F8 /* AUPasswordFieldHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9747AF6C21197B5800F339F8 /* AUPasswordFieldHelper.swift */; };
+		9747AF6F21197B5900F339F8 /* AUPasswordFieldHelper.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9747AF6D21197B5800F339F8 /* AUPasswordFieldHelper.xib */; };
+		9747AF8821197CB300F339F8 /* check_dot.png in Resources */ = {isa = PBXBuildFile; fileRef = 9747AF8221197CB000F339F8 /* check_dot.png */; };
+		9747AF8921197CB300F339F8 /* check_dot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9747AF8321197CB000F339F8 /* check_dot@2x.png */; };
+		9747AF8A21197CB300F339F8 /* check_tick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9747AF8421197CB100F339F8 /* check_tick@2x.png */; };
+		9747AF8B21197CB300F339F8 /* check_tick.png in Resources */ = {isa = PBXBuildFile; fileRef = 9747AF8521197CB100F339F8 /* check_tick.png */; };
+		9747AF8C21197CB300F339F8 /* check_dot@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9747AF8621197CB200F339F8 /* check_dot@3x.png */; };
+		9747AF8D21197CB300F339F8 /* check_tick@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9747AF8721197CB200F339F8 /* check_tick@3x.png */; };
 		9748B0272100A984006B9A63 /* AUSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9748B0262100A984006B9A63 /* AUSessionManager.swift */; };
 		974C1D47210990DE008A44E8 /* AULoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C1D46210990DE008A44E8 /* AULoginView.swift */; };
 		974C1D49210990EC008A44E8 /* AULoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 974C1D48210990EC008A44E8 /* AULoginView.xib */; };
@@ -87,6 +95,14 @@
 		973D230A21131D900095DD41 /* AUMonthYearPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AUMonthYearPickerView.swift; sourceTree = "<group>"; };
 		9742149F21107D63000A2937 /* AUBillingInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUBillingInfoManager.swift; sourceTree = "<group>"; };
 		974634882107098400B6BCB0 /* AUSocialLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUSocialLoginController.swift; sourceTree = "<group>"; };
+		9747AF6C21197B5800F339F8 /* AUPasswordFieldHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AUPasswordFieldHelper.swift; sourceTree = "<group>"; };
+		9747AF6D21197B5800F339F8 /* AUPasswordFieldHelper.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AUPasswordFieldHelper.xib; sourceTree = "<group>"; };
+		9747AF8221197CB000F339F8 /* check_dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_dot.png; sourceTree = "<group>"; };
+		9747AF8321197CB000F339F8 /* check_dot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check_dot@2x.png"; sourceTree = "<group>"; };
+		9747AF8421197CB100F339F8 /* check_tick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check_tick@2x.png"; sourceTree = "<group>"; };
+		9747AF8521197CB100F339F8 /* check_tick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_tick.png; sourceTree = "<group>"; };
+		9747AF8621197CB200F339F8 /* check_dot@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check_dot@3x.png"; sourceTree = "<group>"; };
+		9747AF8721197CB200F339F8 /* check_tick@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check_tick@3x.png"; sourceTree = "<group>"; };
 		9748B0262100A984006B9A63 /* AUSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUSessionManager.swift; sourceTree = "<group>"; };
 		974C1D46210990DE008A44E8 /* AULoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AULoginView.swift; sourceTree = "<group>"; };
 		974C1D48210990EC008A44E8 /* AULoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AULoginView.xib; sourceTree = "<group>"; };
@@ -125,6 +141,12 @@
 		973D22DB2112EACB0095DD41 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9747AF8221197CB000F339F8 /* check_dot.png */,
+				9747AF8321197CB000F339F8 /* check_dot@2x.png */,
+				9747AF8621197CB200F339F8 /* check_dot@3x.png */,
+				9747AF8521197CB100F339F8 /* check_tick.png */,
+				9747AF8421197CB100F339F8 /* check_tick@2x.png */,
+				9747AF8721197CB200F339F8 /* check_tick@3x.png */,
 				973D22DC2112EACB0095DD41 /* card@2x.png */,
 				973D22DD2112EACB0095DD41 /* card@3x.png */,
 				973D22DE2112EACB0095DD41 /* card_amex.png */,
@@ -160,6 +182,8 @@
 				9739E7CB2111970C004C58D0 /* AUBillingInfoView.swift */,
 				9739E7CD21119730004C58D0 /* AUBillingInfoView.xib */,
 				973D230A21131D900095DD41 /* AUMonthYearPickerView.swift */,
+				9747AF6C21197B5800F339F8 /* AUPasswordFieldHelper.swift */,
+				9747AF6D21197B5800F339F8 /* AUPasswordFieldHelper.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -291,6 +315,7 @@
 				973D23052112EACC0095DD41 /* card_unionpay@2x.png in Resources */,
 				973D23072112EACC0095DD41 /* card_visa@2x.png in Resources */,
 				973D22FA2112EACC0095DD41 /* card_diners@3x.png in Resources */,
+				9747AF8D21197CB300F339F8 /* check_tick@3x.png in Resources */,
 				973D22F62112EACC0095DD41 /* card_amex@2x.png in Resources */,
 				973D22F32112EACC0095DD41 /* card@2x.png in Resources */,
 				9739E7CE21119730004C58D0 /* AUBillingInfoView.xib in Resources */,
@@ -298,10 +323,15 @@
 				973D22FE2112EACC0095DD41 /* card_jcb.png in Resources */,
 				973D22FC2112EACC0095DD41 /* card_discover@2x.png in Resources */,
 				974C1D49210990EC008A44E8 /* AULoginView.xib in Resources */,
+				9747AF8821197CB300F339F8 /* check_dot.png in Resources */,
 				973D23022112EACC0095DD41 /* card_mastercard@2x.png in Resources */,
+				9747AF8A21197CB300F339F8 /* check_tick@2x.png in Resources */,
 				973D22F42112EACC0095DD41 /* card@3x.png in Resources */,
 				973D23062112EACC0095DD41 /* card_unionpay@3x.png in Resources */,
+				9747AF8921197CB300F339F8 /* check_dot@2x.png in Resources */,
+				9747AF8C21197CB300F339F8 /* check_dot@3x.png in Resources */,
 				973D22F82112EACC0095DD41 /* card_diners.png in Resources */,
+				9747AF8B21197CB300F339F8 /* check_tick.png in Resources */,
 				973D23002112EACC0095DD41 /* card_jcb@3x.png in Resources */,
 				973D23032112EACC0095DD41 /* card_mastercard@3x.png in Resources */,
 				973D22FF2112EACC0095DD41 /* card_jcb@2x.png in Resources */,
@@ -311,6 +341,7 @@
 				973D22FB2112EACC0095DD41 /* card_discover.png in Resources */,
 				973D22F72112EACC0095DD41 /* card_amex@3x.png in Resources */,
 				973D22FD2112EACC0095DD41 /* card_discover@3x.png in Resources */,
+				9747AF6F21197B5900F339F8 /* AUPasswordFieldHelper.xib in Resources */,
 				973D23092112EACC0095DD41 /* card_visa@4x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -364,6 +395,7 @@
 				973D230B21131D900095DD41 /* AUMonthYearPickerView.swift in Sources */,
 				56E24C8D20FF1B1400FA1A80 /* AULoginValidation.swift in Sources */,
 				975EFB5221143A4900334A53 /* AUUtilities.swift in Sources */,
+				9747AF6E21197B5900F339F8 /* AUPasswordFieldHelper.swift in Sources */,
 				97D6555120FF09EB0085DF71 /* AUWebService.swift in Sources */,
 				974C1D47210990DE008A44E8 /* AULoginView.swift in Sources */,
 				974214A021107D63000A2937 /* AUBillingInfoManager.swift in Sources */,
