@@ -65,7 +65,7 @@ public class AUPasswordFieldHelper: UIView {
     public var minimumCharLimit : Int = -1
     public var maximumCharLimit : Int = -1
     
-    public func configurePasswordHelper(textField: UITextField, itemsNeeded:[AUPasswordHelperValidationParams], tickImage: UIImage, unTickImage: UIImage){
+    public func configurePasswordHelper(textField: UITextField, isInsideTableView: Bool, tableView: UITableView?, itemsNeeded:[AUPasswordHelperValidationParams], tickImage: UIImage, unTickImage: UIImage){
         self.mappedTextField = textField
         self.helperViewHeightConstraint.constant = CGFloat(itemsNeeded.count * 25) + 25 // (25 is heading height)
         itemsNeededForValidation = itemsNeeded
@@ -96,51 +96,76 @@ public class AUPasswordFieldHelper: UIView {
         specialCharImageView.image = unTickImage
         self.unTickImage = unTickImage
         self.tickMarkImage = tickImage
-        self.addPasswordHelperViewInView()
+        self.addPasswordHelperViewInView(isInsideTableView: isInsideTableView, tableView: tableView)
     }
 
-    private func addPasswordHelperViewInView(){
+    private func addPasswordHelperViewInView(isInsideTableView:Bool, tableView: UITableView?){
+        
         mappedTextField?.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         mappedTextField?.addTarget(self, action: #selector(textFieldDidBegin(_:)), for: .editingDidBegin)
         mappedTextField?.addTarget(self, action: #selector(textFieldDidEnd(_:)), for: .editingDidEnd)
-
-        self.translatesAutoresizingMaskIntoConstraints = false
-        let bottomConstraint = NSLayoutConstraint(item: helperView, attribute: .bottom, relatedBy: .equal, toItem: mappedTextField, attribute: .top, multiplier: 1, constant: -5)
-        let xConstraint = NSLayoutConstraint(item: helperView, attribute: .centerX, relatedBy: .equal, toItem: mappedTextField, attribute: .centerX, multiplier: 1, constant: 0)
-        mappedTextField?.superview?.addSubview(helperView)
-        helperView.isHidden = true
-        self.isHelperShown = false
-        mappedTextField?.superview?.addConstraints([bottomConstraint, xConstraint])
-        mappedTextField?.superview?.layoutIfNeeded()
+        if(isInsideTableView){
+            self.translatesAutoresizingMaskIntoConstraints = false
+            let bottomConstraint = NSLayoutConstraint(item: helperView, attribute: .bottom, relatedBy: .equal, toItem: mappedTextField?.superview?.superview, attribute: .top, multiplier: 1, constant: 0)
+            let xConstraint = NSLayoutConstraint(item: helperView, attribute: .centerX, relatedBy: .equal, toItem: mappedTextField?.superview?.superview, attribute: .centerX, multiplier: 1, constant: 0)
+            let widthConstraint = NSLayoutConstraint(item: helperView, attribute: .width, relatedBy: .equal, toItem: mappedTextField?.superview?.superview, attribute: .width, multiplier: 1, constant: 0)
+            tableView?.clipsToBounds = false
+            
+            helperView.isHidden = true
+            self.isHelperShown = false
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                tableView?.addSubview(self.helperView)
+                tableView?.addConstraints([bottomConstraint, xConstraint, widthConstraint])
+            }
+        }
+        else{
+            self.translatesAutoresizingMaskIntoConstraints = false
+            let bottomConstraint = NSLayoutConstraint(item: helperView, attribute: .bottom, relatedBy: .equal, toItem: mappedTextField, attribute: .top, multiplier: 1, constant: -2)
+            let xConstraint = NSLayoutConstraint(item: helperView, attribute: .centerX, relatedBy: .equal, toItem: mappedTextField, attribute: .centerX, multiplier: 1, constant: 0)
+             let widthConstraint = NSLayoutConstraint(item: helperView, attribute: .width, relatedBy: .equal, toItem: mappedTextField, attribute: .width, multiplier: 1, constant: 0)
+            mappedTextField?.superview?.addSubview(helperView)
+            helperView.isHidden = true
+            self.isHelperShown = false
+            mappedTextField?.superview?.addConstraints([bottomConstraint, xConstraint, widthConstraint])
+            mappedTextField?.superview?.layoutIfNeeded()
+            self.validateBasedOnText(textString: mappedTextField?.text ?? "")
+        }
+        
+       
+        //tableView.layoutIfNeeded()
         self.validateBasedOnText(textString: mappedTextField?.text ?? "")
     }
     
     public func showOrHideHelper(show: Bool){
         if(show){
-           
-            UIView.transition(with: (mappedTextField?.superview)!, duration: 0.5, options: .transitionCrossDissolve, animations: {
-                self.helperView.isHidden = false
-                self.isHelperShown = true
-            })
+            if(self.isHelperShown == false){
+                UIView.transition(with: helperView, duration: 0.25, options: .transitionFlipFromBottom, animations: {
+                    self.helperView.isHidden = false
+                    self.isHelperShown = true
+                })
+            }
         }
         else{
-            UIView.transition(with: (mappedTextField?.superview)!, duration: 0.5, options: .transitionCrossDissolve, animations: {
-                self.helperView.isHidden = true
-                self.isHelperShown = false
-            })
+            if(self.isHelperShown == true){
+                UIView.transition(with: helperView, duration: 0.25, options: .transitionFlipFromTop, animations: {
+                    self.helperView.isHidden = true
+                    self.isHelperShown = false
+                })
+            }
         }
     }
     
     public func toggleHelper(){
         if(self.isHelperShown){
-            UIView.transition(with: (mappedTextField?.superview)!, duration: 0.5, options: .transitionCrossDissolve, animations: {
+            UIView.transition(with: helperView!, duration: 0.25, options: .transitionFlipFromTop, animations: {
                 self.helperView.isHidden = true
                 self.isHelperShown = false
             })
             
         }
         else{
-            UIView.transition(with: (mappedTextField?.superview)!, duration: 0.5, options: .transitionCrossDissolve, animations: {
+            UIView.transition(with: helperView!, duration: 0.25, options: .transitionFlipFromBottom, animations: {
                 self.helperView.isHidden = false
                 self.isHelperShown = true
             })
@@ -240,7 +265,9 @@ public class AUPasswordFieldHelper: UIView {
             self.showOrHideHelper(show: false)
         }
         else{
-            self.showOrHideHelper(show: true)
+            if(self.mappedTextField?.text != ""){
+                self.showOrHideHelper(show: true)
+            }
         }
     }
     
