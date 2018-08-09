@@ -45,7 +45,7 @@ public class AUBillingInfoView: UIView {
     var selectedMonth:String! = ""
     var selectedYear:String! = ""
     
-    public var stripeToken: String = ""
+    public var stripeKey: String = ""
     
     @IBOutlet public var pickerBaseView: UIView!
     @IBOutlet public weak var pickerViewToolBar: UIView!
@@ -194,7 +194,7 @@ public class AUBillingInfoView: UIView {
         var finalParams: STPCardParams = stripeCardParams ?? stripeCardParamsNew
         // get stripe token for current card
         
-        STPPaymentConfiguration.shared().publishableKey = stripeToken
+        STPPaymentConfiguration.shared().publishableKey = stripeKey
         STPAPIClient.shared().createToken(withCard: finalParams) { (token: STPToken?, error: Error?) in
             if let token = token {
                 stripeTokenSuccessBlock(true, token)
