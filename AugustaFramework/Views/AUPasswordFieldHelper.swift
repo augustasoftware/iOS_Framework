@@ -65,9 +65,9 @@ public class AUPasswordFieldHelper: UIView {
     public var minimumCharLimit : Int = -1
     public var maximumCharLimit : Int = -1
     
-    public func configurePasswordHelper(textField: UITextField, isInsideTableView: Bool, tableView: UITableView?, itemsNeeded:[AUPasswordHelperValidationParams], tickImage: UIImage, unTickImage: UIImage){
+    public func configurePasswordHelper(textField: UITextField, isInsideTableView: Bool, tableView: UITableView?, cell: UITableViewCell?, itemsNeeded:[AUPasswordHelperValidationParams], tickImage: UIImage, unTickImage: UIImage){
         self.mappedTextField = textField
-        self.helperViewHeightConstraint.constant = CGFloat(itemsNeeded.count * 25) + 25 // (25 is heading height)
+        self.helperViewHeightConstraint.constant = CGFloat(itemsNeeded.count * 25) + 45 // (top and bottom height height)
         itemsNeededForValidation = itemsNeeded
         if(!itemsNeeded.contains(.minMaxCharacterLimit)){
             minMaxCharStackView.isHidden = true
@@ -96,19 +96,19 @@ public class AUPasswordFieldHelper: UIView {
         specialCharImageView.image = unTickImage
         self.unTickImage = unTickImage
         self.tickMarkImage = tickImage
-        self.addPasswordHelperViewInView(isInsideTableView: isInsideTableView, tableView: tableView)
+        self.addPasswordHelperViewInView(isInsideTableView: isInsideTableView, tableView: tableView, cell: cell)
     }
 
-    private func addPasswordHelperViewInView(isInsideTableView:Bool, tableView: UITableView?){
+    private func addPasswordHelperViewInView(isInsideTableView:Bool, tableView: UITableView?, cell: UITableViewCell?){
         
         mappedTextField?.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         mappedTextField?.addTarget(self, action: #selector(textFieldDidBegin(_:)), for: .editingDidBegin)
         mappedTextField?.addTarget(self, action: #selector(textFieldDidEnd(_:)), for: .editingDidEnd)
         if(isInsideTableView){
             self.translatesAutoresizingMaskIntoConstraints = false
-            let bottomConstraint = NSLayoutConstraint(item: helperView, attribute: .bottom, relatedBy: .equal, toItem: mappedTextField?.superview?.superview, attribute: .top, multiplier: 1, constant: 0)
-            let xConstraint = NSLayoutConstraint(item: helperView, attribute: .centerX, relatedBy: .equal, toItem: mappedTextField?.superview?.superview, attribute: .centerX, multiplier: 1, constant: 0)
-            let widthConstraint = NSLayoutConstraint(item: helperView, attribute: .width, relatedBy: .equal, toItem: mappedTextField?.superview?.superview, attribute: .width, multiplier: 1, constant: 0)
+            let bottomConstraint = NSLayoutConstraint(item: helperView, attribute: .bottom, relatedBy: .equal, toItem: cell, attribute: .top, multiplier: 1, constant: 0)
+            let xConstraint = NSLayoutConstraint(item: helperView, attribute: .centerX, relatedBy: .equal, toItem: cell, attribute: .centerX, multiplier: 1, constant: 0)
+            let widthConstraint = NSLayoutConstraint(item: helperView, attribute: .width, relatedBy: .equal, toItem: cell, attribute: .width, multiplier: 0.95, constant: 0)
             tableView?.clipsToBounds = false
             
             helperView.isHidden = true
