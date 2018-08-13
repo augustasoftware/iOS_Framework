@@ -18,4 +18,6 @@ pod 'TwitterKit'
 pod 'PinterestSDK'
 pod 'PayCardsRecognizer'
 pod 'Stripe'
+pod 'IQKeyboardManagerSwift'
+
 end

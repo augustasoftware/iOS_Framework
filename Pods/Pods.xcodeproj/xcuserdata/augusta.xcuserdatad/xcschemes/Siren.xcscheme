@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1367B86AD0C3DB14346432915C535E7E"
+               BlueprintIdentifier = "79C27D570E0B4C70950716BD3A92F01C"
                BlueprintName = "Siren"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "Siren.framework">

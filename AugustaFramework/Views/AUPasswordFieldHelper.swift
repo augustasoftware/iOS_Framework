@@ -233,7 +233,7 @@ public class AUPasswordFieldHelper: UIView {
                 print("Minimum and maximum char limit is not set. Please set and try again")
                 break charLabel
             }
-            if(textString.count > self.minimumCharLimit && textString.count < self.maximumCharLimit){
+            if(textString.count >= self.minimumCharLimit && textString.count <= self.maximumCharLimit){
                 self.minMaxImageView.image = self.tickMarkImage
                 validationSuccessCount = validationSuccessCount + 1
             }

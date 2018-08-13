@@ -8,6 +8,7 @@
 
 import UIKit
 import Stripe
+import IQKeyboardManagerSwift
 
 let MAX_CARD_CVV_NO = 4
 let CONTENT_CARD_NUMBER_IN_VALID = "Please enter valid card number"
@@ -25,18 +26,35 @@ public enum AUBillingInfoPaymentType {
 
 public class AUBillingInfoView: UIView {
     
+    var pickerSelectedTextField: UITextField = UITextField()
+    
     @IBOutlet public weak var cardNoTextField: UITextField!
     @IBOutlet public weak var cardExpiryTextField: UITextField!
     @IBOutlet public weak var cardSecurityCode: UITextField!
-    @IBOutlet public weak var nameTextField: UITextField!
+    @IBOutlet weak var cardDetailsView: UIView!
     @IBOutlet public weak var cardTypeImageView: UIImageView!
     
+    @IBOutlet weak var billingAddressCountryView: UIView!
+    var isCountryPresentInBilling: Bool = false
+    var isCityPickerEnabled : Bool = false
+    @IBOutlet public weak var countryFirstNameTextField: UITextField!
+    @IBOutlet public weak var countrySecondNameTextField: UITextField!
+    @IBOutlet weak var countryZipTextField: UITextField!
+    @IBOutlet weak var countryAddressTextField: UITextField!
+    @IBOutlet weak var countryStateTextField: UITextField!
+    @IBOutlet weak var countryCityTextField: UITextField!
+    @IBOutlet weak var countryTextField: UITextField!
+    
     @IBOutlet weak var billingAddressView: UIView!
+    @IBOutlet public weak var firstNameTextField: UITextField!
+    @IBOutlet public weak var secondNameTextField: UITextField!
     @IBOutlet weak var zipTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet weak var stateTextField: UITextField!
     @IBOutlet weak var cityTextField: UITextField!
-    @IBOutlet weak var cardDetailsView: UIView!
+
+
+    
     var billingMethodType:AUBillingInfoPaymentType?
     var textFieldValidationHandling: Bool?
     var cardBrand : STPCardBrand = STPCardBrand.unknown
@@ -50,6 +68,11 @@ public class AUBillingInfoView: UIView {
     @IBOutlet public var pickerBaseView: UIView!
     @IBOutlet public weak var pickerViewToolBar: UIView!
     @IBOutlet public weak var expiryDatePicker: AUMonthYearPickerView!
+    @IBOutlet public weak var cityStatePicker: UIPickerView!
+    
+    public var countryNamesArray : [String]?
+    public var stateNamesArray : [String]?
+    public var cityNamesArray : [String]?
     
     /*
      // Only override draw() if you perform custom drawing.
@@ -84,6 +107,10 @@ public class AUBillingInfoView: UIView {
         content2.frame = self.bounds
         content2.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(content2)
+        guard let content3 = billingAddressCountryView else { return }
+        content3.frame = self.bounds
+        content3.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(content3)
         self.loadInitialSetup()
     }
     
@@ -123,15 +150,16 @@ public class AUBillingInfoView: UIView {
         cardExpiryTextField.resignFirstResponder()
     }
     
-    public func initializeSetUp(paymentMethod: AUBillingInfoPaymentType, textFieldValidationHandling: Bool = false){
+    public func initializeSetUp(paymentMethod: AUBillingInfoPaymentType, textFieldValidationHandling: Bool = false, isCountryPresentInBilling: Bool = false, isCityPickerInput: Bool = false){
         self.textFieldValidationHandling = textFieldValidationHandling
+        self.isCountryPresentInBilling = isCountryPresentInBilling
+        self.isCityPickerEnabled = isCityPickerInput
         switch paymentMethod {
         case .stripe:
             if(textFieldValidationHandling){
                 cardNoTextField.delegate = self
                 cardExpiryTextField.delegate = self
                 cardSecurityCode.delegate = self
-                nameTextField.delegate = self
             }
             break
         case .payPal:
@@ -158,13 +186,24 @@ public class AUBillingInfoView: UIView {
     public func addAddressDetailsViewInView(view: UIView)
     {
         self.translatesAutoresizingMaskIntoConstraints = false
-        let topConstraint = NSLayoutConstraint(item: billingAddressView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0)
-        let bottomConstraint = NSLayoutConstraint(item: billingAddressView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
-        let leadingConstraint = NSLayoutConstraint(item: billingAddressView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0)
-        let trailingConstraint = NSLayoutConstraint(item: billingAddressView, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0)
-        view.addSubview(billingAddressView)
-        view.addConstraints([topConstraint, bottomConstraint, leadingConstraint, trailingConstraint])
-        view.layoutIfNeeded()
+        if(self.isCountryPresentInBilling){
+            let topConstraint = NSLayoutConstraint(item: billingAddressView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0)
+            let bottomConstraint = NSLayoutConstraint(item: billingAddressView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
+            let leadingConstraint = NSLayoutConstraint(item: billingAddressView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0)
+            let trailingConstraint = NSLayoutConstraint(item: billingAddressView, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0)
+            view.addSubview(billingAddressView)
+            view.addConstraints([topConstraint, bottomConstraint, leadingConstraint, trailingConstraint])
+            view.layoutIfNeeded()
+        }
+        else{
+            let topConstraint = NSLayoutConstraint(item: billingAddressCountryView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0)
+            let bottomConstraint = NSLayoutConstraint(item: billingAddressCountryView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
+            let leadingConstraint = NSLayoutConstraint(item: billingAddressCountryView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0)
+            let trailingConstraint = NSLayoutConstraint(item: billingAddressCountryView, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0)
+            view.addSubview(billingAddressCountryView)
+            view.addConstraints([topConstraint, bottomConstraint, leadingConstraint, trailingConstraint])
+            view.layoutIfNeeded()
+        }
     }
     
     public func isValidCardDetailsEntered()-> Bool{
@@ -185,11 +224,11 @@ public class AUBillingInfoView: UIView {
             stripeCardParamsNew.cvc =  AUUtilities.removeWhiteSpace(text: cardSecurityCode.text!)
             stripeCardParamsNew.expMonth = UInt(selectedMonth ?? "0")!
             stripeCardParamsNew.expYear = UInt(selectedYear ?? "0")!
-            stripeCardParamsNew.name =  AUUtilities.removeWhiteSpace(text: nameTextField.text! )
-            stripeCardParamsNew.address.line1 =  AUUtilities.removeWhiteSpace(text: addressTextField.text!)
-            stripeCardParamsNew.address.city =  AUUtilities.removeWhiteSpace(text: cityTextField.text!)
-            stripeCardParamsNew.address.state =  AUUtilities.removeWhiteSpace(text: stateTextField.text!)
-            stripeCardParamsNew.address.postalCode =  AUUtilities.removeWhiteSpace(text: zipTextField.text!)
+            stripeCardParamsNew.name =  AUUtilities.removeWhiteSpace(text: String(format:"%@ %@", countryFirstNameTextField.text ?? "", countrySecondNameTextField.text ?? "" ))
+            stripeCardParamsNew.address.line1 =  AUUtilities.removeWhiteSpace(text: countryAddressTextField.text!)
+            stripeCardParamsNew.address.city =  AUUtilities.removeWhiteSpace(text: countryCityTextField.text!)
+            stripeCardParamsNew.address.state =  AUUtilities.removeWhiteSpace(text: countryStateTextField.text!)
+            stripeCardParamsNew.address.postalCode =  AUUtilities.removeWhiteSpace(text: countryTextField.text!)
         }
         var finalParams: STPCardParams = stripeCardParams ?? stripeCardParamsNew
         // get stripe token for current card
@@ -210,6 +249,49 @@ public class AUBillingInfoView: UIView {
 extension AUBillingInfoView: UITextFieldDelegate{
     //MARK: UITextField Delegates
     public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        
+        if(textField == cardExpiryTextField)
+        {
+            IQKeyboardManager.shared.previousNextDisplayMode = .alwaysHide
+            IQKeyboardManager.shared.enableAutoToolbar = false
+            expiryDatePicker.isHidden = false
+            cityStatePicker.isHidden = true
+            pickerSelectedTextField = textField
+        }
+        else if(textField == stateTextField || textField == countryStateTextField)
+        {
+            IQKeyboardManager.shared.previousNextDisplayMode = .alwaysHide
+            IQKeyboardManager.shared.enableAutoToolbar = false
+            expiryDatePicker.isHidden = true
+            cityStatePicker.isHidden = false
+            pickerSelectedTextField = textField
+            cityStatePicker.reloadAllComponents()
+        }
+        else if(self.isCityPickerEnabled && (textField == cityTextField  || textField == countryCityTextField))
+        {
+            IQKeyboardManager.shared.previousNextDisplayMode = .alwaysHide
+            IQKeyboardManager.shared.enableAutoToolbar = false
+            expiryDatePicker.isHidden = true
+            cityStatePicker.isHidden = false
+            pickerSelectedTextField = textField
+            cityStatePicker.reloadAllComponents()
+        }
+        else if(textField == countryTextField)
+        {
+            IQKeyboardManager.shared.previousNextDisplayMode = .alwaysHide
+            IQKeyboardManager.shared.enableAutoToolbar = false
+            expiryDatePicker.isHidden = true
+            cityStatePicker.isHidden = false
+            pickerSelectedTextField = textField
+            cityStatePicker.reloadAllComponents()
+        }
+        else
+        {
+            pickerSelectedTextField = UITextField()
+            IQKeyboardManager.shared.previousNextDisplayMode = .alwaysShow
+            IQKeyboardManager.shared.enableAutoToolbar = true
+        }
+        return true
         return true
     }
     
@@ -246,10 +328,6 @@ extension AUBillingInfoView: UITextFieldDelegate{
                 return newText.count <= 3
             }
             
-        }
-        
-        if (textField == nameTextField){
-            return  newText.count <= 100
         }
         
         if(textField == cardNoTextField){
@@ -323,6 +401,48 @@ extension AUBillingInfoView: UITextFieldDelegate{
         default:
             cardTypeImageView.image =  UIImage(named: "card", in: resourceBundle, compatibleWith: nil)
         }
+    }
+    
+    //MARK: UIPicker Delegate
+    //MARK: UIPickerView Delegates
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if(self.isCityPickerEnabled && (pickerSelectedTextField == cityTextField || pickerSelectedTextField == countryCityTextField))
+        {
+            return cityNamesArray?[row] ?? ""
+        }
+        else if(pickerSelectedTextField == stateTextField || pickerSelectedTextField == countryStateTextField){
+            return stateNamesArray?[row] ?? ""
+        }
+        else if(pickerSelectedTextField == countryTextField){
+            return countryNamesArray?[row] ?? ""
+        }
+        
+        return ""
+        
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+       
+        if(self.isCityPickerEnabled && (pickerSelectedTextField == cityTextField || pickerSelectedTextField == countryCityTextField))
+        {
+            return cityNamesArray?.count ?? 0
+        }
+        else if(pickerSelectedTextField == stateTextField || pickerSelectedTextField == countryStateTextField){
+            return stateNamesArray?.count ?? 0
+        }
+        else if(pickerSelectedTextField == countryTextField){
+            return countryNamesArray?.count ?? 0
+        }
+        
+        return 0
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
     }
 }
 
