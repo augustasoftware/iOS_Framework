@@ -37,10 +37,15 @@ public class AUPasswordFieldHelper: UIView {
     private var mappedTextField: UITextField?
     private var tickMarkImage: UIImage?
     private var unTickImage: UIImage?
-    
+    var blurEffectView: UIVisualEffectView?
     public var isHelperShown: Bool = false
     
     private var itemsNeededForValidation: [AUPasswordHelperValidationParams]?
+    
+    //iPhone SE top n botom space handling
+    @IBOutlet weak var helperViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var helperViewBottomConstraint: NSLayoutConstraint!
+    
     
     public override init(frame: CGRect) { // for using CustomView in code
         super.init(frame: frame)
@@ -67,7 +72,16 @@ public class AUPasswordFieldHelper: UIView {
     
     public func configurePasswordHelper(textField: UITextField, isInsideTableView: Bool, tableView: UITableView?, cell: UITableViewCell?, itemsNeeded:[AUPasswordHelperValidationParams], tickImage: UIImage, unTickImage: UIImage){
         self.mappedTextField = textField
-        self.helperViewHeightConstraint.constant = CGFloat(itemsNeeded.count * 25) + 45 // (top and bottom height height)
+        
+        if(UIDevice.current.screenType.rawValue ==  "iPhone 5, iPhone 5s, iPhone 5c or iPhone SE"){
+            self.helperViewHeightConstraint.constant = CGFloat(itemsNeeded.count * 25) + 25
+            helperViewTopConstraint.constant = 0
+            helperViewBottomConstraint.constant = 0
+        }
+        else{
+           self.helperViewHeightConstraint.constant = CGFloat(itemsNeeded.count * 25) + 45 // (top and bottom height height)
+        }
+        
         itemsNeededForValidation = itemsNeeded
         if(!itemsNeeded.contains(.minMaxCharacterLimit)){
             minMaxCharStackView.isHidden = true
@@ -114,9 +128,31 @@ public class AUPasswordFieldHelper: UIView {
             helperView.isHidden = true
             self.isHelperShown = false
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                 tableView?.addSubview(self.helperView)
                 tableView?.addConstraints([bottomConstraint, xConstraint, widthConstraint])
+                // Blur Effect
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+                    self.blurEffectView = UIVisualEffectView(effect: blurEffect)
+                    self.blurEffectView?.frame = self.helperView.frame
+                    self.blurEffectView?.clipsToBounds = true
+                    self.blurEffectView?.layer.cornerRadius = 10
+                    tableView?.addSubview(self.blurEffectView!)
+                    
+                    
+                    // Vibrancy Effect
+                    let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
+                    let vibrancyEffectView = UIVisualEffectView(effect: vibrancyEffect)
+                    vibrancyEffectView.frame = self.helperView.frame
+                    
+                    // Add the vibrancy view to the blur view
+                    self.blurEffectView?.contentView.addSubview(vibrancyEffectView)
+                    
+                    tableView?.bringSubview(toFront: self.helperView)
+                    self.blurEffectView?.isHidden = true
+                }
             }
         }
         else{
@@ -132,6 +168,10 @@ public class AUPasswordFieldHelper: UIView {
             self.validateBasedOnText(textString: mappedTextField?.text ?? "")
         }
         
+        
+        
+       
+        
        
         //tableView.layoutIfNeeded()
         self.validateBasedOnText(textString: mappedTextField?.text ?? "")
@@ -140,17 +180,23 @@ public class AUPasswordFieldHelper: UIView {
     public func showOrHideHelper(show: Bool){
         if(show){
             if(self.isHelperShown == false){
-                UIView.transition(with: helperView, duration: 0.25, options: .transitionFlipFromBottom, animations: {
+                UIView.transition(with: self.blurEffectView!, duration: 0.25, options: .transitionFlipFromBottom, animations: {
                     self.helperView.isHidden = false
+                    self.blurEffectView?.isHidden = false
                     self.isHelperShown = true
+                    UIView.transition(with: self.helperView!, duration: 0.25, options: .transitionFlipFromBottom, animations: {})
+
                 })
             }
         }
         else{
             if(self.isHelperShown == true){
-                UIView.transition(with: helperView, duration: 0.25, options: .transitionFlipFromTop, animations: {
+                UIView.transition(with: self.blurEffectView!, duration: 0.25, options: .transitionFlipFromTop, animations: {
                     self.helperView.isHidden = true
+                    self.blurEffectView?.isHidden = true
                     self.isHelperShown = false
+                    UIView.transition(with: self.helperView!, duration: 0.25, options: .transitionFlipFromTop, animations: {})
+
                 })
             }
         }
@@ -158,16 +204,21 @@ public class AUPasswordFieldHelper: UIView {
     
     public func toggleHelper(){
         if(self.isHelperShown){
-            UIView.transition(with: helperView!, duration: 0.25, options: .transitionFlipFromTop, animations: {
+            UIView.transition(with: self.blurEffectView!, duration: 0.25, options: .transitionFlipFromTop, animations: {
                 self.helperView.isHidden = true
+                self.blurEffectView?.isHidden = true
                 self.isHelperShown = false
+                UIView.transition(with: self.helperView!, duration: 0.25, options: .transitionFlipFromTop, animations: {})
+
             })
             
         }
         else{
-            UIView.transition(with: helperView!, duration: 0.25, options: .transitionFlipFromBottom, animations: {
+            UIView.transition(with: self.blurEffectView!, duration: 0.25, options: .transitionFlipFromBottom, animations: {
                 self.helperView.isHidden = false
+                self.blurEffectView?.isHidden = false
                 self.isHelperShown = true
+                UIView.transition(with: self.helperView!, duration: 0.25, options: .transitionFlipFromBottom, animations: {})
             })
            
         }
@@ -284,4 +335,37 @@ public class AUPasswordFieldHelper: UIView {
     }
     
 
+}
+
+extension UIDevice {
+    var iPhoneX: Bool {
+        return UIScreen.main.nativeBounds.height == 2436
+    }
+    var iPhone: Bool {
+        return UIDevice.current.userInterfaceIdiom == .phone
+    }
+    public enum ScreenType: String {
+        case iPhone4_4S = "iPhone 4 or iPhone 4S"
+        case iPhones_5_5s_5c_SE = "iPhone 5, iPhone 5s, iPhone 5c or iPhone SE"
+        case iPhones_6_6s_7_8 = "iPhone 6, iPhone 6S, iPhone 7 or iPhone 8"
+        case iPhones_6Plus_6sPlus_7Plus_8Plus = "iPhone 6 Plus, iPhone 6S Plus, iPhone 7 Plus or iPhone 8 Plus"
+        case iPhoneX = "iPhone X"
+        case unknown
+    }
+    var screenType: ScreenType {
+        switch UIScreen.main.nativeBounds.height {
+        case 960:
+            return .iPhone4_4S
+        case 1136:
+            return .iPhones_5_5s_5c_SE
+        case 1334:
+            return .iPhones_6_6s_7_8
+        case 1920, 2208:
+            return .iPhones_6Plus_6sPlus_7Plus_8Plus
+        case 2436:
+            return .iPhoneX
+        default:
+            return .unknown
+        }
+    }
 }
