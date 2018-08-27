@@ -12,10 +12,31 @@ import IQKeyboardManagerSwift
 
 let MAX_CARD_CVV_NO = 4
 let CONTENT_CARD_NUMBER_IN_VALID = "Please enter valid card number"
+let CONTENT_CARD_NUMBER_EMPTY = "Please enter card number"
+let CONTENT_CARD_EXPIRATIONDATE_EMPTY = "Please select expiration date"
+let CONTENT_CARD_NAME_EMPTY = "Please enter card name"
+let CONTENT_CARD_CVV_EMPTY = "Please enter Security Code"
+let CONTENT_CARD_IN_VALID_CVV = "Please enter valid Security Code"
+let CONTENT_CARD_EXPIRATIONDATE_FORMAT = "Expiration date should be MM/YY"
+let CONTENT_CARD_EXPIRATIONDATE_VALID = "Please enter valid expiration date"
+let CONTENT_ALERT_STREET_ADDRESS = "Please enter the street address"
+let CONTENT_FIRST_NAME = "Please enter first name"
+let CONTENT_SECOND_NAME = "Please enter last name"
+let CONTENT_CITY = "Please enter city"
+let CONTENT_STATE = "Please select state"
+let CONTENT_ZIPCODE_BLANK = "Zipcode shouldn't be blank"
+let CONTENT_ZIPCODE_MINIMUM = "Zipcode can contains alphabets, number, hypen & length should range between 2 to 12 characters"
+
+let CONTENT_ZIPCODE_ALPHANUMERIC = "Zipcode should contain 1 numberic character"
 
 public typealias kStripeTokenSuccessBlock = (_ success : Bool, _ message : STPToken) ->()
 public typealias kStripeTokenFailureBlock = (_ success : Bool, _ message : String) ->()
 
+public protocol AUBillingInfoViewDelegate{
+    func countrySelected(countrySelected: String)
+    func stateSelected(stateSelected: String)
+    func citySelected(citySelected: String)
+}
 
 public enum AUBillingInfoPaymentType {
     case stripe
@@ -24,9 +45,15 @@ public enum AUBillingInfoPaymentType {
     case unknown
 }
 
-public class AUBillingInfoView: UIView {
+public class AUBillingInfoView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    var pickerSelectedTextField: UITextField = UITextField()
+    private var pickerSelectedTextField: UITextField = UITextField()
+    private var selectedItemFromPicker: String?
+    var selectedCountry: String?
+    var selectedState: String?
+    var selectedCity: String?
+    
+    public var delegate: AUBillingInfoViewDelegate?
     
     @IBOutlet public weak var cardNoTextField: UITextField!
     @IBOutlet public weak var cardExpiryTextField: UITextField!
@@ -52,8 +79,8 @@ public class AUBillingInfoView: UIView {
     @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet weak var stateTextField: UITextField!
     @IBOutlet weak var cityTextField: UITextField!
-
-
+    
+    
     
     var billingMethodType:AUBillingInfoPaymentType?
     var textFieldValidationHandling: Bool?
@@ -62,6 +89,8 @@ public class AUBillingInfoView: UIView {
     var selectedExpiryDate : String = ""
     var selectedMonth:String! = ""
     var selectedYear:String! = ""
+    var currentMonth = Int()
+    var currentYear = Int()
     
     public var stripeKey: String = ""
     
@@ -142,24 +171,73 @@ public class AUBillingInfoView: UIView {
     // picker can cel and done
     
     @objc func donePicker(){
-        cardExpiryTextField.text = self.selectedExpiryDate
-        cardExpiryTextField.resignFirstResponder()
+        
+        
+        if(pickerSelectedTextField == cardExpiryTextField)
+        {
+            cardExpiryTextField.text = self.selectedExpiryDate
+            self.cardDetailsView.endEditing(true)
+        }
+        else
+        {
+            if(pickerSelectedTextField == stateTextField || pickerSelectedTextField == countryStateTextField)
+            {
+                self.delegate?.stateSelected(stateSelected: selectedItemFromPicker ?? "")
+            }
+            else if(pickerSelectedTextField == cityTextField || pickerSelectedTextField == countryCityTextField)
+            {
+                self.delegate?.citySelected(citySelected: selectedItemFromPicker ?? "")
+            }
+            else if(pickerSelectedTextField == countryTextField)
+            {
+                self.delegate?.countrySelected(countrySelected: selectedItemFromPicker ?? "")
+            }
+            pickerSelectedTextField.text = selectedItemFromPicker
+            self.billingAddressCountryView.endEditing(true)
+            self.billingAddressView.endEditing(true)
+        }
     }
     
     @objc func cancelPicker(){
-        cardExpiryTextField.resignFirstResponder()
+        if(pickerSelectedTextField == cardExpiryTextField){
+            self.cardDetailsView.endEditing(true)
+        }
+        else{
+            self.billingAddressCountryView.endEditing(true)
+            self.billingAddressView.endEditing(true)
+        }
     }
     
     public func initializeSetUp(paymentMethod: AUBillingInfoPaymentType, textFieldValidationHandling: Bool = false, isCountryPresentInBilling: Bool = false, isCityPickerInput: Bool = false){
         self.textFieldValidationHandling = textFieldValidationHandling
         self.isCountryPresentInBilling = isCountryPresentInBilling
         self.isCityPickerEnabled = isCityPickerInput
+        stateTextField.inputView = pickerBaseView
+        cityTextField.inputView = pickerBaseView
+        countryTextField.inputView = pickerBaseView
+        countryStateTextField.inputView = pickerBaseView
+        countryCityTextField.inputView = pickerBaseView
+        cityStatePicker.delegate = self
+        cityStatePicker.dataSource = self
         switch paymentMethod {
         case .stripe:
             if(textFieldValidationHandling){
                 cardNoTextField.delegate = self
                 cardExpiryTextField.delegate = self
                 cardSecurityCode.delegate = self
+                stateTextField.delegate = self
+                cityTextField.delegate = self
+                countryTextField.delegate = self
+                countryStateTextField.delegate = self
+                countryCityTextField.delegate = self
+                firstNameTextField.delegate = self
+                secondNameTextField.delegate = self
+                zipTextField.delegate = self
+                countryFirstNameTextField.delegate = self
+                countrySecondNameTextField.delegate = self
+                countryAddressTextField.delegate = self
+                countryZipTextField.delegate = self
+                
             }
             break
         case .payPal:
@@ -186,7 +264,7 @@ public class AUBillingInfoView: UIView {
     public func addAddressDetailsViewInView(view: UIView)
     {
         self.translatesAutoresizingMaskIntoConstraints = false
-        if(self.isCountryPresentInBilling){
+        if(!self.isCountryPresentInBilling){
             let topConstraint = NSLayoutConstraint(item: billingAddressView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0)
             let bottomConstraint = NSLayoutConstraint(item: billingAddressView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
             let leadingConstraint = NSLayoutConstraint(item: billingAddressView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0)
@@ -237,7 +315,7 @@ public class AUBillingInfoView: UIView {
         STPAPIClient.shared().createToken(withCard: finalParams) { (token: STPToken?, error: Error?) in
             if let token = token {
                 stripeTokenSuccessBlock(true, token)
-               
+                
             } else {
                 stripeTokenFailureBlock(false, error.debugDescription)
             }
@@ -405,11 +483,11 @@ extension AUBillingInfoView: UITextFieldDelegate{
     
     //MARK: UIPicker Delegate
     //MARK: UIPickerView Delegates
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if(self.isCityPickerEnabled && (pickerSelectedTextField == cityTextField || pickerSelectedTextField == countryCityTextField))
         {
             return cityNamesArray?[row] ?? ""
@@ -425,8 +503,8 @@ extension AUBillingInfoView: UITextFieldDelegate{
         
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-       
+    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
         if(self.isCityPickerEnabled && (pickerSelectedTextField == cityTextField || pickerSelectedTextField == countryCityTextField))
         {
             return cityNamesArray?.count ?? 0
@@ -441,8 +519,194 @@ extension AUBillingInfoView: UITextFieldDelegate{
         return 0
     }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if((pickerSelectedTextField == stateTextField || pickerSelectedTextField == countryStateTextField) && (stateNamesArray?.count)!-1 > row)
+        {
+            self.selectedItemFromPicker = self.stateNamesArray?[row] ?? ""
+        }
+        if((pickerSelectedTextField == cityTextField || pickerSelectedTextField == countryCityTextField) && (cityNamesArray?.count)!-1 > row)
+        {
+            self.selectedItemFromPicker = self.cityNamesArray?[row] ?? ""
+        }
+        if(pickerSelectedTextField == countryTextField && (countryNamesArray?.count)!-1 > row)
+        {
+            self.selectedItemFromPicker = self.countryNamesArray?[row] ?? ""
+        }
+    }
+    
+    public func reloadAllPickerViewComponents(){
+        self.cityStatePicker.reloadAllComponents()
+    }
+    
+    public func luhnCheck(number: String) -> Bool {
+        var sum = 0
+        let digitStrings = number.characters.reversed().map { String($0) }
+        
+        for tuple in digitStrings.enumerated() {
+            guard let digit = Int(tuple.element) else { return false }
+            let odd = tuple.offset % 2 == 1
+            
+            switch (odd, digit) {
+            case (true, 9):
+                sum += 9
+            case (true, 0...8):
+                sum += (digit * 2) % 9
+            default:
+                sum += digit
+            }
+        }
+        
+        return !(sum % 10 == 0)
+    }
+    
+    func isValidExpirationCardValues(str:String) -> Bool
+    {
+        var dateArr = str.components(separatedBy: "/")
+        let temp_selectedMonth = dateArr[0] as String
+        let temp_selectedYear = dateArr[1] as String
+        let currentStr = String(format: "%d", currentYear)
+        if Int(temp_selectedYear) == Int(currentStr.substring(from:currentStr.index(currentStr.endIndex, offsetBy: -2)))
+        {
+            if Int(temp_selectedMonth)! >= currentMonth
+            {
+                return true
+            }
+            else
+            {
+                return false
+            }
+        }
+        else{
+            return true
+            
+        }
+    }
+    
+    // MARK: - Private Methods
+    func loadYearDetails()
+    {
+        let date = Date()
+        let calendar = Calendar.current
+        
+        let yearVal = calendar.component(.year, from: date)
+        let monthVal = calendar.component(.month, from: date)
+        
+        currentYear = yearVal
+        currentMonth = monthVal
         
     }
+    
+    public func isValidationSuccess(billingInfoModel: BillingInfoDataModel) -> (success: Bool, message: String) {
+        loadYearDetails()
+        var isValidationSuccess = true
+        var message = ""
+        if( billingInfoModel.cardNoValidation && AUUtilities.removeWhiteSpace(text: billingInfoModel.cardNo ?? "").count == 0){
+            message = CONTENT_CARD_NUMBER_EMPTY
+            isValidationSuccess = false
+        }
+        else if(billingInfoModel.cardNoValidation && luhnCheck(number: billingInfoModel.cardNo ?? "")) // card number validation
+        {
+            isValidationSuccess = false
+            message = CONTENT_CARD_NUMBER_IN_VALID
+        }
+        else if billingInfoModel.cvvValidation && STPCardValidator.validationState(forNumber: billingInfoModel.cardNo, validatingCardBrand: true) != .valid {
+            message = CONTENT_CARD_NUMBER_IN_VALID
+            isValidationSuccess = false
+        }
+        else if( billingInfoModel.expiryValuesValidation && AUUtilities.removeWhiteSpace(text: billingInfoModel.expiryValues ?? "").count == 0){
+            message = CONTENT_CARD_EXPIRATIONDATE_EMPTY
+            isValidationSuccess = false
+        }
+        else if (billingInfoModel.expiryValuesValidation && isValidExpirationCardValues(str:AUUtilities.removeWhiteSpace(text: billingInfoModel.expiryValues ?? ""))) == false
+        {
+            isValidationSuccess = false
+            message = CONTENT_CARD_EXPIRATIONDATE_VALID
+        }
+            
+        else if(billingInfoModel.cvvValidation && AUUtilities.removeWhiteSpace(text: billingInfoModel.cvv ?? "").count == 0)
+        {
+            message = CONTENT_CARD_CVV_EMPTY
+            isValidationSuccess = false
+        }
+        else if(billingInfoModel.cvvValidation && AUUtilities.removeWhiteSpace(text: billingInfoModel.cvv ?? "").count < 3)
+        {
+            message = CONTENT_CARD_IN_VALID_CVV
+            isValidationSuccess = false
+        }
+        else  if billingInfoModel.cvvValidation && STPCardValidator.validationState(forCVC: billingInfoModel.cvv ?? "", cardBrand: self.cardBrand) != .valid{
+            message = CONTENT_CARD_IN_VALID_CVV
+            isValidationSuccess = false
+        }
+        else if(billingInfoModel.firstNameValidation && AUUtilities.removeWhiteSpace(text: billingInfoModel.firstName ?? "").count == 0){
+            message = CONTENT_FIRST_NAME
+            isValidationSuccess = false
+        }
+        else if(billingInfoModel.lastNameValidation && AUUtilities.removeWhiteSpace(text: billingInfoModel.lastName ?? "").count == 0){
+            message = CONTENT_SECOND_NAME
+            isValidationSuccess = false
+        }
+        else if(billingInfoModel.addressValidation && AUUtilities.removeWhiteSpace(text: billingInfoModel.address ?? "").count == 0){
+            message = CONTENT_ALERT_STREET_ADDRESS
+            isValidationSuccess = false
+        }
+        else if(billingInfoModel.stateValidation && AUUtilities.removeWhiteSpace(text: billingInfoModel.state ?? "").count == 0){
+            message = CONTENT_STATE
+            isValidationSuccess = false
+        }
+        else if(billingInfoModel.cityValidation && AUUtilities.removeWhiteSpace(text: billingInfoModel.city ?? "").count == 0){
+            message = CONTENT_CITY
+            isValidationSuccess = false
+        }
+        else if(billingInfoModel.zipCodeValidation && AUUtilities.removeWhiteSpace(text: billingInfoModel.zipCode ?? "").count == 0){
+            message = CONTENT_ZIPCODE_BLANK
+            isValidationSuccess = false
+        }
+        else if (billingInfoModel.zipCodeValidation && (AUUtilities.removeWhiteSpace(text: billingInfoModel.zipCode ?? "").count < billingInfoModel.zipCodeMin) &&  (AUUtilities.removeWhiteSpace(text: billingInfoModel.zipCode ?? "").count > billingInfoModel.zipCodeMax) ) {
+            message = CONTENT_ZIPCODE_MINIMUM
+            isValidationSuccess = false
+        }
+        
+        
+        
+        return (success: isValidationSuccess, message: message)
+    }
 }
+
+public class BillingInfoDataModel: NSObject{
+    
+    public var cardNo: String?
+    public var cardNoValidation: Bool = true
+    
+    public var expiryValues: String?
+    public var expiryValuesValidation: Bool = true
+    
+    public var cvv: String?
+    public var cvvValidation: Bool = true
+    
+    public var firstName: String?
+    public var firstNameValidation: Bool = true
+    
+    public var lastName: String?
+    public var lastNameValidation: Bool = true
+    
+    public var address: String?
+    public var addressValidation: Bool = true
+    
+    public var country: String?
+    public var countryValidation: Bool = true
+    
+    public var state: String?
+    public var stateValidation: Bool = true
+    
+    public var city: String?
+    public var cityValidation: Bool = true
+    
+    public var zipCode: String?
+    public var zipCodeMin: Int = 0
+    public var zipCodeMax: Int = 12
+    public var zipCodeIsAlphaNumeric: Bool = true
+    public var zipCodeValidation : Bool = true
+    
+}
+
 
