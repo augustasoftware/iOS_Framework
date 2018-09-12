@@ -17,6 +17,11 @@ public enum AUPasswordHelperValidationParams {
     case noBlankSpace
 }
 
+public enum AUPasswordHelperPosition{
+    case top
+    case bottom
+}
+
 public class AUPasswordFieldHelper: UIView {
     
     @IBOutlet public weak var helperView: UIView!
@@ -39,6 +44,7 @@ public class AUPasswordFieldHelper: UIView {
     private var unTickImage: UIImage?
     var blurEffectView: UIVisualEffectView?
     public var isHelperShown: Bool = false
+    var isAutoEnabled: Bool = true
     
     private var itemsNeededForValidation: [AUPasswordHelperValidationParams]?
     
@@ -70,16 +76,16 @@ public class AUPasswordFieldHelper: UIView {
     public var minimumCharLimit : Int = -1
     public var maximumCharLimit : Int = -1
     
-    public func configurePasswordHelper(textField: UITextField, isInsideTableView: Bool, tableView: UITableView?, cell: UITableViewCell?, itemsNeeded:[AUPasswordHelperValidationParams], tickImage: UIImage, unTickImage: UIImage){
+    public func configurePasswordHelper(textField: UITextField, position: AUPasswordHelperPosition, isAutoEnable: Bool = true, isInsideTableView: Bool, superView: UIView?, cell: UITableViewCell?, itemsNeeded:[AUPasswordHelperValidationParams], tickImage: UIImage, unTickImage: UIImage){
         self.mappedTextField = textField
-        
+        self.isAutoEnabled = isAutoEnable
         if(UIDevice.current.screenType.rawValue ==  "iPhone 5, iPhone 5s, iPhone 5c or iPhone SE"){
             self.helperViewHeightConstraint.constant = CGFloat(itemsNeeded.count * 25) + 25
             helperViewTopConstraint.constant = 0
             helperViewBottomConstraint.constant = 0
         }
         else{
-           self.helperViewHeightConstraint.constant = CGFloat(itemsNeeded.count * 25) + 45 // (top and bottom height height)
+            self.helperViewHeightConstraint.constant = CGFloat(itemsNeeded.count * 25) + 45 // (top and bottom height height)
         }
         
         itemsNeededForValidation = itemsNeeded
@@ -110,27 +116,35 @@ public class AUPasswordFieldHelper: UIView {
         specialCharImageView.image = unTickImage
         self.unTickImage = unTickImage
         self.tickMarkImage = tickImage
-        self.addPasswordHelperViewInView(isInsideTableView: isInsideTableView, tableView: tableView, cell: cell)
+        self.addPasswordHelperViewInView(isInsideTableView: isInsideTableView, superView: superView, cell: cell, position: position)
     }
-
-    private func addPasswordHelperViewInView(isInsideTableView:Bool, tableView: UITableView?, cell: UITableViewCell?){
+    
+    private func addPasswordHelperViewInView(isInsideTableView:Bool, superView: UIView?, cell: UITableViewCell?, position: AUPasswordHelperPosition){
         
         mappedTextField?.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         mappedTextField?.addTarget(self, action: #selector(textFieldDidBegin(_:)), for: .editingDidBegin)
         mappedTextField?.addTarget(self, action: #selector(textFieldDidEnd(_:)), for: .editingDidEnd)
         if(isInsideTableView){
             self.translatesAutoresizingMaskIntoConstraints = false
-            let bottomConstraint = NSLayoutConstraint(item: helperView, attribute: .bottom, relatedBy: .equal, toItem: cell, attribute: .top, multiplier: 1, constant: 0)
+            var topOrBottomConstraint : NSLayoutConstraint?
+            if(position == .top){
+                topOrBottomConstraint = NSLayoutConstraint(item: helperView, attribute: .top, relatedBy: .equal, toItem: cell, attribute: .bottom, multiplier: 1, constant: 0)
+                
+            }
+            else{
+                topOrBottomConstraint = NSLayoutConstraint(item: helperView, attribute: .bottom, relatedBy: .equal, toItem: cell, attribute: .top, multiplier: 1, constant: 0)
+                
+            }
             let xConstraint = NSLayoutConstraint(item: helperView, attribute: .centerX, relatedBy: .equal, toItem: cell, attribute: .centerX, multiplier: 1, constant: 0)
             let widthConstraint = NSLayoutConstraint(item: helperView, attribute: .width, relatedBy: .equal, toItem: cell, attribute: .width, multiplier: 0.95, constant: 0)
-            tableView?.clipsToBounds = false
+            superView?.clipsToBounds = false
             
             helperView.isHidden = true
             self.isHelperShown = false
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                tableView?.addSubview(self.helperView)
-                tableView?.addConstraints([bottomConstraint, xConstraint, widthConstraint])
+                superView?.addSubview(self.helperView)
+                superView?.addConstraints([topOrBottomConstraint!, xConstraint, widthConstraint])
                 // Blur Effect
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -139,7 +153,7 @@ public class AUPasswordFieldHelper: UIView {
                     self.blurEffectView?.frame = self.helperView.frame
                     self.blurEffectView?.clipsToBounds = true
                     self.blurEffectView?.layer.cornerRadius = 10
-                    tableView?.addSubview(self.blurEffectView!)
+                    superView?.addSubview(self.blurEffectView!)
                     
                     
                     // Vibrancy Effect
@@ -150,54 +164,83 @@ public class AUPasswordFieldHelper: UIView {
                     // Add the vibrancy view to the blur view
                     self.blurEffectView?.contentView.addSubview(vibrancyEffectView)
                     
-                    tableView?.bringSubview(toFront: self.helperView)
+                    superView?.bringSubview(toFront: self.helperView)
                     self.blurEffectView?.isHidden = true
                 }
             }
         }
         else{
             self.translatesAutoresizingMaskIntoConstraints = false
-            let bottomConstraint = NSLayoutConstraint(item: helperView, attribute: .bottom, relatedBy: .equal, toItem: mappedTextField, attribute: .top, multiplier: 1, constant: -2)
+            var topOrBottomConstraint : NSLayoutConstraint?
+            if(position == .top){
+                topOrBottomConstraint = NSLayoutConstraint(item: helperView, attribute: .bottom, relatedBy: .equal, toItem: mappedTextField, attribute: .top, multiplier: 1, constant: 0)
+            }
+            else{
+                topOrBottomConstraint = NSLayoutConstraint(item: helperView, attribute: .top, relatedBy: .equal, toItem: mappedTextField, attribute: .bottom, multiplier: 1, constant: 0)
+                
+            }
             let xConstraint = NSLayoutConstraint(item: helperView, attribute: .centerX, relatedBy: .equal, toItem: mappedTextField, attribute: .centerX, multiplier: 1, constant: 0)
-             let widthConstraint = NSLayoutConstraint(item: helperView, attribute: .width, relatedBy: .equal, toItem: mappedTextField, attribute: .width, multiplier: 1, constant: 0)
+            let widthConstraint = NSLayoutConstraint(item: helperView, attribute: .width, relatedBy: .equal, toItem: mappedTextField, attribute: .width, multiplier: 1, constant: 0)
             mappedTextField?.superview?.addSubview(helperView)
             helperView.isHidden = true
             self.isHelperShown = false
-            mappedTextField?.superview?.addConstraints([bottomConstraint, xConstraint, widthConstraint])
+            mappedTextField?.superview?.addConstraints([topOrBottomConstraint!, xConstraint, widthConstraint])
             mappedTextField?.superview?.layoutIfNeeded()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+                self.blurEffectView = UIVisualEffectView(effect: blurEffect)
+                self.blurEffectView?.frame = self.helperView.frame
+                self.blurEffectView?.clipsToBounds = true
+                self.blurEffectView?.layer.cornerRadius = 10
+                superView?.addSubview(self.blurEffectView!)
+                
+                
+                // Vibrancy Effect
+                let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
+                let vibrancyEffectView = UIVisualEffectView(effect: vibrancyEffect)
+                vibrancyEffectView.frame = self.helperView.frame
+                
+                // Add the vibrancy view to the blur view
+                self.blurEffectView?.contentView.addSubview(vibrancyEffectView)
+                
+                superView?.bringSubview(toFront: self.helperView)
+                self.blurEffectView?.isHidden = true
+            }
             self.validateBasedOnText(textString: mappedTextField?.text ?? "")
         }
         
         
         
-       
         
-       
+        
+        
         //tableView.layoutIfNeeded()
         self.validateBasedOnText(textString: mappedTextField?.text ?? "")
     }
     
     public func showOrHideHelper(show: Bool){
-        if(show){
-            if(self.isHelperShown == false){
-                UIView.transition(with: self.blurEffectView!, duration: 0.25, options: .transitionFlipFromBottom, animations: {
-                    self.helperView.isHidden = false
-                    self.blurEffectView?.isHidden = false
-                    self.isHelperShown = true
-                    UIView.transition(with: self.helperView!, duration: 0.25, options: .transitionFlipFromBottom, animations: {})
-
-                })
+        if(isAutoEnabled){
+            if(show){
+                if(self.isHelperShown == false){
+                    UIView.transition(with: self.blurEffectView!, duration: 0.25, options: .transitionFlipFromBottom, animations: {
+                        self.helperView.isHidden = false
+                        self.blurEffectView?.isHidden = false
+                        self.isHelperShown = true
+                        UIView.transition(with: self.helperView!, duration: 0.25, options: .transitionFlipFromBottom, animations: {})
+                        
+                    })
+                }
             }
-        }
-        else{
-            if(self.isHelperShown == true){
-                UIView.transition(with: self.blurEffectView!, duration: 0.25, options: .transitionFlipFromTop, animations: {
-                    self.helperView.isHidden = true
-                    self.blurEffectView?.isHidden = true
-                    self.isHelperShown = false
-                    UIView.transition(with: self.helperView!, duration: 0.25, options: .transitionFlipFromTop, animations: {})
-
-                })
+            else{
+                if(self.isHelperShown == true){
+                    UIView.transition(with: self.blurEffectView!, duration: 0.25, options: .transitionFlipFromTop, animations: {
+                        self.helperView.isHidden = true
+                        self.blurEffectView?.isHidden = true
+                        self.isHelperShown = false
+                        UIView.transition(with: self.helperView!, duration: 0.25, options: .transitionFlipFromTop, animations: {})
+                        
+                    })
+                }
             }
         }
     }
@@ -209,7 +252,7 @@ public class AUPasswordFieldHelper: UIView {
                 self.blurEffectView?.isHidden = true
                 self.isHelperShown = false
                 UIView.transition(with: self.helperView!, duration: 0.25, options: .transitionFlipFromTop, animations: {})
-
+                
             })
             
         }
@@ -220,7 +263,7 @@ public class AUPasswordFieldHelper: UIView {
                 self.isHelperShown = true
                 UIView.transition(with: self.helperView!, duration: 0.25, options: .transitionFlipFromBottom, animations: {})
             })
-           
+            
         }
     }
     
@@ -228,7 +271,7 @@ public class AUPasswordFieldHelper: UIView {
         
         var validationSuccessCount: Int = 0
         
-         charLabel: if(self.itemsNeededForValidation?.contains(.minMaxCharacterLimit))!{
+        charLabel: if(self.itemsNeededForValidation?.contains(.minMaxCharacterLimit))!{
             if(self.minimumCharLimit == -1 || self.maximumCharLimit == -1){
                 print("Minimum and maximum char limit is not set. Please set and try again")
                 break charLabel
@@ -247,7 +290,7 @@ public class AUPasswordFieldHelper: UIView {
             let capitalLetterRegEx  = ".*[A-Z]+.*"
             let texttest = NSPredicate(format:"SELF MATCHES %@", capitalLetterRegEx)
             let capitalresult = texttest.evaluate(with: textString)
-           
+            
             if(capitalresult){
                 self.upperCaseImageView.image = self.tickMarkImage
                 validationSuccessCount = validationSuccessCount + 1
@@ -261,7 +304,7 @@ public class AUPasswordFieldHelper: UIView {
             let lowerLetterRegEx  = ".*[a-z]+.*"
             let texttest = NSPredicate(format:"SELF MATCHES %@", lowerLetterRegEx)
             let capitalresult = texttest.evaluate(with: textString)
-           
+            
             if(capitalresult){
                 self.lowerCaseImageView.image = self.tickMarkImage
                 validationSuccessCount = validationSuccessCount + 1
@@ -275,7 +318,7 @@ public class AUPasswordFieldHelper: UIView {
             let numberRegEx  = ".*[0-9]+.*"
             let texttest = NSPredicate(format:"SELF MATCHES %@", numberRegEx)
             let numberresult = texttest.evaluate(with: textString)
-           
+            
             if(numberresult){
                 self.numbericImageView.image = self.tickMarkImage
                 validationSuccessCount = validationSuccessCount + 1
@@ -334,7 +377,7 @@ public class AUPasswordFieldHelper: UIView {
         self.showOrHideHelper(show: false)
     }
     
-
+    
 }
 
 extension UIDevice {
@@ -369,3 +412,4 @@ extension UIDevice {
         }
     }
 }
+
