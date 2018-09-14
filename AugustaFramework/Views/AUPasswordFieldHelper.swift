@@ -179,8 +179,8 @@ public class AUPasswordFieldHelper: UIView {
                 topOrBottomConstraint = NSLayoutConstraint(item: helperView, attribute: .top, relatedBy: .equal, toItem: mappedTextField, attribute: .bottom, multiplier: 1, constant: 0)
                 
             }
-            let xConstraint = NSLayoutConstraint(item: helperView, attribute: .centerX, relatedBy: .equal, toItem: mappedTextField, attribute: .centerX, multiplier: 1, constant: 0)
-            let widthConstraint = NSLayoutConstraint(item: helperView, attribute: .width, relatedBy: .equal, toItem: mappedTextField, attribute: .width, multiplier: 1, constant: 0)
+            let xConstraint = NSLayoutConstraint(item: helperView, attribute: .centerX, relatedBy: .equal, toItem: mappedTextField?.superview, attribute: .centerX, multiplier: 1, constant: 0)
+            let widthConstraint = NSLayoutConstraint(item: helperView, attribute: .width, relatedBy: .equal, toItem: mappedTextField?.superview, attribute: .width, multiplier: 1, constant: 0)
             mappedTextField?.superview?.addSubview(helperView)
             helperView.isHidden = true
             self.isHelperShown = false

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public typealias alertHandlerBlock = (_ indexClicked : Int) ->()
 
