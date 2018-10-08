@@ -148,7 +148,7 @@ public class AUPasswordFieldHelper: UIView {
                 // Blur Effect
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+                    let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
                     self.blurEffectView = UIVisualEffectView(effect: blurEffect)
                     self.blurEffectView?.frame = self.helperView.frame
                     self.blurEffectView?.clipsToBounds = true
@@ -164,7 +164,7 @@ public class AUPasswordFieldHelper: UIView {
                     // Add the vibrancy view to the blur view
                     self.blurEffectView?.contentView.addSubview(vibrancyEffectView)
                     
-                    superView?.bringSubview(toFront: self.helperView)
+                    superView?.bringSubviewToFront(self.helperView)
                     self.blurEffectView?.isHidden = true
                 }
             }
@@ -187,7 +187,7 @@ public class AUPasswordFieldHelper: UIView {
             mappedTextField?.superview?.addConstraints([topOrBottomConstraint!, xConstraint, widthConstraint])
             mappedTextField?.superview?.layoutIfNeeded()
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+                let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
                 self.blurEffectView = UIVisualEffectView(effect: blurEffect)
                 self.blurEffectView?.frame = self.helperView.frame
                 self.blurEffectView?.clipsToBounds = true
@@ -203,7 +203,7 @@ public class AUPasswordFieldHelper: UIView {
                 // Add the vibrancy view to the blur view
                 self.blurEffectView?.contentView.addSubview(vibrancyEffectView)
                 
-                superView?.bringSubview(toFront: self.helperView)
+                superView?.bringSubviewToFront(self.helperView)
                 self.blurEffectView?.isHidden = true
             }
             self.validateBasedOnText(textString: mappedTextField?.text ?? "")

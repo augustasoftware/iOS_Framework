@@ -15,10 +15,10 @@ public class AUAlertModel{
     var title:String = ""
     var message:String = ""
     var buttonModels:[AUAlertButtonModel] = []
-    var style: UIAlertControllerStyle = .alert
+    var style: UIAlertController.Style = .alert
     var controller: UIViewController = UIViewController.init()
     
-    public init(title:String, message:String, buttonModels:[AUAlertButtonModel], style: UIAlertControllerStyle,  controller: UIViewController){
+    public init(title:String, message:String, buttonModels:[AUAlertButtonModel], style: UIAlertController.Style,  controller: UIViewController){
         self.title = title
         self.message = message
         self.buttonModels = buttonModels
@@ -29,10 +29,10 @@ public class AUAlertModel{
 
 public class AUAlertButtonModel{
     public var actionTitle:String = ""
-    public var actionStyle:UIAlertActionStyle = .cancel
+    public var actionStyle:UIAlertAction.Style = .cancel
     public var index: Int = 999
     
-    public init(actionTitle:String, actionStyle:UIAlertActionStyle, index: Int)
+    public init(actionTitle:String, actionStyle:UIAlertAction.Style, index: Int)
     {
         self.actionStyle = actionStyle
         self.actionTitle = actionTitle
@@ -77,8 +77,8 @@ public class AUAlertHandler{
         if(alertData.buttonModels.count == 0)
         {
             print("Button model is empty. Provide button models and call")
-            let errorAlert = UIAlertController(title: "AUAlertHanlder", message: "Button model is empty. Provide button models and call", preferredStyle: UIAlertControllerStyle.alert)
-            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+            let errorAlert = UIAlertController(title: "AUAlertHanlder", message: "Button model is empty. Provide button models and call", preferredStyle: UIAlertController.Style.alert)
+            let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
                 UIAlertAction in
                 
             }

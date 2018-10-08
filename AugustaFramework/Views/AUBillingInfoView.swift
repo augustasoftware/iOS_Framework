@@ -151,7 +151,7 @@ public class AUBillingInfoView: UIView, UIPickerViewDelegate, UIPickerViewDataSo
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelPicker));
-        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
         let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donePicker));
         toolbar.setItems([cancelButton,spaceButton,doneButton], animated: false)
         self.pickerViewToolBar.addSubview(toolbar)
@@ -440,9 +440,9 @@ extension AUBillingInfoView: UITextFieldDelegate{
                 
                 let contains = cardSpacing.contains(where: { $0 == index })
                 if(contains) {
-                    attributedString.addAttribute(NSAttributedStringKey.kern, value: 5, range: NSRange(location: index, length: 1))
+                    attributedString.addAttribute(NSAttributedString.Key.kern, value: 5, range: NSRange(location: index, length: 1))
                 } else {
-                    attributedString.addAttribute(NSAttributedStringKey.kern, value: 0, range: NSRange(location: index, length: 1))
+                    attributedString.addAttribute(NSAttributedString.Key.kern, value: 0, range: NSRange(location: index, length: 1))
                 }
             }
             textField.attributedText = attributedString
