@@ -28,8 +28,11 @@ Pod::Spec.new do |s|
           s.dependency 'TwitterKit'
           s.dependency 'PinterestSDK'
 	  s.dependency 'Siren'
+	  s.dependency 'Stripe'
+	  s.dependency 'IQKeyboardManagerSwift'
 	   
 	  #11
 	  s.resources = "AugustaFramework/**/*.xib"
+ 	  s.ios.resource_bundle = { 'AugustaFramework' => 'AugustaFramework/Resources/**/*' }
 	  
     end

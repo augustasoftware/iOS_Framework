@@ -41,12 +41,14 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.34.0):
     - FBSDKCoreKit (~> 4.34.0)
+  - IQKeyboardManagerSwift (6.1.0)
   - PayCardsRecognizer (1.1.4)
   - PinterestSDK (1.0.2):
     - AFNetworking (~> 3.0)
     - SSKeychain
   - Siren (3.4.2)
   - SSKeychain (1.4.1)
+  - Stripe (13.1.0)
   - SwiftyJSON (4.1.0)
   - TwitterCore (3.2.0)
   - TwitterKit (3.4.0):
@@ -58,9 +60,11 @@ DEPENDENCIES:
   - FacebookCore
   - FacebookLogin
   - FacebookShare
+  - IQKeyboardManagerSwift
   - PayCardsRecognizer
   - PinterestSDK
   - Siren
+  - Stripe
   - SwiftyJSON
   - TwitterKit
 
@@ -76,10 +80,12 @@ SPEC REPOS:
     - FBSDKCoreKit
     - FBSDKLoginKit
     - FBSDKShareKit
+    - IQKeyboardManagerSwift
     - PayCardsRecognizer
     - PinterestSDK
     - Siren
     - SSKeychain
+    - Stripe
     - SwiftyJSON
     - TwitterCore
     - TwitterKit
@@ -95,14 +101,16 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: 0ff57f093b85c8c9d5aba697d3edf68a8960ce78
   FBSDKLoginKit: 8c78f57a145afb756e4755e69195ebe08a42466e
   FBSDKShareKit: 511d1dfc71204c0a8d69e6c5e3c964dcf0d4f3d9
+  IQKeyboardManagerSwift: f5004f5860d9a8ed23a7ef7a156ae168828eb018
   PayCardsRecognizer: b939eec21c6890d57c9f22cb8856517922b097a2
   PinterestSDK: 6c6d92cc749e6520d1b6f1e75410c6fd1d05844c
   Siren: 350a34ec905becbb5a7f869b26422d437cfc0243
   SSKeychain: 55cc80f66f5c73da827e3077f02e43528897db41
+  Stripe: 4f043bb840721b1f30492fa77790bbf9e3508ab0
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit: bc7bd086b9b724a1d888745a054e1d0b1ecc4f3f
 
-PODFILE CHECKSUM: 84c3c33a4b70ea07b4397bf867054760a1e96294
+PODFILE CHECKSUM: e2d31f39d63b03caa132526312df9268cfd0d00a
 
 COCOAPODS: 1.5.3

@@ -40,6 +40,7 @@ public class AULoginView: UIView {
     
     // Reset Password
     @IBOutlet public weak var resetView: UIView!
+    @IBOutlet public weak var resetOldPWDTextField: UITextField!
     @IBOutlet public weak var resetPWDTextField: UITextField!
     @IBOutlet public weak var resetConfirmPWDTextField: UITextField!
     @IBOutlet public weak var resetPWDSubmitButton: UIButton!
@@ -178,12 +179,13 @@ public class AULoginView: UIView {
     //    auloginView.addResetPasswordViewInView(view: loginTempView)
     //****************************** How to use? End **********************************//
     
-    public func addResetPasswordViewInView(view: UIView, viewController: UIViewController){
+    public func addResetPasswordViewInView(view: UIView, viewController: UIViewController, isOldPWDVisible: Bool = false){
         self.translatesAutoresizingMaskIntoConstraints = false
         let topConstraint = NSLayoutConstraint(item: resetView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0)
         let bottomConstraint = NSLayoutConstraint(item: resetView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
         let leadingConstraint = NSLayoutConstraint(item: resetView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0)
         let trailingConstraint = NSLayoutConstraint(item: resetView, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0)
+        resetOldPWDTextField.isHidden = !isOldPWDVisible
         view.addSubview(resetView)
         view.addConstraints([topConstraint, bottomConstraint, leadingConstraint, trailingConstraint])
         view.layoutIfNeeded()

@@ -107,7 +107,7 @@ public class AUWebService{
         case .post:
             httpMethod = .post
         }
-        if Reachability.isConnectedToNetwork() == true {
+        //if Reachability.isConnectedToNetwork() == true {
             
             let request = URLRequest(url: NSURL(string: url)! as URL, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 60)
             
@@ -145,13 +145,33 @@ public class AUWebService{
                     if response.result.value != nil{
                         self.getWedData(response: response, successBlock: successBlock, failureBlock: failureBlock)
                     }
+                    else{
+                        let requestQueue = DispatchQueue(label: "alamofire.queue")
+                        requestQueue.asyncAfter(deadline: DispatchTime.now() + 2.0) {
+                            //Do your Alamofire request here
+                            //After it complete his task return response in main queue if needed
+                            DispatchQueue.main.async {
+                                Alamofire.request(url, method: httpMethod!, parameters: userData, encoding: JSONEncoding.default, headers: headers).responseJSON { (response:DataResponse<Any>) in
+                                    debugPrint(url)
+                                    debugPrint(type)
+                                    debugPrint(userData ?? "")
+                                    debugPrint(headers ?? "")
+                                    if response.result.value != nil{
+                                        self.getWedData(response: response, successBlock: successBlock, failureBlock: failureBlock)
+                                    }
+                                }
+                            }
+                        }
+                        // 1004 some time in http get , so retyring the request
+                        
+                    }
                     
                 }
             }
-        }
-        else{
-            failureBlock("Please check your internet connection" as String)
-        }
+//        }
+//        else{
+//            failureBlock("Please check your internet connection" as String)
+//        }
     }
     
     
@@ -181,7 +201,7 @@ public class AUWebService{
     {
         var data : JSON = JSON(result as AnyObject)
         
-        if(self.sessionExpiryMessage != "" && data["Message"].stringValue.range(of:self.sessionExpiryMessage) != nil)
+        if(self.sessionExpiryMessage != "" && data["message"].stringValue.range(of:self.sessionExpiryMessage) != nil)
         {
             debugPrint("Augusta Framework: Session expiry message matches with the web service message, Calling session expiry delegate...")
             self.delegate?.webServiceGotExpiryMessage(errorMessage: data["Message"].stringValue)
