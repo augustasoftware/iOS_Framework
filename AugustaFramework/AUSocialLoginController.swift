@@ -203,6 +203,98 @@ public class AUSocialLoginController{
                 (PDKResponseObject) in
                 
                 pinterestUser = (PDKResponseObject?.user())!
+                func btnPinterestLoginTapped(completion:@escaping (Bool) -> Void) {
+                    
+                    var pinterestUser = PDKUser()
+                    
+                    PDKClient.clearAuthorizedUser()
+                    
+                    //MARK: - Authenticating user, this will get the auth token... but to get the user profile, see MARK: Getting User Profile
+                    
+                    PDKClient.sharedInstance().authenticate(withPermissions: [PDKClientReadPublicPermissions,PDKClientWritePublicPermissions,PDKClientReadRelationshipsPermissions,PDKClientWriteRelationshipsPermissions], withSuccess: { (PDKResponseObject) in
+                        var parameters : [String:String] = [:]
+                        socialAccesstoken = PDKClient.sharedInstance().oauthToken
+                        
+                        //socialID = PDKClient.sharedInstance().appId //API_PININTREST_ID
+                        /* PDKClient.sharedInstance().getAuthenticatedUserBoards(withFields: NSSet(array: ["id","name","description", "image[medium]"]) as Set, success: { (responseObject: PDKResponseObject!) -> Void in
+                         for object in responseObject.boards(){
+                         if let boardValue = object as? PDKBoard{
+                         print(boardValue.descriptionText  , "descriptionText")
+                         print(boardValue.name , "name")
+                         print(boardValue.identifier , "name")
+                         self.pinIntrestBoards.append(boardValue)
+                         PDKClient.sharedInstance().getBoardPins(boardValue.identifier, fields: NSSet(array: ["id","name"]) as Set, withSuccess: { (responseObject: PDKResponseObject!) -> Void in
+                         for object in responseObject.boards(){
+                         if let boardValue = object as? PDKBoard{
+                         print(boardValue.pins , "Pins")
+                         }
+                         }
+                         }, andFailure: nil)
+                         }
+                         }
+                         self.hideActivityIndicator(self.view)
+                         if self.pinIntrestBoards.count > 0 {
+                         self.showSelectBusinessPopup(viaFacebookAction: false)
+                         }else {
+                         self.showAlertView(message: "You need to create board to your Pinterest account and proceed further.", controller: self)
+                         }
+                         
+                         
+                         }){
+                         (Error) in
+                         if let error = Error
+                         {
+                         self.hideActivityIndicator(self.view)
+                         //                    let alert = UIAlertController(title: "GetAuthenticatedUserBoards API", message: (error.localizedDescription), preferredStyle: UIAlertControllerStyle.alert)
+                         //                    let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel) {
+                         //                        UIAlertAction in
+                         //
+                         //                    }
+                         //                    alert.addAction(okAction)
+                         //                    self.present(alert, animated: true, completion: nil)
+                         print((error.localizedDescription))
+                         }
+                         }*/
+                        parameters =  [ "fields":  "first_name,id,last_name,url,image,username,bio,counts,created_at,account_type"] //these fields will be fetched for the loggd in user
+                        PDKClient.sharedInstance().getPath("/v1/me/", parameters: parameters, withSuccess: {
+                            (PDKResponseObject) in
+                            
+                            pinterestUser = (PDKResponseObject?.user())!
+                            
+                            if (pinterestUser.largestImage().url) != nil{
+                                socialProfileUrl = pinterestUser.largestImage().url.absoluteString
+                                socialfirstName = pinterestUser.firstName
+                                sociallastName = pinterestUser.lastName
+                                socialUserName = pinterestUser.username
+                                completion(true)
+                            }
+                            if let url = JSON(PDKResponseObject?.user().images["564x"] as Any)["url"].string {
+                                print(url)
+                                socialProfileUrl = url
+                                socialfirstName = pinterestUser.firstName
+                                sociallastName = pinterestUser.lastName
+                                socialUserName = pinterestUser.username
+                                completion(true)
+                                //self.pinIntrestBusinessName = String(format:"%@ %@",self.pinIntrestUser.firstName,self.pinIntrestUser.lastName)
+                            }
+                        }) {
+                            (Error) in
+                            if let error = Error
+                            {
+                                print("Error on other else part",(error.localizedDescription))
+                            }
+                        }
+                        
+                    }) {
+                        (Error) in
+                        if let error = Error
+                        {
+                            print("Error on authenticate part",(error.localizedDescription))
+                        }
+                    }
+                    
+                    
+                }
                 if let url = JSON(PDKResponseObject?.user().images["564x"] as Any)["url"].string {
                     print(url)
                     socialProfileUrl = url
@@ -210,7 +302,6 @@ public class AUSocialLoginController{
                     sociallastName = pinterestUser.lastName
                     socialUserName = pinterestUser.username
                     completion(true)
-                    //self.pinIntrestBusinessName = String(format:"%@ %@",self.pinIntrestUser.firstName,self.pinIntrestUser.lastName)
                 }
             }) {
                 (Error) in
