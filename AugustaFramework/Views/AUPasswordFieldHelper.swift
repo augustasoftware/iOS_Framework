@@ -164,7 +164,7 @@ public class AUPasswordFieldHelper: UIView {
                     // Add the vibrancy view to the blur view
                     self.blurEffectView?.contentView.addSubview(vibrancyEffectView)
                     
-                    superView?.bringSubviewToFront(self.helperView)
+                    superView?.bringSubview(toFront: self.helperView)
                     self.blurEffectView?.isHidden = true
                 }
             }
@@ -203,7 +203,7 @@ public class AUPasswordFieldHelper: UIView {
                 // Add the vibrancy view to the blur view
                 self.blurEffectView?.contentView.addSubview(vibrancyEffectView)
                 
-                superView?.bringSubviewToFront(self.helperView)
+                superView?.bringSubview(toFront: self.helperView)
                 self.blurEffectView?.isHidden = true
             }
             self.validateBasedOnText(textString: mappedTextField?.text ?? "")

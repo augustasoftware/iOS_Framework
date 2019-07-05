@@ -8,7 +8,6 @@
 
 import Foundation
 import FBSDKLoginKit
-import FacebookLogin
 import SwiftyJSON
 import TwitterKit
 import PinterestSDK
@@ -71,25 +70,24 @@ public class AUSocialLoginController{
     
     /// To Login Via Facebook login
     public func fbLoginTapped(completion:@escaping (Bool) -> Void) {
+        
         let loginManager = LoginManager()
         loginManager.logOut()
-        loginManager.logIn(readPermissions: [ .publicProfile, .email], viewController: controller, completion: { loginResult in
-            switch loginResult {
-            case .failed(let error):
-                print(error)
-            case .cancelled:
-                print("User cancelled login.")
-            case .success(let grantedPermissions, let declinedPermissions, let accessToken):
-                completion(true)
+        loginManager.logIn(permissions: ["public_profile", "email"], from: controller) { (loginResult, error) in
+            
+            if let loginResultVal = loginResult{
+                if (loginResultVal.grantedPermissions.contains("email") || loginResultVal.grantedPermissions.contains("public_profile")){
+                    completion(true)
+                }
             }
-        })
+        }
     }
     
     
     /// To Get the Facebook user details once Facebook logged in successfully
     func getFBUserData(completion:@escaping (Bool) -> Void){
-        if((FBSDKAccessToken.current()) != nil){
-            FBSDKGraphRequest(graphPath: "me", parameters:["fields": "id,name,picture.type(large),email,first_name,last_name"]).start(completionHandler: { (connection, result, error) -> Void in
+        if((AccessToken.current) != nil){
+            GraphRequest(graphPath: "me", parameters:["fields": "id,name,picture.type(large),email,first_name,last_name"]).start(completionHandler: { (connection, result, error) -> Void in
                 if (error == nil){
                     var data : JSON = JSON(result as AnyObject)
                     print("FBDATA==",data)
@@ -98,7 +96,7 @@ public class AUSocialLoginController{
                         socialID = data["id"].stringValue
                         socialfirstName = (data["first_name"].stringValue)
                         sociallastName = (data["last_name"].stringValue)
-                        socialAccesstoken = FBSDKAccessToken.current().tokenString
+                        socialAccesstoken = AccessToken.current?.tokenString ?? ""
                         socialProfileUrl = (data["picture"]["data"]["url"].stringValue)
                         completion(true)
                     }

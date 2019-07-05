@@ -55,7 +55,7 @@ public class AUActivityIndicator{
         loadingView.layer.cornerRadius = 10
         
         activityIndicator.frame = CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0);
-        activityIndicator.style = .whiteLarge
+        activityIndicator.activityIndicatorViewStyle = .whiteLarge
         activityIndicator.center = CGPoint(x: loadingView.frame.size.width / 2, y: loadingView.frame.size.height / 2);
         
         loadingView.addSubview(activityIndicator)
@@ -89,7 +89,7 @@ public class AUActivityIndicator{
         case .normal:
             
             activityIndicator.frame = CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0);
-            activityIndicator.style = .whiteLarge
+            activityIndicator.activityIndicatorViewStyle = .whiteLarge
             activityIndicator.center = CGPoint(x: loadingView.frame.size.width / 2, y: loadingView.frame.size.height / 2);
             
             loadingView.addSubview(activityIndicator)
@@ -183,7 +183,8 @@ class CircleView: UIView, CAAnimationDelegate{
         animation.toValue = 1
         
         // Do a linear animation (i.e. the speed of the animation stays the same)
-        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+
         
         //circleLayer.strokeEnd = 1
         animation.delegate = self
@@ -205,7 +206,8 @@ class CircleView: UIView, CAAnimationDelegate{
         animation.toValue = 1
         
         // Do a linear animation (i.e. the speed of the animation stays the same)
-        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+
         
         animation.delegate = self
         animation.setValue(2, forKey: "CompletionId")
