@@ -25,11 +25,12 @@ Pod::Spec.new do |s|
 	  s.dependency 'FacebookCore'
 	  s.dependency 'FacebookLogin'
 	  s.dependency 'FacebookShare'
-          s.dependency 'TwitterKit'
-          s.dependency 'PinterestSDK'
+      s.dependency 'TwitterKit'
+      s.dependency 'PinterestSDK'
 	  s.dependency 'Siren'
 	  s.dependency 'Stripe'
 	  s.dependency 'IQKeyboardManagerSwift'
+    s.dependency 'VGPlayer'
 	   
 	  #11
 	  s.resources = "AugustaFramework/**/*.xib"
