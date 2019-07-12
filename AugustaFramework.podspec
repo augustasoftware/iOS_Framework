@@ -27,7 +27,6 @@ Pod::Spec.new do |s|
 	  s.dependency 'FacebookShare'
       s.dependency 'TwitterKit'
       s.dependency 'PinterestSDK'
-	  s.dependency 'Siren'
 	  s.dependency 'Stripe'
 	  s.dependency 'IQKeyboardManagerSwift'
     s.dependency 'VGPlayer'
