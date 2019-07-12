@@ -1,0 +1,6 @@
+framework module Pods_TestAugustaFramework {
+  umbrella header "Pods-TestAugustaFramework-umbrella.h"
+
+  export *
+  module * { export * }
+}

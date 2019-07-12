@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DB5EA1C4CEF4223EECE1D87F29D1BDB3"
+               BlueprintIdentifier = "317D508DB00A82A748EBBA3D71B6FA4A"
+               BuildableName = "AMTumblrHud.framework"
                BlueprintName = "AMTumblrHud"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "AMTumblrHud.framework">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

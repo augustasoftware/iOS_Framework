@@ -19,34 +19,33 @@ PODS:
   - Branch (0.27.1):
     - Branch/Core (= 0.27.1)
   - Branch/Core (0.27.1)
-  - FBSDKCoreKit (5.0.2):
-    - FBSDKCoreKit/Basics (= 5.0.2)
-    - FBSDKCoreKit/Core (= 5.0.2)
-  - FBSDKCoreKit/Basics (5.0.2)
-  - FBSDKCoreKit/Core (5.0.2):
+  - FBSDKCoreKit (5.2.1):
+    - FBSDKCoreKit/Basics (= 5.2.1)
+    - FBSDKCoreKit/Core (= 5.2.1)
+  - FBSDKCoreKit/Basics (5.2.1)
+  - FBSDKCoreKit/Core (5.2.1):
     - FBSDKCoreKit/Basics
-  - FBSDKLoginKit (5.0.2):
+  - FBSDKLoginKit (5.2.1):
     - FBSDKCoreKit (~> 5.0)
-  - FBSDKShareKit (5.0.2):
+  - FBSDKShareKit (5.2.1):
     - FBSDKCoreKit (~> 5.0)
-  - IQKeyboardManagerSwift (6.3.0)
+  - IQKeyboardManagerSwift (6.4.0)
   - PayCardsRecognizer (1.1.4)
   - PinterestSDK (1.0.2):
     - AFNetworking (~> 3.0)
     - SSKeychain
-  - Siren (3.4.2)
   - SnapKit (4.0.1)
   - SSKeychain (1.4.1)
   - Stripe (15.0.1)
   - SwiftyJSON (5.0.0)
   - TwitterCore (3.2.0)
-  - TwitterKit (3.4.0):
-    - TwitterCore (>= 3.1.0)
+  - TwitterKit (3.4.2):
+    - TwitterCore (>= 3.2.0)
   - VGPlayer (0.2.0):
     - SnapKit (~> 4.0.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.0)
+  - Alamofire
   - AMTumblrHud
   - Branch
   - FBSDKCoreKit
@@ -55,7 +54,6 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - PayCardsRecognizer
   - PinterestSDK
-  - Siren
   - Stripe
   - SwiftyJSON
   - TwitterKit
@@ -73,7 +71,6 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - PayCardsRecognizer
     - PinterestSDK
-    - Siren
     - SnapKit
     - SSKeychain
     - Stripe
@@ -87,21 +84,20 @@ SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   AMTumblrHud: 095daf71c57d4e47d11a8432dba1ed6177a35115
   Branch: 1ace77c04b6e3efbf982bf4364f0662bfac156a0
-  FBSDKCoreKit: 3e41c402eb64ea7799c71833ff9e5690f27b9c42
-  FBSDKLoginKit: a88f36da648e4c5d60eb261c63eac067abb97130
-  FBSDKShareKit: 8695bbb97c18a381bbf2851a3f24f95a59121b82
-  IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
+  FBSDKCoreKit: e1ab8d86f5eea2d7aa6ab12acca3e1d2dcb11983
+  FBSDKLoginKit: 6e20e44775ddf4b159a8ca676834325e13d12221
+  FBSDKShareKit: 75a25e88b15b66e67ed03826080eff825afff520
+  IQKeyboardManagerSwift: ed9b04ee0e3067ffba543283462d619f944b05e5
   PayCardsRecognizer: b939eec21c6890d57c9f22cb8856517922b097a2
   PinterestSDK: 6c6d92cc749e6520d1b6f1e75410c6fd1d05844c
-  Siren: 350a34ec905becbb5a7f869b26422d437cfc0243
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SSKeychain: 55cc80f66f5c73da827e3077f02e43528897db41
   Stripe: 2c4d0a88817361a102886315ff452d90f65e898b
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
-  TwitterKit: bc7bd086b9b724a1d888745a054e1d0b1ecc4f3f
+  TwitterKit: 5e4f41d70b9abdb41df5467f52d7aa2c0fd26ebb
   VGPlayer: a1787135559aa3b9201ebdc733ee283315492289
 
-PODFILE CHECKSUM: 522f62ee9ec6b7ba5cda2a81288ad0d934cb3228
+PODFILE CHECKSUM: f944ae15d200345eb8c6283fdaa3c5d36f4c3658
 
-COCOAPODS: 1.7.1
+COCOAPODS: 1.7.4

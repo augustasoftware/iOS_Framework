@@ -3,13 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44ECB43024F7871F9C673E11 /* Pods_AugustaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9071A38C2BFAEFDF9C66F0A /* Pods_AugustaFramework.framework */; };
+		4DE1AFB8D611E4BC36B28ED3 /* Pods_TestAugustaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69341955B99C783E23C5EC9B /* Pods_TestAugustaFramework.framework */; };
 		56227F5B21088E9E00259F20 /* AUCacheeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56227F5A21088E9E00259F20 /* AUCacheeManager.swift */; };
 		56E24C8D20FF1B1400FA1A80 /* AULoginValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E24C8C20FF1B1400FA1A80 /* AULoginValidation.swift */; };
-		56F63F6B210F240600915D0B /* AUVersionUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F63F6A210F240600915D0B /* AUVersionUpdate.swift */; };
+		9723328C22D84B2E00E379B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9723328B22D84B2E00E379B6 /* AppDelegate.swift */; };
+		9723328E22D84B2E00E379B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9723328D22D84B2E00E379B6 /* ViewController.swift */; };
+		9723329122D84B2F00E379B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9723328F22D84B2E00E379B6 /* Main.storyboard */; };
+		9723329322D84B3000E379B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9723329222D84B3000E379B6 /* Assets.xcassets */; };
+		9723329622D84B3000E379B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9723329422D84B3000E379B6 /* LaunchScreen.storyboard */; };
 		9739E7CC2111970C004C58D0 /* AUBillingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9739E7CB2111970C004C58D0 /* AUBillingInfoView.swift */; };
 		9739E7CE21119730004C58D0 /* AUBillingInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9739E7CD21119730004C58D0 /* AUBillingInfoView.xib */; };
 		9739E7D02111BFC7004C58D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9739E7CF2111BFC7004C58D0 /* Assets.xcassets */; };
@@ -37,6 +43,8 @@
 		973D23082112EACC0095DD41 /* card_visa@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 973D22F12112EACB0095DD41 /* card_visa@3x.png */; };
 		973D23092112EACC0095DD41 /* card_visa@4x.png in Resources */ = {isa = PBXBuildFile; fileRef = 973D22F22112EACB0095DD41 /* card_visa@4x.png */; };
 		973D230B21131D900095DD41 /* AUMonthYearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973D230A21131D900095DD41 /* AUMonthYearPickerView.swift */; };
+		973EA22F22D891150071CF7C /* AugustaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D6554320FF09DE0085DF71 /* AugustaFramework.framework */; };
+		973EA23022D891150071CF7C /* AugustaFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 97D6554320FF09DE0085DF71 /* AugustaFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		974214A021107D63000A2937 /* AUBillingInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9742149F21107D63000A2937 /* AUBillingInfoManager.swift */; };
 		974634892107098400B6BCB0 /* AUSocialLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974634882107098400B6BCB0 /* AUSocialLoginController.swift */; };
 		9747AF6E21197B5900F339F8 /* AUPasswordFieldHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9747AF6C21197B5800F339F8 /* AUPasswordFieldHelper.swift */; };
@@ -57,15 +65,54 @@
 		97D6555120FF09EB0085DF71 /* AUWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D6554F20FF09EB0085DF71 /* AUWebService.swift */; };
 		97F6C62620FF4CA500541E29 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F6C62520FF4CA500541E29 /* Reachability.swift */; };
 		97F6C62820FF591600541E29 /* AUAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F6C62720FF591600541E29 /* AUAlertController.swift */; };
-		D86DFAD99AF097C2DA6624DD /* Pods_AugustaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84528AD9385F658462187CDB /* Pods_AugustaFramework.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		973EA23122D891150071CF7C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 97D6553A20FF09DE0085DF71 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 97D6554220FF09DE0085DF71;
+			remoteInfo = AugustaFramework;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		973EA20422D8698D0071CF7C /* Embed PlugIns */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed PlugIns";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		973EA20922D86A080071CF7C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				973EA23022D891150071CF7C /* AugustaFramework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		56227F5A21088E9E00259F20 /* AUCacheeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUCacheeManager.swift; sourceTree = "<group>"; };
 		56E24C8C20FF1B1400FA1A80 /* AULoginValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AULoginValidation.swift; sourceTree = "<group>"; };
-		56F63F6A210F240600915D0B /* AUVersionUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUVersionUpdate.swift; sourceTree = "<group>"; };
-		5931B6B4FA57C95220EAB06C /* Pods-AugustaFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AugustaFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-AugustaFramework/Pods-AugustaFramework.release.xcconfig"; sourceTree = "<group>"; };
-		84528AD9385F658462187CDB /* Pods_AugustaFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AugustaFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		69341955B99C783E23C5EC9B /* Pods_TestAugustaFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestAugustaFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		78C35EEB6267DDFCE0796083 /* Pods-AugustaFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AugustaFramework.debug.xcconfig"; path = "Target Support Files/Pods-AugustaFramework/Pods-AugustaFramework.debug.xcconfig"; sourceTree = "<group>"; };
+		9723328922D84B2E00E379B6 /* TestAugustaFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestAugustaFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9723328B22D84B2E00E379B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9723328D22D84B2E00E379B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9723329022D84B2F00E379B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9723329222D84B3000E379B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9723329522D84B3000E379B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9723329722D84B3000E379B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9739E7CB2111970C004C58D0 /* AUBillingInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUBillingInfoView.swift; sourceTree = "<group>"; };
 		9739E7CD21119730004C58D0 /* AUBillingInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AUBillingInfoView.xib; sourceTree = "<group>"; };
 		9739E7CF2111BFC7004C58D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -115,27 +162,44 @@
 		97D6554F20FF09EB0085DF71 /* AUWebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AUWebService.swift; sourceTree = "<group>"; };
 		97F6C62520FF4CA500541E29 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		97F6C62720FF591600541E29 /* AUAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUAlertController.swift; sourceTree = "<group>"; };
-		A4859C9C8B9AD39BEDA00FF0 /* Pods-AugustaFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AugustaFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AugustaFramework/Pods-AugustaFramework.debug.xcconfig"; sourceTree = "<group>"; };
+		99A393B64855B1109B888D00 /* Pods-TestAugustaFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestAugustaFramework.debug.xcconfig"; path = "Target Support Files/Pods-TestAugustaFramework/Pods-TestAugustaFramework.debug.xcconfig"; sourceTree = "<group>"; };
+		9B7F54BDEDCC11C240B1D5E8 /* Pods-AugustaFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AugustaFramework.release.xcconfig"; path = "Target Support Files/Pods-AugustaFramework/Pods-AugustaFramework.release.xcconfig"; sourceTree = "<group>"; };
+		BC0FED51E94E3F6A5F4DB4F0 /* Pods-TestAugustaFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestAugustaFramework.release.xcconfig"; path = "Target Support Files/Pods-TestAugustaFramework/Pods-TestAugustaFramework.release.xcconfig"; sourceTree = "<group>"; };
+		D9071A38C2BFAEFDF9C66F0A /* Pods_AugustaFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AugustaFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		9723328622D84B2E00E379B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				973EA22F22D891150071CF7C /* AugustaFramework.framework in Frameworks */,
+				4DE1AFB8D611E4BC36B28ED3 /* Pods_TestAugustaFramework.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		97D6553F20FF09DE0085DF71 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D86DFAD99AF097C2DA6624DD /* Pods_AugustaFramework.framework in Frameworks */,
+				44ECB43024F7871F9C673E11 /* Pods_AugustaFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		95DD7BB523C21F65F39C6CFC /* Frameworks */ = {
+		9723328A22D84B2E00E379B6 /* TestAugustaFramework */ = {
 			isa = PBXGroup;
 			children = (
-				84528AD9385F658462187CDB /* Pods_AugustaFramework.framework */,
+				9723328B22D84B2E00E379B6 /* AppDelegate.swift */,
+				9723328D22D84B2E00E379B6 /* ViewController.swift */,
+				9723328F22D84B2E00E379B6 /* Main.storyboard */,
+				9723329222D84B3000E379B6 /* Assets.xcassets */,
+				9723329422D84B3000E379B6 /* LaunchScreen.storyboard */,
+				9723329722D84B3000E379B6 /* Info.plist */,
 			);
-			name = Frameworks;
+			path = TestAugustaFramework;
 			sourceTree = "<group>";
 		};
 		973D22DB2112EACB0095DD41 /* Resources */ = {
@@ -192,9 +256,10 @@
 			isa = PBXGroup;
 			children = (
 				97D6554520FF09DE0085DF71 /* AugustaFramework */,
+				9723328A22D84B2E00E379B6 /* TestAugustaFramework */,
 				97D6554420FF09DE0085DF71 /* Products */,
-				F4225DA3D25D02E38807FE25 /* Pods */,
-				95DD7BB523C21F65F39C6CFC /* Frameworks */,
+				D876C9D7BCAB57E5180E2C4E /* Pods */,
+				9E0B98FE323503CB43423FEC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -202,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				97D6554320FF09DE0085DF71 /* AugustaFramework.framework */,
+				9723328922D84B2E00E379B6 /* TestAugustaFramework.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -220,7 +286,6 @@
 				9759719C2101AAC000FE62C7 /* AUActivityIndicator.swift */,
 				97F6C62720FF591600541E29 /* AUAlertController.swift */,
 				974634882107098400B6BCB0 /* AUSocialLoginController.swift */,
-				56F63F6A210F240600915D0B /* AUVersionUpdate.swift */,
 				97F6C62520FF4CA500541E29 /* Reachability.swift */,
 				97D6554720FF09DE0085DF71 /* Info.plist */,
 				9742149F21107D63000A2937 /* AUBillingInfoManager.swift */,
@@ -230,13 +295,24 @@
 			path = AugustaFramework;
 			sourceTree = "<group>";
 		};
-		F4225DA3D25D02E38807FE25 /* Pods */ = {
+		9E0B98FE323503CB43423FEC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A4859C9C8B9AD39BEDA00FF0 /* Pods-AugustaFramework.debug.xcconfig */,
-				5931B6B4FA57C95220EAB06C /* Pods-AugustaFramework.release.xcconfig */,
+				D9071A38C2BFAEFDF9C66F0A /* Pods_AugustaFramework.framework */,
+				69341955B99C783E23C5EC9B /* Pods_TestAugustaFramework.framework */,
 			);
-			name = Pods;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D876C9D7BCAB57E5180E2C4E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				78C35EEB6267DDFCE0796083 /* Pods-AugustaFramework.debug.xcconfig */,
+				9B7F54BDEDCC11C240B1D5E8 /* Pods-AugustaFramework.release.xcconfig */,
+				99A393B64855B1109B888D00 /* Pods-TestAugustaFramework.debug.xcconfig */,
+				BC0FED51E94E3F6A5F4DB4F0 /* Pods-TestAugustaFramework.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,16 +329,39 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		9723328822D84B2E00E379B6 /* TestAugustaFramework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9723329A22D84B3000E379B6 /* Build configuration list for PBXNativeTarget "TestAugustaFramework" */;
+			buildPhases = (
+				4B070BF79E30632EF0F28312 /* [CP] Check Pods Manifest.lock */,
+				9723328522D84B2E00E379B6 /* Sources */,
+				9723328622D84B2E00E379B6 /* Frameworks */,
+				9723328722D84B2E00E379B6 /* Resources */,
+				973EA20422D8698D0071CF7C /* Embed PlugIns */,
+				973EA20922D86A080071CF7C /* Embed Frameworks */,
+				0B1642DBAF9D31DCEFD0CB1D /* [CP] Embed Pods Frameworks */,
+				BF45219270486980C6C68FD6 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				973EA23222D891150071CF7C /* PBXTargetDependency */,
+			);
+			name = TestAugustaFramework;
+			productName = TestAugustaFramework;
+			productReference = 9723328922D84B2E00E379B6 /* TestAugustaFramework.app */;
+			productType = "com.apple.product-type.application";
+		};
 		97D6554220FF09DE0085DF71 /* AugustaFramework */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 97D6554B20FF09DE0085DF71 /* Build configuration list for PBXNativeTarget "AugustaFramework" */;
 			buildPhases = (
-				DEE4BF4179D1107DC1C5DF1A /* [CP] Check Pods Manifest.lock */,
+				2063F8DCFE0E936B5DADEB4F /* [CP] Check Pods Manifest.lock */,
 				97D6553E20FF09DE0085DF71 /* Sources */,
 				97D6553F20FF09DE0085DF71 /* Frameworks */,
 				97D6554020FF09DE0085DF71 /* Headers */,
 				97D6554120FF09DE0085DF71 /* Resources */,
-				620FC186E60D4E9117F9A587 /* [CP] Copy Pods Resources */,
+				BB1748B91C08C02BC7B2FD35 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -279,9 +378,13 @@
 		97D6553A20FF09DE0085DF71 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = augusta;
 				TargetAttributes = {
+					9723328822D84B2E00E379B6 = {
+						CreatedOnToolsVersion = 10.2;
+					};
 					97D6554220FF09DE0085DF71 = {
 						CreatedOnToolsVersion = 9.4;
 						LastSwiftMigration = 0940;
@@ -294,6 +397,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 97D6553920FF09DE0085DF71;
 			productRefGroup = 97D6554420FF09DE0085DF71 /* Products */;
@@ -301,11 +405,22 @@
 			projectRoot = "";
 			targets = (
 				97D6554220FF09DE0085DF71 /* AugustaFramework */,
+				9723328822D84B2E00E379B6 /* TestAugustaFramework */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		9723328722D84B2E00E379B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9723329622D84B3000E379B6 /* LaunchScreen.storyboard in Resources */,
+				9723329322D84B3000E379B6 /* Assets.xcassets in Resources */,
+				9723329122D84B2F00E379B6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		97D6554120FF09DE0085DF71 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -349,7 +464,68 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		620FC186E60D4E9117F9A587 /* [CP] Copy Pods Resources */ = {
+		0B1642DBAF9D31DCEFD0CB1D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TestAugustaFramework/Pods-TestAugustaFramework-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TestAugustaFramework/Pods-TestAugustaFramework-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TestAugustaFramework/Pods-TestAugustaFramework-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2063F8DCFE0E936B5DADEB4F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AugustaFramework-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4B070BF79E30632EF0F28312 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TestAugustaFramework-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB1748B91C08C02BC7B2FD35 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -366,27 +542,35 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AugustaFramework/Pods-AugustaFramework-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DEE4BF4179D1107DC1C5DF1A /* [CP] Check Pods Manifest.lock */ = {
+		BF45219270486980C6C68FD6 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TestAugustaFramework/Pods-TestAugustaFramework-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AugustaFramework-checkManifestLockResult.txt",
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TestAugustaFramework/Pods-TestAugustaFramework-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TestAugustaFramework/Pods-TestAugustaFramework-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9723328522D84B2E00E379B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9723328E22D84B2E00E379B6 /* ViewController.swift in Sources */,
+				9723328C22D84B2E00E379B6 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		97D6553E20FF09DE0085DF71 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -403,7 +587,6 @@
 				97D6555020FF09EB0085DF71 /* AULogger.swift in Sources */,
 				9748B0272100A984006B9A63 /* AUSessionManager.swift in Sources */,
 				9759719D2101AAC000FE62C7 /* AUActivityIndicator.swift in Sources */,
-				56F63F6B210F240600915D0B /* AUVersionUpdate.swift in Sources */,
 				974634892107098400B6BCB0 /* AUSocialLoginController.swift in Sources */,
 				9739E7CC2111970C004C58D0 /* AUBillingInfoView.swift in Sources */,
 				97F6C62820FF591600541E29 /* AUAlertController.swift in Sources */,
@@ -412,7 +595,79 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		973EA23222D891150071CF7C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 97D6554220FF09DE0085DF71 /* AugustaFramework */;
+			targetProxy = 973EA23122D891150071CF7C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9723328F22D84B2E00E379B6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9723329022D84B2F00E379B6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9723329422D84B3000E379B6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9723329522D84B3000E379B6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		9723329822D84B3000E379B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99A393B64855B1109B888D00 /* Pods-TestAugustaFramework.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q44DU46W5U;
+				INFOPLIST_FILE = TestAugustaFramework/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.augusta.TestAugustaFramework;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9723329922D84B3000E379B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC0FED51E94E3F6A5F4DB4F0 /* Pods-TestAugustaFramework.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q44DU46W5U;
+				INFOPLIST_FILE = TestAugustaFramework/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.augusta.TestAugustaFramework;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		97D6554920FF09DE0085DF71 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -535,12 +790,13 @@
 		};
 		97D6554C20FF09DE0085DF71 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A4859C9C8B9AD39BEDA00FF0 /* Pods-AugustaFramework.debug.xcconfig */;
+			baseConfigurationReference = 78C35EEB6267DDFCE0796083 /* Pods-AugustaFramework.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = Q44DU46W5U;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -562,12 +818,13 @@
 		};
 		97D6554D20FF09DE0085DF71 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5931B6B4FA57C95220EAB06C /* Pods-AugustaFramework.release.xcconfig */;
+			baseConfigurationReference = 9B7F54BDEDCC11C240B1D5E8 /* Pods-AugustaFramework.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = Q44DU46W5U;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -589,6 +846,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9723329A22D84B3000E379B6 /* Build configuration list for PBXNativeTarget "TestAugustaFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9723329822D84B3000E379B6 /* Debug */,
+				9723329922D84B3000E379B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		97D6553D20FF09DE0085DF71 /* Build configuration list for PBXProject "AugustaFramework" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

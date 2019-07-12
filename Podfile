@@ -2,13 +2,11 @@
 # platform :ios, '9.0'
 
 target 'AugustaFramework' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
   # Pods for AugustaFramework
-
-pod 'Siren'
-pod 'Alamofire', '~> 4.0'
+pod 'Alamofire'
 pod 'SwiftyJSON'
 pod 'AMTumblrHud'
 pod 'TwitterKit'
@@ -21,5 +19,13 @@ pod 'FBSDKLoginKit'
 pod 'FBSDKShareKit'
 pod 'VGPlayer'
 pod 'Branch'
+
+end
+
+target 'TestAugustaFramework' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for TestAugustaFramework
 
 end

@@ -1,0 +1,18 @@
+${PODS_ROOT}/Target Support Files/Pods-TestAugustaFramework/Pods-TestAugustaFramework-frameworks.sh
+${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
+${BUILT_PRODUCTS_DIR}/AMTumblrHud/AMTumblrHud.framework
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/Branch/Branch.framework
+${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework
+${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework
+${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework
+${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework
+${PODS_ROOT}/PayCardsRecognizer/Source/PayCardsRecognizer.framework
+${BUILT_PRODUCTS_DIR}/PinterestSDK/PinterestSDK.framework
+${BUILT_PRODUCTS_DIR}/SSKeychain/SSKeychain.framework
+${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
+${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework
+${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework
+${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework
+${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework
+${BUILT_PRODUCTS_DIR}/VGPlayer/VGPlayer.framework
