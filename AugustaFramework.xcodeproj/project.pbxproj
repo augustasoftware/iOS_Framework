@@ -12,10 +12,12 @@
 		56227F5B21088E9E00259F20 /* AUCacheeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56227F5A21088E9E00259F20 /* AUCacheeManager.swift */; };
 		56E24C8D20FF1B1400FA1A80 /* AULoginValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E24C8C20FF1B1400FA1A80 /* AULoginValidation.swift */; };
 		9723328C22D84B2E00E379B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9723328B22D84B2E00E379B6 /* AppDelegate.swift */; };
-		9723328E22D84B2E00E379B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9723328D22D84B2E00E379B6 /* ViewController.swift */; };
 		9723329122D84B2F00E379B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9723328F22D84B2E00E379B6 /* Main.storyboard */; };
 		9723329322D84B3000E379B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9723329222D84B3000E379B6 /* Assets.xcassets */; };
 		9723329622D84B3000E379B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9723329422D84B3000E379B6 /* LaunchScreen.storyboard */; };
+		97318A7A22DC8F6400588605 /* AUBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97318A7222DC4D9E00588605 /* AUBaseViewController.swift */; };
+		97318A7B22DC8F8800588605 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9723328D22D84B2E00E379B6 /* ViewController.swift */; };
+		9733907B22DDA6D800C9EBAF /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9733907A22DDA6D800C9EBAF /* FirstViewController.swift */; };
 		9739E7CC2111970C004C58D0 /* AUBillingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9739E7CB2111970C004C58D0 /* AUBillingInfoView.swift */; };
 		9739E7CE21119730004C58D0 /* AUBillingInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9739E7CD21119730004C58D0 /* AUBillingInfoView.xib */; };
 		9739E7D02111BFC7004C58D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9739E7CF2111BFC7004C58D0 /* Assets.xcassets */; };
@@ -113,6 +115,8 @@
 		9723329222D84B3000E379B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9723329522D84B3000E379B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9723329722D84B3000E379B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		97318A7222DC4D9E00588605 /* AUBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUBaseViewController.swift; sourceTree = "<group>"; };
+		9733907A22DDA6D800C9EBAF /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		9739E7CB2111970C004C58D0 /* AUBillingInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUBillingInfoView.swift; sourceTree = "<group>"; };
 		9739E7CD21119730004C58D0 /* AUBillingInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AUBillingInfoView.xib; sourceTree = "<group>"; };
 		9739E7CF2111BFC7004C58D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -198,6 +202,7 @@
 				9723329222D84B3000E379B6 /* Assets.xcassets */,
 				9723329422D84B3000E379B6 /* LaunchScreen.storyboard */,
 				9723329722D84B3000E379B6 /* Info.plist */,
+				9733907A22DDA6D800C9EBAF /* FirstViewController.swift */,
 			);
 			path = TestAugustaFramework;
 			sourceTree = "<group>";
@@ -289,6 +294,7 @@
 				97F6C62520FF4CA500541E29 /* Reachability.swift */,
 				97D6554720FF09DE0085DF71 /* Info.plist */,
 				9742149F21107D63000A2937 /* AUBillingInfoManager.swift */,
+				97318A7222DC4D9E00588605 /* AUBaseViewController.swift */,
 				9739E7CF2111BFC7004C58D0 /* Assets.xcassets */,
 				973D22DB2112EACB0095DD41 /* Resources */,
 			);
@@ -566,7 +572,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9723328E22D84B2E00E379B6 /* ViewController.swift in Sources */,
+				9733907B22DDA6D800C9EBAF /* FirstViewController.swift in Sources */,
+				97318A7B22DC8F8800588605 /* ViewController.swift in Sources */,
 				9723328C22D84B2E00E379B6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -575,6 +582,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97318A7A22DC8F6400588605 /* AUBaseViewController.swift in Sources */,
 				973D230B21131D900095DD41 /* AUMonthYearPickerView.swift in Sources */,
 				56E24C8D20FF1B1400FA1A80 /* AULoginValidation.swift in Sources */,
 				975EFB5221143A4900334A53 /* AUUtilities.swift in Sources */,

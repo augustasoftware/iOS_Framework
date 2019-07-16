@@ -9,17 +9,19 @@
 import UIKit
 import AugustaFramework
 
-class ViewController: UIViewController {
+class ViewController:AUBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+       
+        
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        tryOutAlertHandler()
+        
     }
 
     func tryOutAlertHandler()    {

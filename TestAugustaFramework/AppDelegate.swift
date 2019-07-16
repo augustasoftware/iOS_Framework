@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AugustaFramework
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let themer: AUThemeManager = AUThemeManager.sharedInstance
+        themer.viewBackgroundColor = .lightGray
+        themer.backButtonImage = UIImage.init(named: "custom_back")
+        themer.backButtonTitle = "back1"
+        themer.navigationBarHidden = true
+        themer.navigationBarTintColor = .green
+        themer.navigationBarTitleFont = UIFont(name: "HelveticaNeue-Bold", size: 22.0) ?? UIFont.systemFont(ofSize: 20)
+        themer.navigationBarTitleImage = "custom_back"
+        themer.pushPopAnimationEnabled = false
+        
         return true
     }
 
