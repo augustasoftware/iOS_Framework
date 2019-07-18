@@ -9,19 +9,36 @@
 import UIKit
 import AugustaFramework
 
-class ViewController:AUBaseViewController {
+class ViewController:AUBaseViewController, UITextFieldDelegate, AUListPickerDelegate {
 
+    @IBOutlet weak var testTextField2: UITextField!
+    @IBOutlet weak var testTextField: UITextField!
+    
+    var pickerView: AUListPicker?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
        
-        
+        pickerView = AUListPicker.init()
+        pickerView?.delegate  = self
+        testTextField.inputView = pickerView?.pickerBaseView
+        testTextField2.inputView = pickerView?.pickerBaseView
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         
+    }
+    
+    func doneButtonAction(selectedItem: String) {
+        debugPrint(selectedItem)
+    }
+    
+    func pickerDidSelectItem(selectedItem: String, selectedIndex: Int) {
+        debugPrint(selectedItem)
+        debugPrint(selectedIndex)
     }
 
     func tryOutAlertHandler()    {
@@ -44,5 +61,21 @@ class ViewController:AUBaseViewController {
                     })
         
                 }
+    
+    
+    
+    //MARK: TextField Delegates
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        if(textField == testTextField){
+            pickerView?.pickerDataArray = ["1","2","Erode","Chennai","Coimbatore"]
+            pickerView?.reloadAllPickerViewComponents()
+        }
+        else if(textField == testTextField2){
+            pickerView?.pickerDataArray = ["TN","AP","TS","KL","GA","MH","DL"]
+            pickerView?.reloadAllPickerViewComponents()
+        }
+        
+    }
 }
 

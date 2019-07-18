@@ -41,15 +41,47 @@
                                     <segue destination="obU-7K-FjU" kind="show" id="8fa-MU-YgS"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JGY-fw-Uf7">
+                                <rect key="frame" x="132" y="241" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="eTB-yI-v9B"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Cgb-DS-7Ko"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Kw-aH-FVn">
+                                <rect key="frame" x="132" y="299" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="K1r-5z-UL6"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="vgV-d4-bX1"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="JGY-fw-Uf7" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="4Ov-Re-nwc"/>
                             <constraint firstItem="evy-ip-YvK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6cR-aH-3oB"/>
+                            <constraint firstItem="9Kw-aH-FVn" firstAttribute="top" secondItem="JGY-fw-Uf7" secondAttribute="bottom" constant="28" id="9vx-kT-0Ej"/>
                             <constraint firstItem="evy-ip-YvK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="I1X-2M-SOJ"/>
+                            <constraint firstItem="JGY-fw-Uf7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="153" id="SCq-hf-Q6l"/>
+                            <constraint firstItem="9Kw-aH-FVn" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="vbo-ho-mvp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="LI9-E2-Awe"/>
+                    <connections>
+                        <outlet property="testTextField" destination="JGY-fw-Uf7" id="pzH-8f-8d4"/>
+                        <outlet property="testTextField2" destination="9Kw-aH-FVn" id="rR1-QK-BRI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

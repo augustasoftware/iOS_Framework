@@ -18,6 +18,8 @@
 		97318A7A22DC8F6400588605 /* AUBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97318A7222DC4D9E00588605 /* AUBaseViewController.swift */; };
 		97318A7B22DC8F8800588605 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9723328D22D84B2E00E379B6 /* ViewController.swift */; };
 		9733907B22DDA6D800C9EBAF /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9733907A22DDA6D800C9EBAF /* FirstViewController.swift */; };
+		973467A322E02D2300BB02E2 /* AUListPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973467A222E02D2300BB02E2 /* AUListPicker.swift */; };
+		973467A522E02D4200BB02E2 /* AUListPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 973467A422E02D4100BB02E2 /* AUListPicker.xib */; };
 		9739E7CC2111970C004C58D0 /* AUBillingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9739E7CB2111970C004C58D0 /* AUBillingInfoView.swift */; };
 		9739E7CE21119730004C58D0 /* AUBillingInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9739E7CD21119730004C58D0 /* AUBillingInfoView.xib */; };
 		9739E7D02111BFC7004C58D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9739E7CF2111BFC7004C58D0 /* Assets.xcassets */; };
@@ -117,6 +119,8 @@
 		9723329722D84B3000E379B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97318A7222DC4D9E00588605 /* AUBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUBaseViewController.swift; sourceTree = "<group>"; };
 		9733907A22DDA6D800C9EBAF /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		973467A222E02D2300BB02E2 /* AUListPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUListPicker.swift; sourceTree = "<group>"; };
+		973467A422E02D4100BB02E2 /* AUListPicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AUListPicker.xib; sourceTree = "<group>"; };
 		9739E7CB2111970C004C58D0 /* AUBillingInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUBillingInfoView.swift; sourceTree = "<group>"; };
 		9739E7CD21119730004C58D0 /* AUBillingInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AUBillingInfoView.xib; sourceTree = "<group>"; };
 		9739E7CF2111BFC7004C58D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -253,6 +257,8 @@
 				973D230A21131D900095DD41 /* AUMonthYearPickerView.swift */,
 				9747AF6C21197B5800F339F8 /* AUPasswordFieldHelper.swift */,
 				9747AF6D21197B5800F339F8 /* AUPasswordFieldHelper.xib */,
+				973467A222E02D2300BB02E2 /* AUListPicker.swift */,
+				973467A422E02D4100BB02E2 /* AUListPicker.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -432,6 +438,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				973D22F52112EACC0095DD41 /* card_amex.png in Resources */,
+				973467A522E02D4200BB02E2 /* AUListPicker.xib in Resources */,
 				973D22F92112EACC0095DD41 /* card_diners@2x.png in Resources */,
 				973D23052112EACC0095DD41 /* card_unionpay@2x.png in Resources */,
 				973D23072112EACC0095DD41 /* card_visa@2x.png in Resources */,
@@ -590,6 +597,7 @@
 				97D6555120FF09EB0085DF71 /* AUWebService.swift in Sources */,
 				974C1D47210990DE008A44E8 /* AULoginView.swift in Sources */,
 				974214A021107D63000A2937 /* AUBillingInfoManager.swift in Sources */,
+				973467A322E02D2300BB02E2 /* AUListPicker.swift in Sources */,
 				97F6C62620FF4CA500541E29 /* Reachability.swift in Sources */,
 				56227F5B21088E9E00259F20 /* AUCacheeManager.swift in Sources */,
 				97D6555020FF09EB0085DF71 /* AULogger.swift in Sources */,

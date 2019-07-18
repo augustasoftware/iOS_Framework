@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AUListPicker" customModule="AugustaFramework" customModuleProvider="target">
+            <connections>
+                <outlet property="doneButton" destination="GtW-dE-xUO" id="LUs-TH-p4y"/>
+                <outlet property="pickerBaseView" destination="x5N-WJ-kUn" id="kEx-G8-eHg"/>
+                <outlet property="pickerView" destination="QxA-BQ-j3M" id="eDp-Pk-7Ff"/>
+                <outlet property="searchBar" destination="Ngz-Ac-xr9" id="D6b-Cl-jLb"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x5N-WJ-kUn">
+                    <rect key="frame" x="0.0" y="658" width="414" height="204"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NNa-hN-K6F">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="204"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qgU-HQ-0C1">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <subviews>
+                                        <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Ngz-Ac-xr9">
+                                            <rect key="frame" x="0.0" y="0.0" width="364" height="44"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <scopeButtonTitles>
+                                                <string>Title</string>
+                                                <string>Title</string>
+                                            </scopeButtonTitles>
+                                        </searchBar>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GtW-dE-xUO">
+                                            <rect key="frame" x="364" y="0.0" width="50" height="44"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="GYY-Iy-zec"/>
+                                            </constraints>
+                                            <state key="normal" title="Done"/>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="RBN-dV-EeB"/>
+                                    </constraints>
+                                </stackView>
+                                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QxA-BQ-j3M">
+                                    <rect key="frame" x="0.0" y="44" width="414" height="160"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="160" id="xo9-iS-Ccs"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="dataSource" destination="-1" id="mTE-p7-ZPk"/>
+                                        <outlet property="delegate" destination="-1" id="mI7-yu-ZYx"/>
+                                    </connections>
+                                </pickerView>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="NNa-hN-K6F" firstAttribute="leading" secondItem="x5N-WJ-kUn" secondAttribute="leading" id="In1-ET-yOI"/>
+                        <constraint firstAttribute="trailing" secondItem="NNa-hN-K6F" secondAttribute="trailing" id="MX2-MD-6bj"/>
+                        <constraint firstItem="NNa-hN-K6F" firstAttribute="top" secondItem="x5N-WJ-kUn" secondAttribute="top" id="Vj3-9r-Ngp"/>
+                        <constraint firstAttribute="bottom" secondItem="NNa-hN-K6F" secondAttribute="bottom" id="t0M-5R-UOw"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="x5N-WJ-kUn" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="8Ls-7O-Muk"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="x5N-WJ-kUn" secondAttribute="bottom" id="9b0-NS-sY5"/>
+                <constraint firstItem="NNa-hN-K6F" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="9tU-9Q-eBn"/>
+                <constraint firstItem="x5N-WJ-kUn" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="q3o-XY-8Ag"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="137.68115942028987" y="152.67857142857142"/>
+        </view>
+    </objects>
+</document>
