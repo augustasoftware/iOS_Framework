@@ -20,7 +20,6 @@
 		9733907B22DDA6D800C9EBAF /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9733907A22DDA6D800C9EBAF /* FirstViewController.swift */; };
 		973467A322E02D2300BB02E2 /* AUListPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973467A222E02D2300BB02E2 /* AUListPicker.swift */; };
 		973467A522E02D4200BB02E2 /* AUListPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 973467A422E02D4100BB02E2 /* AUListPicker.xib */; };
-		9739E7CC2111970C004C58D0 /* AUBillingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9739E7CB2111970C004C58D0 /* AUBillingInfoView.swift */; };
 		9739E7CE21119730004C58D0 /* AUBillingInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9739E7CD21119730004C58D0 /* AUBillingInfoView.xib */; };
 		9739E7D02111BFC7004C58D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9739E7CF2111BFC7004C58D0 /* Assets.xcassets */; };
 		973D22F32112EACC0095DD41 /* card@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 973D22DC2112EACB0095DD41 /* card@2x.png */; };
@@ -50,7 +49,6 @@
 		973EA22F22D891150071CF7C /* AugustaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D6554320FF09DE0085DF71 /* AugustaFramework.framework */; };
 		973EA23022D891150071CF7C /* AugustaFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 97D6554320FF09DE0085DF71 /* AugustaFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		974214A021107D63000A2937 /* AUBillingInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9742149F21107D63000A2937 /* AUBillingInfoManager.swift */; };
-		974634892107098400B6BCB0 /* AUSocialLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974634882107098400B6BCB0 /* AUSocialLoginController.swift */; };
 		9747AF6E21197B5900F339F8 /* AUPasswordFieldHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9747AF6C21197B5800F339F8 /* AUPasswordFieldHelper.swift */; };
 		9747AF6F21197B5900F339F8 /* AUPasswordFieldHelper.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9747AF6D21197B5800F339F8 /* AUPasswordFieldHelper.xib */; };
 		9747AF8821197CB300F339F8 /* check_dot.png in Resources */ = {isa = PBXBuildFile; fileRef = 9747AF8221197CB000F339F8 /* check_dot.png */; };
@@ -603,8 +601,6 @@
 				97D6555020FF09EB0085DF71 /* AULogger.swift in Sources */,
 				9748B0272100A984006B9A63 /* AUSessionManager.swift in Sources */,
 				9759719D2101AAC000FE62C7 /* AUActivityIndicator.swift in Sources */,
-				974634892107098400B6BCB0 /* AUSocialLoginController.swift in Sources */,
-				9739E7CC2111970C004C58D0 /* AUBillingInfoView.swift in Sources */,
 				97F6C62820FF591600541E29 /* AUAlertController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

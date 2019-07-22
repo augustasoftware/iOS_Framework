@@ -651,6 +651,7 @@
 		967DD33FCD74955705CE9D34A1AD1FFF /* stp_card_unionpay_template_zh@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D66E83B5BC217A8F6FC1F3F7CF435064 /* stp_card_unionpay_template_zh@3x.png */; };
 		96E4167B83A4093BC2DA792E521D7208 /* FBSDKSendButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AEA9AE5E1BF2E88351EE56FF15111AB /* FBSDKSendButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		97B433B5C83005A951A1A6DB5B3B52ED /* FBSDKLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 622340FFBC5C6494DDEF8ED35CD3C9D0 /* FBSDKLoginManager.m */; };
+		97F703CE22E5BD4500B30661 /* AugustaFramework.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 97F703CD22E5BD4400B30661 /* AugustaFramework.podspec */; };
 		9801E187069D35955ED72634E523185A /* stp_card_jcb_template@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 032C79EF6D2441F0629348A3341E96FF /* stp_card_jcb_template@2x.png */; };
 		980F01D8096798256A1D4CDEA8808787 /* UITableViewCell+Stripe_Borders.h in Headers */ = {isa = PBXBuildFile; fileRef = ADDA6F920CF9B8C8D3A31AF73BCDA5A8 /* UITableViewCell+Stripe_Borders.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		98114570DFFDF5BD81B7724B4810501D /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB85F0E2197E9F425230B62B0131C25 /* UIProgressView+AFNetworking.m */; };
@@ -2075,6 +2076,7 @@
 		976A42AB60ABDF69D4BFBE5C346FE271 /* FBSDKKeychainStoreViaBundleID.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKKeychainStoreViaBundleID.h; path = FBSDKCoreKit/FBSDKCoreKit/Internal/TokenCaching/FBSDKKeychainStoreViaBundleID.h; sourceTree = "<group>"; };
 		979486118B3E90C08386079D57962701 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E83E42FEA44EF7EF5CA112426A7F76 /* FBSDKTypeUtility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKTypeUtility.h; path = FBSDKCoreKit/FBSDKCoreKit/Basics/Internal/FBSDKTypeUtility.h; sourceTree = "<group>"; };
+		97F703CD22E5BD4400B30661 /* AugustaFramework.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = AugustaFramework.podspec; path = ../AugustaFramework.podspec; sourceTree = "<group>"; };
 		985357C169098469521F5CE4F5B839C0 /* Debugging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Debugging.swift; path = Source/Debugging.swift; sourceTree = "<group>"; };
 		98FF5764D3C2E6B63C6557197D030454 /* STPPaymentMethodCardWallet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STPPaymentMethodCardWallet.h; path = Stripe/PublicHeaders/STPPaymentMethodCardWallet.h; sourceTree = "<group>"; };
 		99643BD1C62A358E3A6447B953A2A0B5 /* stp_icon_add.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = stp_icon_add.png; path = Stripe/Resources/Images/stp_icon_add.png; sourceTree = "<group>"; };
@@ -4180,6 +4182,7 @@
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
+				97F703CD22E5BD4400B30661 /* AugustaFramework.podspec */,
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				595F63FA99FA9F21E6B9511BB0EE9FB3 /* Frameworks */,
 				3B11F79B09752B9FD414E374682D8EEA /* Pods */,
@@ -5400,6 +5403,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97F703CE22E5BD4500B30661 /* AugustaFramework.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
