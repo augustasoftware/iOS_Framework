@@ -67,6 +67,8 @@
 		97D6555120FF09EB0085DF71 /* AUWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D6554F20FF09EB0085DF71 /* AUWebService.swift */; };
 		97F6C62620FF4CA500541E29 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F6C62520FF4CA500541E29 /* Reachability.swift */; };
 		97F6C62820FF591600541E29 /* AUAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F6C62720FF591600541E29 /* AUAlertController.swift */; };
+		97F703CF22E5CB1E00B30661 /* AUBillingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9739E7CB2111970C004C58D0 /* AUBillingInfoView.swift */; };
+		97F703D022E5CB2500B30661 /* AUSocialLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974634882107098400B6BCB0 /* AUSocialLoginController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -587,6 +589,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97F703CF22E5CB1E00B30661 /* AUBillingInfoView.swift in Sources */,
 				97318A7A22DC8F6400588605 /* AUBaseViewController.swift in Sources */,
 				973D230B21131D900095DD41 /* AUMonthYearPickerView.swift in Sources */,
 				56E24C8D20FF1B1400FA1A80 /* AULoginValidation.swift in Sources */,
@@ -594,6 +597,7 @@
 				9747AF6E21197B5900F339F8 /* AUPasswordFieldHelper.swift in Sources */,
 				97D6555120FF09EB0085DF71 /* AUWebService.swift in Sources */,
 				974C1D47210990DE008A44E8 /* AULoginView.swift in Sources */,
+				97F703D022E5CB2500B30661 /* AUSocialLoginController.swift in Sources */,
 				974214A021107D63000A2937 /* AUBillingInfoManager.swift in Sources */,
 				973467A322E02D2300BB02E2 /* AUListPicker.swift in Sources */,
 				97F6C62620FF4CA500541E29 /* Reachability.swift in Sources */,

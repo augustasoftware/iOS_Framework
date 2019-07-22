@@ -18,18 +18,18 @@ Pod::Spec.new do |s|
           #9.
           s.source_files     = "AugustaFramework", "AugustaFramework/**/*.{h,m,swift}"
  	  #10.
-#s.dependency 'PayCardsRecognizer'
+	  s.dependency 'PayCardsRecognizer'
 	  s.dependency 'Alamofire'
 	  s.dependency 'SwiftyJSON'
 	  s.dependency 'AMTumblrHud'
-#s.dependency 'FacebookCore'
-#s.dependency 'FacebookLogin'
-#s.dependency 'FacebookShare'
-#s.dependency 'TwitterKit'
-#s.dependency 'PinterestSDK'
-#s.dependency 'Stripe'
+	  s.dependency 'FacebookCore'
+	  s.dependency 'FacebookLogin'
+	  s.dependency 'FacebookShare'
+      s.dependency 'TwitterKit'
+      s.dependency 'PinterestSDK'
+	  s.dependency 'Stripe'
 	  s.dependency 'IQKeyboardManagerSwift'
-#s.dependency 'VGPlayer'
+    s.dependency 'VGPlayer'
 	   
 	  #11
 	  s.resources = "AugustaFramework/**/*.xib"
