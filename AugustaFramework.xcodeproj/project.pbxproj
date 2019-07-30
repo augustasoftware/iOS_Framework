@@ -60,6 +60,8 @@
 		9748B0272100A984006B9A63 /* AUSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9748B0262100A984006B9A63 /* AUSessionManager.swift */; };
 		974C1D47210990DE008A44E8 /* AULoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C1D46210990DE008A44E8 /* AULoginView.swift */; };
 		974C1D49210990EC008A44E8 /* AULoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 974C1D48210990EC008A44E8 /* AULoginView.xib */; };
+		9752F85A22EEC1D300948B66 /* AUListPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752F85822EEC1D300948B66 /* AUListPickerTableViewCell.swift */; };
+		9752F85B22EEC1D300948B66 /* AUListPickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9752F85922EEC1D300948B66 /* AUListPickerTableViewCell.xib */; };
 		9759719D2101AAC000FE62C7 /* AUActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9759719C2101AAC000FE62C7 /* AUActivityIndicator.swift */; };
 		975EFB5221143A4900334A53 /* AUUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975EFB5121143A4900334A53 /* AUUtilities.swift */; };
 		97D6554820FF09DE0085DF71 /* AugustaFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 97D6554620FF09DE0085DF71 /* AugustaFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -161,6 +163,8 @@
 		9748B0262100A984006B9A63 /* AUSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUSessionManager.swift; sourceTree = "<group>"; };
 		974C1D46210990DE008A44E8 /* AULoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AULoginView.swift; sourceTree = "<group>"; };
 		974C1D48210990EC008A44E8 /* AULoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AULoginView.xib; sourceTree = "<group>"; };
+		9752F85822EEC1D300948B66 /* AUListPickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUListPickerTableViewCell.swift; sourceTree = "<group>"; };
+		9752F85922EEC1D300948B66 /* AUListPickerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AUListPickerTableViewCell.xib; sourceTree = "<group>"; };
 		9759719C2101AAC000FE62C7 /* AUActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUActivityIndicator.swift; sourceTree = "<group>"; };
 		975EFB5121143A4900334A53 /* AUUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AUUtilities.swift; path = AugustaFramework/AUUtilities.swift; sourceTree = SOURCE_ROOT; };
 		97D6554320FF09DE0085DF71 /* AugustaFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AugustaFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -259,6 +263,8 @@
 				9747AF6D21197B5800F339F8 /* AUPasswordFieldHelper.xib */,
 				973467A222E02D2300BB02E2 /* AUListPicker.swift */,
 				973467A422E02D4100BB02E2 /* AUListPicker.xib */,
+				9752F85822EEC1D300948B66 /* AUListPickerTableViewCell.swift */,
+				9752F85922EEC1D300948B66 /* AUListPickerTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -463,6 +469,7 @@
 				973D23002112EACC0095DD41 /* card_jcb@3x.png in Resources */,
 				973D23032112EACC0095DD41 /* card_mastercard@3x.png in Resources */,
 				973D22FF2112EACC0095DD41 /* card_jcb@2x.png in Resources */,
+				9752F85B22EEC1D300948B66 /* AUListPickerTableViewCell.xib in Resources */,
 				973D23012112EACC0095DD41 /* card_mastercard.png in Resources */,
 				973D23042112EACC0095DD41 /* card_unionpay.png in Resources */,
 				973D23082112EACC0095DD41 /* card_visa@3x.png in Resources */,
@@ -596,6 +603,7 @@
 				975EFB5221143A4900334A53 /* AUUtilities.swift in Sources */,
 				9747AF6E21197B5900F339F8 /* AUPasswordFieldHelper.swift in Sources */,
 				97D6555120FF09EB0085DF71 /* AUWebService.swift in Sources */,
+				9752F85A22EEC1D300948B66 /* AUListPickerTableViewCell.swift in Sources */,
 				974C1D47210990DE008A44E8 /* AULoginView.swift in Sources */,
 				97F703D022E5CB2500B30661 /* AUSocialLoginController.swift in Sources */,
 				974214A021107D63000A2937 /* AUBillingInfoManager.swift in Sources */,

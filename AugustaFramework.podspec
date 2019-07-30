@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
       s.dependency 'PinterestSDK'
 	  s.dependency 'Stripe'
 	  s.dependency 'IQKeyboardManagerSwift'
-    s.dependency 'VGPlayer'
+      s.dependency 'VGPlayer'
 	   
 	  #11
 	  s.resources = "AugustaFramework/**/*.xib"

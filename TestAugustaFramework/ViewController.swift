@@ -14,22 +14,18 @@ class ViewController:AUBaseViewController, UITextFieldDelegate, AUListPickerDele
     @IBOutlet weak var testTextField2: UITextField!
     @IBOutlet weak var testTextField: UITextField!
     
-    var pickerView: AUListPicker?
-    
+    var listPickerView: AUListPicker!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-       
-        pickerView = AUListPicker.init()
-        pickerView?.delegate  = self
-        testTextField.inputView = pickerView?.pickerBaseView
-        testTextField2.inputView = pickerView?.pickerBaseView
-        
+        self.tryOutAlertHandler()
     }
     
+    @IBAction func showAction(_ sender: Any) {
+        tryOutAlertHandler()
+    }
     override func viewDidAppear(_ animated: Bool) {
-        
+
     }
     
     func doneButtonAction(selectedItem: String) {
@@ -40,6 +36,8 @@ class ViewController:AUBaseViewController, UITextFieldDelegate, AUListPickerDele
         debugPrint(selectedItem)
         debugPrint(selectedIndex)
     }
+    
+    
 
     func tryOutAlertHandler()    {
                     let alertButtonData1: AUAlertButtonModel = AUAlertButtonModel.init(actionTitle: "ok", actionStyle: .default, index: 0)
@@ -47,7 +45,12 @@ class ViewController:AUBaseViewController, UITextFieldDelegate, AUListPickerDele
                     let alertButtonData3: AUAlertButtonModel = AUAlertButtonModel.init(actionTitle: "cancel2", actionStyle: .default, index: 2)
                     let alertButtonData4: AUAlertButtonModel = AUAlertButtonModel.init(actionTitle: "cancel3", actionStyle: .cancel, index: 3)
         
-                    let alertData: AUAlertModel = AUAlertModel.init(title: "Alert", message: "abcdefghijklmnopqrstuvwxyz", buttonModels: [alertButtonData1], style: .alert, controller: self)
+        let themer  = AUAlertThemerValues()
+        themer.backGroundColor = .white
+        themer.buttonTextColor = .red
+        themer.titleColor = .black
+        themer.textColor = .darkGray
+                    let alertData: AUAlertModel = AUAlertModel.init(title: "Alert", message: "abcdefghijklmnopqrstuvwxyz", buttonModels: [alertButtonData1, alertButtonData2,alertButtonData4], style: .alert, controller: self)
                     AUAlertHandler.showAlertView(alertData: alertData, handler: {[unowned self] (index) in
                         print(index)
                         switch(index){
@@ -58,7 +61,7 @@ class ViewController:AUBaseViewController, UITextFieldDelegate, AUListPickerDele
                         default:
                             break
                         }
-                    })
+                    }, style: .Custom, themer: themer)
         
                 }
     
@@ -68,12 +71,13 @@ class ViewController:AUBaseViewController, UITextFieldDelegate, AUListPickerDele
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
         if(textField == testTextField){
-            pickerView?.pickerDataArray = ["1","2","Erode","Chennai","Coimbatore"]
-            pickerView?.reloadAllPickerViewComponents()
+            listPickerView.pickerDataArray = ["1","2","Erode","Chennai","Coimbatore"]
+            listPickerView.reloadAllPickerViewComponents()
+           
         }
         else if(textField == testTextField2){
-            pickerView?.pickerDataArray = ["TN","AP","TS","KL","GA","MH","DL"]
-            pickerView?.reloadAllPickerViewComponents()
+            listPickerView.pickerDataArray = ["TN","AP","TS","KL","GA","MH","DL"]
+            listPickerView.reloadAllPickerViewComponents()
         }
         
     }

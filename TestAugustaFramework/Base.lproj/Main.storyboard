@@ -38,7 +38,7 @@
                                 <rect key="frame" x="188" y="433" width="38" height="30"/>
                                 <state key="normal" title="Open"/>
                                 <connections>
-                                    <segue destination="obU-7K-FjU" kind="show" id="8fa-MU-YgS"/>
+                                    <action selector="showAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B19-NR-FYY"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JGY-fw-Uf7">
