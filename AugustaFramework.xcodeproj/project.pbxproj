@@ -11,6 +11,16 @@
 		4DE1AFB8D611E4BC36B28ED3 /* Pods_TestAugustaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69341955B99C783E23C5EC9B /* Pods_TestAugustaFramework.framework */; };
 		56227F5B21088E9E00259F20 /* AUCacheeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56227F5A21088E9E00259F20 /* AUCacheeManager.swift */; };
 		5681D0F122E5C59600955116 /* AUTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5681D0F022E5C59600955116 /* AUTextField.swift */; };
+		56C4D5B322F027CF00FDD14E /* CalendarFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C4D5A922F027CE00FDD14E /* CalendarFlowLayout.swift */; };
+		56C4D5B422F027CF00FDD14E /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C4D5AA22F027CE00FDD14E /* CalendarHeaderView.swift */; };
+		56C4D5B522F027CF00FDD14E /* CalendarView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C4D5AB22F027CE00FDD14E /* CalendarView+Extensions.swift */; };
+		56C4D5B622F027CF00FDD14E /* CalendarDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C4D5AC22F027CE00FDD14E /* CalendarDayCell.swift */; };
+		56C4D5B722F027CF00FDD14E /* WeekView+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C4D5AD22F027CE00FDD14E /* WeekView+Extentions.swift */; };
+		56C4D5B822F027CF00FDD14E /* EventsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C4D5AE22F027CE00FDD14E /* EventsLoader.swift */; };
+		56C4D5B922F027CF00FDD14E /* CalendarView+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C4D5AF22F027CE00FDD14E /* CalendarView+Delegate.swift */; };
+		56C4D5BA22F027CF00FDD14E /* CalendarView+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C4D5B022F027CE00FDD14E /* CalendarView+DataSource.swift */; };
+		56C4D5BB22F027CF00FDD14E /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C4D5B122F027CE00FDD14E /* WeekView.swift */; };
+		56C4D5BC22F027CF00FDD14E /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C4D5B222F027CE00FDD14E /* CalendarView.swift */; };
 		56E24C8D20FF1B1400FA1A80 /* AULoginValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E24C8C20FF1B1400FA1A80 /* AULoginValidation.swift */; };
 		9723328C22D84B2E00E379B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9723328B22D84B2E00E379B6 /* AppDelegate.swift */; };
 		9723329122D84B2F00E379B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9723328F22D84B2E00E379B6 /* Main.storyboard */; };
@@ -109,6 +119,16 @@
 /* Begin PBXFileReference section */
 		56227F5A21088E9E00259F20 /* AUCacheeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUCacheeManager.swift; sourceTree = "<group>"; };
 		5681D0F022E5C59600955116 /* AUTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUTextField.swift; sourceTree = "<group>"; };
+		56C4D5A922F027CE00FDD14E /* CalendarFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarFlowLayout.swift; sourceTree = "<group>"; };
+		56C4D5AA22F027CE00FDD14E /* CalendarHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
+		56C4D5AB22F027CE00FDD14E /* CalendarView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CalendarView+Extensions.swift"; sourceTree = "<group>"; };
+		56C4D5AC22F027CE00FDD14E /* CalendarDayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDayCell.swift; sourceTree = "<group>"; };
+		56C4D5AD22F027CE00FDD14E /* WeekView+Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WeekView+Extentions.swift"; sourceTree = "<group>"; };
+		56C4D5AE22F027CE00FDD14E /* EventsLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsLoader.swift; sourceTree = "<group>"; };
+		56C4D5AF22F027CE00FDD14E /* CalendarView+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CalendarView+Delegate.swift"; sourceTree = "<group>"; };
+		56C4D5B022F027CE00FDD14E /* CalendarView+DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CalendarView+DataSource.swift"; sourceTree = "<group>"; };
+		56C4D5B122F027CE00FDD14E /* WeekView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekView.swift; sourceTree = "<group>"; };
+		56C4D5B222F027CE00FDD14E /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		56E24C8C20FF1B1400FA1A80 /* AULoginValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AULoginValidation.swift; sourceTree = "<group>"; };
 		69341955B99C783E23C5EC9B /* Pods_TestAugustaFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestAugustaFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C35EEB6267DDFCE0796083 /* Pods-AugustaFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AugustaFramework.debug.xcconfig"; path = "Target Support Files/Pods-AugustaFramework/Pods-AugustaFramework.debug.xcconfig"; sourceTree = "<group>"; };
@@ -199,6 +219,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		56C4D5A822F027CE00FDD14E /* CustomCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				56C4D5A922F027CE00FDD14E /* CalendarFlowLayout.swift */,
+				56C4D5AA22F027CE00FDD14E /* CalendarHeaderView.swift */,
+				56C4D5AB22F027CE00FDD14E /* CalendarView+Extensions.swift */,
+				56C4D5AC22F027CE00FDD14E /* CalendarDayCell.swift */,
+				56C4D5AD22F027CE00FDD14E /* WeekView+Extentions.swift */,
+				56C4D5AE22F027CE00FDD14E /* EventsLoader.swift */,
+				56C4D5AF22F027CE00FDD14E /* CalendarView+Delegate.swift */,
+				56C4D5B022F027CE00FDD14E /* CalendarView+DataSource.swift */,
+				56C4D5B122F027CE00FDD14E /* WeekView.swift */,
+				56C4D5B222F027CE00FDD14E /* CalendarView.swift */,
+			);
+			path = CustomCalendar;
+			sourceTree = "<group>";
+		};
 		9723328A22D84B2E00E379B6 /* TestAugustaFramework */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,6 +325,7 @@
 		97D6554520FF09DE0085DF71 /* AugustaFramework */ = {
 			isa = PBXGroup;
 			children = (
+				56C4D5A822F027CE00FDD14E /* CustomCalendar */,
 				974968A62108477800CCC1BA /* Views */,
 				97D6554620FF09DE0085DF71 /* AugustaFramework.h */,
 				975EFB5121143A4900334A53 /* AUUtilities.swift */,
@@ -592,19 +630,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56C4D5B722F027CF00FDD14E /* WeekView+Extentions.swift in Sources */,
+				56C4D5B822F027CF00FDD14E /* EventsLoader.swift in Sources */,
 				97F703CF22E5CB1E00B30661 /* AUBillingInfoView.swift in Sources */,
 				97318A7A22DC8F6400588605 /* AUBaseViewController.swift in Sources */,
 				973D230B21131D900095DD41 /* AUMonthYearPickerView.swift in Sources */,
 				56E24C8D20FF1B1400FA1A80 /* AULoginValidation.swift in Sources */,
 				975EFB5221143A4900334A53 /* AUUtilities.swift in Sources */,
 				9747AF6E21197B5900F339F8 /* AUPasswordFieldHelper.swift in Sources */,
+				56C4D5B922F027CF00FDD14E /* CalendarView+Delegate.swift in Sources */,
 				5681D0F122E5C59600955116 /* AUTextField.swift in Sources */,
 				97D6555120FF09EB0085DF71 /* AUWebService.swift in Sources */,
+				56C4D5BA22F027CF00FDD14E /* CalendarView+DataSource.swift in Sources */,
+				56C4D5B522F027CF00FDD14E /* CalendarView+Extensions.swift in Sources */,
 				974C1D47210990DE008A44E8 /* AULoginView.swift in Sources */,
 				97F703D022E5CB2500B30661 /* AUSocialLoginController.swift in Sources */,
+				56C4D5BB22F027CF00FDD14E /* WeekView.swift in Sources */,
 				974214A021107D63000A2937 /* AUBillingInfoManager.swift in Sources */,
+				56C4D5B622F027CF00FDD14E /* CalendarDayCell.swift in Sources */,
 				973467A322E02D2300BB02E2 /* AUListPicker.swift in Sources */,
 				97F6C62620FF4CA500541E29 /* Reachability.swift in Sources */,
+				56C4D5B422F027CF00FDD14E /* CalendarHeaderView.swift in Sources */,
+				56C4D5B322F027CF00FDD14E /* CalendarFlowLayout.swift in Sources */,
+				56C4D5BC22F027CF00FDD14E /* CalendarView.swift in Sources */,
 				56227F5B21088E9E00259F20 /* AUCacheeManager.swift in Sources */,
 				97D6555020FF09EB0085DF71 /* AULogger.swift in Sources */,
 				9748B0272100A984006B9A63 /* AUSessionManager.swift in Sources */,
