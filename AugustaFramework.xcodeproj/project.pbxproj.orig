@@ -648,9 +648,12 @@
 				56C4D5B922F027CF00FDD14E /* CalendarView+Delegate.swift in Sources */,
 				5681D0F122E5C59600955116 /* AUTextField.swift in Sources */,
 				97D6555120FF09EB0085DF71 /* AUWebService.swift in Sources */,
+<<<<<<< HEAD
 				56C4D5BA22F027CF00FDD14E /* CalendarView+DataSource.swift in Sources */,
 				56C4D5B522F027CF00FDD14E /* CalendarView+Extensions.swift in Sources */,
+=======
 				9752F85A22EEC1D300948B66 /* AUListPickerTableViewCell.swift in Sources */,
+>>>>>>> b441f9364a9b2c4d7d6e03ed5747555d4dbaca6f
 				974C1D47210990DE008A44E8 /* AULoginView.swift in Sources */,
 				97F703D022E5CB2500B30661 /* AUSocialLoginController.swift in Sources */,
 				56C4D5BB22F027CF00FDD14E /* WeekView.swift in Sources */,

@@ -40,7 +40,24 @@ public class AUAlertButtonModel{
     }
 }
 
+public enum AUAlertThemerStyle{
+    case Default
+    case Custom
+}
+
+open class AUAlertThemerValues: NSObject{
+    public var backGroundColor: UIColor?
+    public var titleColor: UIColor?
+    public var textColor: UIColor?
+    public var buttonTextColor: UIColor?
+    
+    public override init(){
+        super.init()
+    }
+}
+
 public class AUAlertHandler{
+    
     
     
     /// To present alert | action sheet in the view controller
@@ -48,7 +65,7 @@ public class AUAlertHandler{
     /// - Parameters:
     ///   - alertData: details required for showing alert like title, message, etc.,
     ///   - handler:handler to pass the index to handle the action
-    public class func showAlertView(alertData: AUAlertModel,  handler: @escaping alertHandlerBlock)
+    public class func showAlertView(alertData: AUAlertModel,  handler: @escaping alertHandlerBlock, style: AUAlertThemerStyle = .Default, themer: AUAlertThemerValues? = nil)
     {
         //****************************** How to use? Start **********************************//
 //        func tryOutAlertHandler()    {
@@ -74,6 +91,19 @@ public class AUAlertHandler{
         //****************************** How to use? End **********************************//
         
         let alert = UIAlertController(title: alertData.title, message: alertData.message, preferredStyle: alertData.style)
+        
+        if(style != .Default){
+            alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = themer?.backGroundColor
+            alert.view.tintColor = themer?.buttonTextColor
+            
+            let titleString = NSAttributedString(string: alertData.title, attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 16), NSAttributedStringKey.foregroundColor: themer?.titleColor ?? .black])
+            alert.setValue(titleString, forKey: "attributedTitle")
+            
+            let messageString = NSAttributedString(string: alertData.message, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14), NSAttributedStringKey.foregroundColor: themer?.textColor ?? .black])
+            alert.setValue(messageString, forKey: "attributedMessage")
+        }
+        
+
         if(alertData.buttonModels.count == 0)
         {
             print("Button model is empty. Provide button models and call")
